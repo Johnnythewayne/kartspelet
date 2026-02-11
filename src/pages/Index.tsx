@@ -40,6 +40,7 @@ const Index: React.FC = () => {
   const [guessPos, setGuessPos] = useState<{x: number;y: number;} | null>(null);
   const [roundResult, setRoundResult] = useState<{distanceKm: number;score: number;} | null>(null);
   const [results, setResults] = useState<RoundResult[]>([]);
+  const [currentDifficulty, setCurrentDifficulty] = useState("easy");
 
   const currentCity = cities[currentIndex];
   const correctPos = currentCity ? latLngToSvg(currentCity.lat, currentCity.lng, country.bounds, country.svgHeight) : null;
@@ -50,6 +51,7 @@ const Index: React.FC = () => {
   }, []);
 
   const startGame = useCallback((difficultyId: string) => {
+    setCurrentDifficulty(difficultyId);
     const gameCities = country.citiesByDifficulty[difficultyId] || country.citiesByDifficulty.easy;
     const shuffled = shuffleArray(gameCities);
     setCities(shuffled);
@@ -183,7 +185,7 @@ const Index: React.FC = () => {
           ...results,
           { cityName: currentCity.name, distanceKm: roundResult!.distanceKm, score: roundResult!.score }]
           }
-          onPlayAgain={() => setPhase("pick-language")}
+          onPlayAgain={() => startGame(currentDifficulty)}
           lang={lang} />
 
       </div>);
