@@ -3,7 +3,8 @@ import germanyGeoJson from "@/data/germany-border.json";
 import swedenGeoJson from "@/data/sweden-border.json";
 import ugandaGeoJson from "@/data/uganda-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
-import { UGANDA_LAKES } from "@/data/uganda-lakes";
+import ugandaLakesJson from "@/data/uganda-lakes.json";
+import type { UgandaLakeData } from "@/data/uganda-lakes";
 import type { CountryConfig } from "@/data/countries";
 
 const geoJsonMap: Record<string, unknown> = {
@@ -87,7 +88,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
         strokeWidth="3"
       />
 
-      {(countryId === "sweden" ? SWEDEN_LAKES : countryId === "uganda" ? UGANDA_LAKES : []).map((lake) => {
+      {(countryId === "sweden" ? SWEDEN_LAKES : countryId === "uganda" ? (ugandaLakesJson as UgandaLakeData[]) : []).map((lake) => {
         const lngRange = bounds.maxLng - bounds.minLng;
         const latRange = bounds.maxLat - bounds.minLat;
         const points = lake.coordinates.map(([lng, lat]) => {
