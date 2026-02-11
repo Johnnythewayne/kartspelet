@@ -75,6 +75,51 @@ const GERMANY_HARD: City[] = [
   { name: "Hagen", lat: 51.3671, lng: 7.4633 },
 ];
 
+const UGANDA_EASY: City[] = [
+  { name: "Kampala", lat: 0.3476, lng: 32.5825 },
+  { name: "Gulu", lat: 2.7746, lng: 32.2988 },
+  { name: "Lira", lat: 2.2499, lng: 32.5339 },
+  { name: "Mbarara", lat: -0.6074, lng: 30.6545 },
+  { name: "Jinja", lat: 0.4244, lng: 33.2041 },
+  { name: "Mbale", lat: 1.0647, lng: 34.1754 },
+  { name: "Masaka", lat: -0.3413, lng: 31.7350 },
+  { name: "Entebbe", lat: 0.0518, lng: 32.4637 },
+  { name: "Fort Portal", lat: 0.6710, lng: 30.2750 },
+  { name: "Soroti", lat: 1.7150, lng: 33.6111 },
+  { name: "Arua", lat: 3.0202, lng: 30.9107 },
+  { name: "Hoima", lat: 1.4331, lng: 31.3524 },
+];
+
+const UGANDA_MEDIUM: City[] = [
+  { name: "Kasese", lat: 0.1867, lng: 30.0886 },
+  { name: "Masindi", lat: 1.6836, lng: 31.7150 },
+  { name: "Tororo", lat: 0.6930, lng: 34.1809 },
+  { name: "Iganga", lat: 0.6093, lng: 33.4686 },
+  { name: "Kabale", lat: -1.2490, lng: 29.9894 },
+  { name: "Mukono", lat: 0.3533, lng: 32.7554 },
+  { name: "Mityana", lat: 0.4175, lng: 32.0233 },
+  { name: "Mubende", lat: 0.5578, lng: 31.3964 },
+  { name: "Kitgum", lat: 3.2784, lng: 32.8872 },
+  { name: "Busia", lat: 0.4544, lng: 34.0922 },
+  { name: "Pallisa", lat: 1.1450, lng: 33.7094 },
+  { name: "Nebbi", lat: 2.4778, lng: 31.0889 },
+];
+
+const UGANDA_HARD: City[] = [
+  { name: "Moroto", lat: 2.5345, lng: 34.6667 },
+  { name: "Kotido", lat: 2.9806, lng: 34.1333 },
+  { name: "Moyo", lat: 3.6500, lng: 31.7167 },
+  { name: "Kisoro", lat: -1.2167, lng: 29.6833 },
+  { name: "Ntungamo", lat: -0.8833, lng: 30.2667 },
+  { name: "Kapchorwa", lat: 1.3956, lng: 34.4500 },
+  { name: "Bundibugyo", lat: 0.7117, lng: 30.0639 },
+  { name: "Kiboga", lat: 0.9167, lng: 31.7750 },
+  { name: "Kamuli", lat: 0.9472, lng: 33.1197 },
+  { name: "Kayunga", lat: 0.7025, lng: 32.8886 },
+  { name: "Rukungiri", lat: -0.7833, lng: 29.9417 },
+  { name: "Kalangala", lat: -0.3100, lng: 32.2267 },
+];
+
 const SWEDEN_EASY: City[] = [
   { name: "Stockholm", lat: 59.3293, lng: 18.0686 },
   { name: "Göteborg", lat: 57.7089, lng: 11.9746 },
@@ -142,6 +187,13 @@ const SWEDEN_BOUNDS = {
   maxLng: 24.2,
 };
 
+const UGANDA_BOUNDS = {
+  minLat: -1.5,
+  maxLat: 4.3,
+  minLng: 29.5,
+  maxLng: 35.1,
+};
+
 export const COUNTRIES: CountryConfig[] = [
   {
     id: "germany",
@@ -158,6 +210,14 @@ export const COUNTRIES: CountryConfig[] = [
     citiesByDifficulty: { easy: SWEDEN_EASY, medium: SWEDEN_MEDIUM, hard: SWEDEN_HARD },
     bounds: SWEDEN_BOUNDS,
     svgHeight: computeSvgHeight(SWEDEN_BOUNDS),
+  },
+  {
+    id: "uganda",
+    name: "Uganda",
+    flag: "🇺🇬",
+    citiesByDifficulty: { easy: UGANDA_EASY, medium: UGANDA_MEDIUM, hard: UGANDA_HARD },
+    bounds: UGANDA_BOUNDS,
+    svgHeight: computeSvgHeight(UGANDA_BOUNDS),
   },
 ];
 

@@ -1,12 +1,14 @@
 import React, { useRef } from "react";
 import germanyGeoJson from "@/data/germany-border.json";
 import swedenGeoJson from "@/data/sweden-border.json";
+import ugandaGeoJson from "@/data/uganda-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import type { CountryConfig } from "@/data/countries";
 
 const geoJsonMap: Record<string, unknown> = {
   germany: germanyGeoJson,
   sweden: swedenGeoJson,
+  uganda: ugandaGeoJson,
 };
 
 function geoJsonToSvgPath(countryId: string, bounds: CountryConfig["bounds"], svgHeight: number): string {
