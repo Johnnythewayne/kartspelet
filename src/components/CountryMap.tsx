@@ -12,6 +12,8 @@ const geoJsonMap: Record<string, unknown> = {
   uganda: ugandaGeoJson,
 };
 
+
+
 function geoJsonToSvgPath(countryId: string, bounds: CountryConfig["bounds"], svgHeight: number): string {
   const geoJson = geoJsonMap[countryId] as any;
   if (!geoJson) return "";

@@ -90,9 +90,11 @@ describe("Process GADM Uganda border to high-res GeoJSON", () => {
     };
 
     const outputPath = path.resolve(__dirname, "../data/uganda-border.json");
-    fs.writeFileSync(outputPath, JSON.stringify(outputGeoJson));
+    const outputStr = JSON.stringify(outputGeoJson);
+    fs.writeFileSync(outputPath, outputStr);
     
-    console.log(`Output size: ${JSON.stringify(outputGeoJson).length} bytes`);
+    console.log(`Output size: ${outputStr.length} bytes`);
+    console.log(`OUTPUT_START${outputStr}OUTPUT_END`);
     
     // Verify it has significantly more points than 27
     expect(simplifiedTotal).toBeGreaterThan(100);
