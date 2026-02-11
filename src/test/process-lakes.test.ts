@@ -127,13 +127,13 @@ function findLargestRing(ways: { geometry: { lat: number; lon: number }[] }[]): 
 describe('Process OSM lake data', () => {
   it('builds and writes high-res lakes', () => {
     const lakeFiles: { name: string; file: string; target: number }[] = [
-      { name: 'Vänern', file: 'vanern-outer.json', target: 5000 },
-      { name: 'Vättern', file: 'vattern-outer.json', target: 3000 },
-      { name: 'Mälaren', file: 'malaren-outer.json', target: 5000 },
-      { name: 'Hjälmaren', file: 'hjalmaren-outer.json', target: 1500 },
-      { name: 'Storsjön', file: 'storsjon-outer.json', target: 2000 },
-      { name: 'Siljan', file: 'siljan-outer.json', target: 1500 },
-      { name: 'Torneträsk', file: 'tornetrask-outer.json', target: 1500 },
+      { name: 'Vänern', file: 'vanern-outer.json', target: 300 },
+      { name: 'Vättern', file: 'vattern-outer.json', target: 200 },
+      { name: 'Mälaren', file: 'malaren-outer.json', target: 300 },
+      { name: 'Hjälmaren', file: 'hjalmaren-outer.json', target: 124 },
+      { name: 'Storsjön', file: 'storsjon-outer.json', target: 150 },
+      { name: 'Siljan', file: 'siljan-outer.json', target: 100 },
+      { name: 'Torneträsk', file: 'tornetrask-outer.json', target: 100 },
     ];
 
     const lakes: { name: string; coordinates: number[][] }[] = [];
@@ -152,18 +152,15 @@ describe('Process OSM lake data', () => {
       lakes.push({ name: lake.name, coordinates: simplified });
     }
 
-    // Write output
+    // Write output - compact format (one line per lake's coordinates)
     let output = `// Swedish lakes - high-resolution data from OpenStreetMap\n`;
     output += `// Simplified with Douglas-Peucker algorithm\n\n`;
     output += `export interface LakeData {\n  name: string;\n  coordinates: [number, number][];\n}\n\n`;
     output += `export const SWEDEN_LAKES: LakeData[] = [\n`;
     
     for (const lake of lakes) {
-      output += `  {\n    name: "${lake.name}",\n    coordinates: [\n`;
-      for (const coord of lake.coordinates) {
-        output += `      [${Number(coord[0]).toFixed(5)}, ${Number(coord[1]).toFixed(5)}],\n`;
-      }
-      output += `    ],\n  },\n`;
+      const coordStr = lake.coordinates.map(c => `[${Number(c[0]).toFixed(5)},${Number(c[1]).toFixed(5)}]`).join(',');
+      output += `  { name: "${lake.name}", coordinates: [${coordStr}] },\n`;
     }
     output += `];\n`;
 
@@ -177,7 +174,7 @@ describe('Process OSM lake data', () => {
     
     for (const lake of lakes) {
       expect(written).toContain(`name: "${lake.name}"`);
-      expect(lake.coordinates.length).toBeGreaterThan(100);
+      expect(lake.coordinates.length).toBeGreaterThanOrEqual(100);
       console.log(`✓ ${lake.name}: ${lake.coordinates.length} nodes`);
     }
   });
