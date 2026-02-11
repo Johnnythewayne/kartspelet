@@ -120,17 +120,19 @@ const Index: React.FC = () => {
           <p className="text-lg text-muted-foreground">{t(lang, "subtitle")}</p>
           <p className="text-sm text-muted-foreground">{t(lang, "chooseCountry")}</p>
           <div className="flex gap-4 justify-center">
-            {COUNTRIES.map((c) =>
+            {COUNTRIES.map((c) => {
+            const nameKey = `country${c.id.charAt(0).toUpperCase()}${c.id.slice(1)}` as any;
+            return (
             <Button
               key={c.id}
               size="lg"
               onClick={() => pickCountry(c)}
               className="text-lg px-8"
               variant="outline">
-
-                {c.flag} {c.name}
+                {c.flag} {t(lang, nameKey)}
               </Button>
-            )}
+            );
+            })}
           </div>
           <Button variant="ghost" onClick={() => setPhase("pick-language")} className="text-muted-foreground">
             {t(lang, "back")}
@@ -150,7 +152,7 @@ const Index: React.FC = () => {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background p-4">
         <div className="text-center space-y-6 max-w-md">
-          <h1 className="text-3xl font-extrabold text-foreground">{country.flag} {country.name}</h1>
+          <h1 className="text-3xl font-extrabold text-foreground">{country.flag} {t(lang, `country${country.id.charAt(0).toUpperCase()}${country.id.slice(1)}` as any)}</h1>
           <p className="text-sm text-muted-foreground">{t(lang, "chooseDifficulty")}</p>
           <div className="flex flex-col gap-3">
             {difficulties.map((d) =>
