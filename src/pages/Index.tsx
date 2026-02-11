@@ -207,13 +207,6 @@ const Index: React.FC = () => {
         <Progress value={currentIndex / cities.length * 100} className="h-2" />
       </div>
 
-      <h2 className="text-3xl font-bold text-foreground">
-        📍 {currentCity.name}
-      </h2>
-      <p className="text-muted-foreground text-sm">
-        {phase === "playing" ? t(lang, "clickInstruction") : ""}
-      </p>
-
       <CountryMap
         countryId={country.id}
         bounds={country.bounds}
@@ -223,6 +216,13 @@ const Index: React.FC = () => {
         correctMarker={correctPos}
         showResult={phase === "feedback"}
         disabled={phase === "feedback"} />
+
+      <h2 className="text-3xl font-bold text-foreground">
+        📍 {currentCity.name}
+      </h2>
+      <p className="text-muted-foreground text-sm">
+        {phase === "playing" ? t(lang, "clickInstruction") : ""}
+      </p>
 
 
       {phase === "feedback" && roundResult &&
