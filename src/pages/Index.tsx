@@ -5,13 +5,14 @@ import CountryMap from "@/components/CountryMap";
 import GameResults from "@/components/GameResults";
 import {
   COUNTRIES,
-  DIFFICULTIES,
   latLngToSvg,
   svgToLatLng,
   haversineDistance,
   calculateScore,
 } from "@/data/countries";
 import type { CountryConfig } from "@/data/countries";
+import { LANGUAGES, t } from "@/data/translations";
+import type { Language } from "@/data/translations";
 
 interface RoundResult {
   cityName: string;
@@ -19,7 +20,7 @@ interface RoundResult {
   score: number;
 }
 
-type GamePhase = "start" | "pick-difficulty" | "playing" | "feedback" | "results";
+type GamePhase = "pick-language" | "start" | "pick-difficulty" | "playing" | "feedback" | "results";
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -31,7 +32,8 @@ function shuffleArray<T>(arr: T[]): T[] {
 }
 
 const Index: React.FC = () => {
-  const [phase, setPhase] = useState<GamePhase>("start");
+  const [phase, setPhase] = useState<GamePhase>("pick-language");
+  const [lang, setLang] = useState<Language>("sv");
   const [country, setCountry] = useState<CountryConfig>(COUNTRIES[0]);
   const [cities, setCities] = useState(country.citiesByDifficulty.easy);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -86,15 +88,37 @@ const Index: React.FC = () => {
     }
   }, [currentCity, roundResult, currentIndex, cities.length]);
 
+  if (phase === "pick-language") {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background p-4">
+        <div className="text-center space-y-6 max-w-md">
+          <h1 className="text-4xl font-extrabold text-foreground">🗺️</h1>
+          <p className="text-sm text-muted-foreground">Choose language / Välj språk:</p>
+          <div className="flex flex-col gap-3">
+            {LANGUAGES.map((l) => (
+              <Button
+                key={l.id}
+                size="lg"
+                onClick={() => { setLang(l.id); setPhase("start"); }}
+                variant="outline"
+                className="text-lg"
+              >
+                {l.flag} {l.label}
+              </Button>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (phase === "start") {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background p-4">
         <div className="text-center space-y-6 max-w-md">
-          <h1 className="text-4xl font-extrabold text-foreground">🗺️ Städer på kartan</h1>
-          <p className="text-lg text-muted-foreground">
-            Placera städer på kartan. Ju närmare du klickar, desto fler poäng!
-          </p>
-          <p className="text-sm text-muted-foreground">Välj ett land:</p>
+          <h1 className="text-4xl font-extrabold text-foreground">{t(lang, "title")}</h1>
+          <p className="text-lg text-muted-foreground">{t(lang, "subtitle")}</p>
+          <p className="text-sm text-muted-foreground">{t(lang, "chooseCountry")}</p>
           <div className="flex gap-4 justify-center">
             {COUNTRIES.map((c) => (
               <Button
@@ -108,19 +132,28 @@ const Index: React.FC = () => {
               </Button>
             ))}
           </div>
+          <Button variant="ghost" onClick={() => setPhase("pick-language")} className="text-muted-foreground">
+            {t(lang, "back")}
+          </Button>
         </div>
       </div>
     );
   }
+
+  const difficulties = [
+    { id: "easy", label: t(lang, "diffEasy"), description: t(lang, "diffEasyDesc") },
+    { id: "medium", label: t(lang, "diffMedium"), description: t(lang, "diffMediumDesc") },
+    { id: "hard", label: t(lang, "diffHard"), description: t(lang, "diffHardDesc") },
+  ];
 
   if (phase === "pick-difficulty") {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background p-4">
         <div className="text-center space-y-6 max-w-md">
           <h1 className="text-3xl font-extrabold text-foreground">{country.flag} {country.name}</h1>
-          <p className="text-sm text-muted-foreground">Välj svårighetsgrad:</p>
+          <p className="text-sm text-muted-foreground">{t(lang, "chooseDifficulty")}</p>
           <div className="flex flex-col gap-3">
-            {DIFFICULTIES.map((d) => (
+            {difficulties.map((d) => (
               <Button
                 key={d.id}
                 size="lg"
@@ -133,7 +166,7 @@ const Index: React.FC = () => {
             ))}
           </div>
           <Button variant="ghost" onClick={() => setPhase("start")} className="text-muted-foreground">
-            ← Tillbaka
+            {t(lang, "back")}
           </Button>
         </div>
       </div>
@@ -148,7 +181,8 @@ const Index: React.FC = () => {
             ...results,
             { cityName: currentCity.name, distanceKm: roundResult!.distanceKm, score: roundResult!.score },
           ]}
-          onPlayAgain={() => setPhase("start")}
+          onPlayAgain={() => setPhase("pick-language")}
+          lang={lang}
         />
       </div>
     );
@@ -158,14 +192,14 @@ const Index: React.FC = () => {
     <div className="min-h-screen bg-background flex flex-col items-center p-4 gap-4">
       <div className="w-full max-w-lg space-y-2">
         <div className="flex justify-between items-center">
-          <Button variant="ghost" size="sm" onClick={() => setPhase("start")} className="text-muted-foreground hover:text-foreground">
-            ← Tillbaka
+          <Button variant="ghost" size="sm" onClick={() => setPhase("pick-language")} className="text-muted-foreground hover:text-foreground">
+            {t(lang, "back")}
           </Button>
           <span className="text-sm text-muted-foreground">
-            {country.flag} Stad {currentIndex + 1} av {cities.length}
+            {country.flag} {t(lang, "city")} {currentIndex + 1} {t(lang, "of")} {cities.length}
           </span>
           <span className="text-sm font-medium text-foreground">
-            Poäng: {results.reduce((s, r) => s + r.score, 0)}
+            {t(lang, "score")}: {results.reduce((s, r) => s + r.score, 0)}
           </span>
         </div>
         <Progress value={(currentIndex / cities.length) * 100} className="h-2" />
@@ -175,7 +209,7 @@ const Index: React.FC = () => {
         📍 {currentCity.name}
       </h2>
       <p className="text-muted-foreground text-sm">
-        {phase === "playing" ? "Klicka på kartan där du tror staden ligger" : ""}
+        {phase === "playing" ? t(lang, "clickInstruction") : ""}
       </p>
 
       <CountryMap
@@ -193,16 +227,16 @@ const Index: React.FC = () => {
         <div className="w-full max-w-lg space-y-3 text-center">
           <div className="flex justify-center gap-6">
             <div className="text-center">
-              <p className="text-sm text-muted-foreground">Avstånd</p>
+              <p className="text-sm text-muted-foreground">{t(lang, "distance")}</p>
               <p className="text-2xl font-bold text-foreground">{Math.round(roundResult.distanceKm)} km</p>
             </div>
             <div className="text-center">
-              <p className="text-sm text-muted-foreground">Poäng</p>
+              <p className="text-sm text-muted-foreground">{t(lang, "score")}</p>
               <p className="text-2xl font-bold text-primary">{roundResult.score}</p>
             </div>
           </div>
           <Button onClick={nextCity} size="lg" className="w-full">
-            {currentIndex + 1 >= cities.length ? "Se resultat" : "Nästa stad →"}
+            {currentIndex + 1 >= cities.length ? t(lang, "seeResults") : t(lang, "nextCity")}
           </Button>
         </div>
       )}

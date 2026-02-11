@@ -1,0 +1,109 @@
+export type Language = "sv" | "en" | "lg";
+
+export interface LanguageOption {
+  id: Language;
+  label: string;
+  flag: string;
+}
+
+export const LANGUAGES: LanguageOption[] = [
+  { id: "sv", label: "Svenska", flag: "🇸🇪" },
+  { id: "en", label: "English", flag: "🇬🇧" },
+  { id: "lg", label: "Luganda", flag: "🇺🇬" },
+];
+
+const translations = {
+  sv: {
+    title: "🗺️ Städer på kartan",
+    subtitle: "Placera städer på kartan. Ju närmare du klickar, desto fler poäng!",
+    chooseLanguage: "Välj språk:",
+    chooseCountry: "Välj ett land:",
+    chooseDifficulty: "Välj svårighetsgrad:",
+    back: "← Tillbaka",
+    city: "Stad",
+    of: "av",
+    score: "Poäng",
+    clickInstruction: "Klicka på kartan där du tror staden ligger",
+    distance: "Avstånd",
+    seeResults: "Se resultat",
+    nextCity: "Nästa stad →",
+    results: "🏁 Resultat",
+    ofPossible: "av {max} möjliga poäng",
+    bestGuess: "🎯 Bästa gissning",
+    worstGuess: "😅 Sämsta gissning",
+    playAgain: "🔄 Spela igen",
+    points: "p",
+    diffEasy: "Lätt",
+    diffEasyDesc: "De 12 största städerna",
+    diffMedium: "Medel",
+    diffMediumDesc: "Städer rankade 13–24",
+    diffHard: "Svår",
+    diffHardDesc: "Städer rankade 25–36",
+  },
+  en: {
+    title: "🗺️ Cities on the Map",
+    subtitle: "Place cities on the map. The closer you click, the more points you get!",
+    chooseLanguage: "Choose language:",
+    chooseCountry: "Choose a country:",
+    chooseDifficulty: "Choose difficulty:",
+    back: "← Back",
+    city: "City",
+    of: "of",
+    score: "Score",
+    clickInstruction: "Click on the map where you think the city is",
+    distance: "Distance",
+    seeResults: "See results",
+    nextCity: "Next city →",
+    results: "🏁 Results",
+    ofPossible: "of {max} possible points",
+    bestGuess: "🎯 Best guess",
+    worstGuess: "😅 Worst guess",
+    playAgain: "🔄 Play again",
+    points: "pts",
+    diffEasy: "Easy",
+    diffEasyDesc: "The 12 largest cities",
+    diffMedium: "Medium",
+    diffMediumDesc: "Cities ranked 13–24",
+    diffHard: "Hard",
+    diffHardDesc: "Cities ranked 25–36",
+  },
+  lg: {
+    title: "🗺️ Ebibuga ku Maapu",
+    subtitle: "Teeka ebibuga ku maapu. Bw'oneesigama okusinga, ofuna amannya amasinga!",
+    chooseLanguage: "Londa olulimi:",
+    chooseCountry: "Londa ensi:",
+    chooseDifficulty: "Londa obuzibu:",
+    back: "← Ddayo",
+    city: "Ekibuga",
+    of: "ku",
+    score: "Amannya",
+    clickInstruction: "Nyiga ku maapu w'olowooza ekibuga w'ekiri",
+    distance: "Obuwanvu",
+    seeResults: "Laba ebivaamu",
+    nextCity: "Ekibuga ekiddako →",
+    results: "🏁 Ebivaamu",
+    ofPossible: "ku {max} amannya ag'ekisinga",
+    bestGuess: "🎯 Okugerageranya okusinga",
+    worstGuess: "😅 Okugerageranya okusingayo",
+    playAgain: "🔄 Ddamu okuzannya",
+    points: "am",
+    diffEasy: "Kwepesi",
+    diffEasyDesc: "Ebibuga 12 ebisinga obunene",
+    diffMedium: "Wakati",
+    diffMediumDesc: "Ebibuga ebiri mu 13–24",
+    diffHard: "Kizibu",
+    diffHardDesc: "Ebibuga ebiri mu 25–36",
+  },
+} as const;
+
+export type TranslationKey = keyof typeof translations.sv;
+
+export function t(lang: Language, key: TranslationKey, replacements?: Record<string, string | number>): string {
+  let text: string = translations[lang][key] ?? translations.sv[key];
+  if (replacements) {
+    for (const [k, v] of Object.entries(replacements)) {
+      text = text.replace(`{${k}}`, String(v));
+    }
+  }
+  return text;
+}
