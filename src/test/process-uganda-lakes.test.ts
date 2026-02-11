@@ -37,125 +37,51 @@ function extractOuterRing(geojson: any): number[][] | null {
   if (geom.type === "Polygon") return geom.coordinates[0];
   if (geom.type === "MultiPolygon") {
     let largest = geom.coordinates[0][0];
-    for (const poly of geom.coordinates) {
-      if (poly[0].length > largest.length) largest = poly[0];
-    }
+    for (const poly of geom.coordinates) { if (poly[0].length > largest.length) largest = poly[0]; }
     return largest;
   }
   return null;
 }
 
 function findInNaturalEarth(name: string): number[][] | null {
-  const raw = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, "../../tmp/ne_10m_lakes.geojson"), "utf-8")
-  );
-  const feature = raw.features.find((f: any) => {
-    const n = f.properties?.name || f.properties?.NAME || "";
-    return n === name;
-  });
+  const raw = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../tmp/ne_10m_lakes.geojson"), "utf-8"));
+  const feature = raw.features.find((f: any) => (f.properties?.name || f.properties?.NAME || "") === name);
   if (!feature) return null;
   const geom = feature.geometry;
   if (geom.type === "Polygon") return geom.coordinates[0];
-  if (geom.type === "MultiPolygon") {
-    let largest = geom.coordinates[0][0];
-    for (const poly of geom.coordinates) {
-      if (poly[0].length > largest.length) largest = poly[0];
-    }
-    return largest;
-  }
   return null;
 }
 
-describe("Process Uganda lakes - final version", () => {
-  it("should create high-res lake data combining OSM and Natural Earth", () => {
+describe("Generate Uganda lakes JSON", () => {
+  it("should write lakes to src/data/uganda-lakes.json", () => {
     const lakes: { name: string; coordinates: [number, number][]; }[] = [];
 
-    // Lake Victoria from OSM (clipped to Uganda)
-    {
-      const raw = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../tmp/lake-victoria.geojson"), "utf-8"));
-      let coords = extractOuterRing(raw)!;
-      coords = coords.filter(([lng, lat]) => lat >= -1.5 && lng >= 31.0 && lng <= 35.0);
-      const simplified = dpSimplify(coords, 0.004);
-      lakes.push({
-        name: "Lake Victoria",
-        coordinates: simplified.map(([lng, lat]) => [Math.round(lng * 100000) / 100000, Math.round(lat * 100000) / 100000]),
-      });
-    }
+    // Victoria
+    const vicRaw = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../tmp/lake-victoria.geojson"), "utf-8"));
+    let vicCoords = extractOuterRing(vicRaw)!;
+    vicCoords = vicCoords.filter(([lng, lat]) => lat >= -1.5 && lng >= 31.0 && lng <= 35.0);
+    lakes.push({ name: "Lake Victoria", coordinates: dpSimplify(vicCoords, 0.004).map(([lng, lat]) => [Math.round(lng*100000)/100000, Math.round(lat*100000)/100000]) });
 
-    // Lake Albert from OSM
-    {
-      const raw = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../tmp/lake-albert.geojson"), "utf-8"));
-      const coords = extractOuterRing(raw)!;
-      const simplified = dpSimplify(coords, 0.002);
-      lakes.push({
-        name: "Lake Albert",
-        coordinates: simplified.map(([lng, lat]) => [Math.round(lng * 100000) / 100000, Math.round(lat * 100000) / 100000]),
-      });
-    }
+    // Albert
+    const albRaw = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../tmp/lake-albert.geojson"), "utf-8"));
+    lakes.push({ name: "Lake Albert", coordinates: dpSimplify(extractOuterRing(albRaw)!, 0.002).map(([lng, lat]) => [Math.round(lng*100000)/100000, Math.round(lat*100000)/100000]) });
 
-    // Lake Edward from Natural Earth (not available on Nominatim)
-    {
-      const coords = findInNaturalEarth("Lake Edward")!;
-      // NE data is already reasonable resolution, keep as-is
-      lakes.push({
-        name: "Lake Edward",
-        coordinates: coords.map(([lng, lat]) => [Math.round(lng * 100000) / 100000, Math.round(lat * 100000) / 100000]),
-      });
-    }
+    // Edward
+    lakes.push({ name: "Lake Edward", coordinates: findInNaturalEarth("Lake Edward")!.map(([lng, lat]) => [Math.round(lng*100000)/100000, Math.round(lat*100000)/100000]) });
 
-    // Lake George from OSM
-    {
-      const raw = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../tmp/lake-george.geojson"), "utf-8"));
-      const coords = extractOuterRing(raw)!;
-      const simplified = dpSimplify(coords, 0.001);
-      lakes.push({
-        name: "Lake George",
-        coordinates: simplified.map(([lng, lat]) => [Math.round(lng * 100000) / 100000, Math.round(lat * 100000) / 100000]),
-      });
-    }
+    // George
+    const geoRaw = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../tmp/lake-george.geojson"), "utf-8"));
+    lakes.push({ name: "Lake George", coordinates: dpSimplify(extractOuterRing(geoRaw)!, 0.001).map(([lng, lat]) => [Math.round(lng*100000)/100000, Math.round(lat*100000)/100000]) });
 
-    // Lake Kyoga from OSM
-    {
-      const raw = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../tmp/lake-kyoga.geojson"), "utf-8"));
-      const coords = extractOuterRing(raw)!;
-      const simplified = dpSimplify(coords, 0.002);
-      lakes.push({
-        name: "Lake Kyoga",
-        coordinates: simplified.map(([lng, lat]) => [Math.round(lng * 100000) / 100000, Math.round(lat * 100000) / 100000]),
-      });
-    }
+    // Kyoga
+    const kyoRaw = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../tmp/lake-kyoga.geojson"), "utf-8"));
+    lakes.push({ name: "Lake Kyoga", coordinates: dpSimplify(extractOuterRing(kyoRaw)!, 0.002).map(([lng, lat]) => [Math.round(lng*100000)/100000, Math.round(lat*100000)/100000]) });
 
-    // Generate TypeScript
-    const lines: string[] = [
-      '// Uganda lakes - high-resolution data from OpenStreetMap and Natural Earth',
-      '// Simplified with Douglas-Peucker algorithm',
-      '',
-      'export interface UgandaLakeData {',
-      '  name: string;',
-      '  coordinates: [number, number][];',
-      '}',
-      '',
-      'export const UGANDA_LAKES: UgandaLakeData[] = [',
-    ];
+    const outPath = path.resolve(__dirname, "../../src/data/uganda-lakes.json");
+    fs.writeFileSync(outPath, JSON.stringify(lakes));
 
-    for (const lake of lakes) {
-      const coordStr = lake.coordinates.map(([lng, lat]) => `[${lng},${lat}]`).join(",");
-      lines.push(`  { name: "${lake.name}", coordinates: [${coordStr}] },`);
-    }
-    lines.push('];');
-
-    const outPath = path.resolve(__dirname, "../../src/data/uganda-lakes.ts");
-    fs.writeFileSync(outPath, lines.join("\n"));
-
-    const fileSize = fs.statSync(outPath).size;
-    console.log(`\nOutput: ${(fileSize / 1024).toFixed(1)} KB`);
-    for (const l of lakes) {
-      console.log(`  ${l.name}: ${l.coordinates.length} points`);
-    }
-
+    for (const l of lakes) console.log(`${l.name}: ${l.coordinates.length} pts`);
     expect(lakes.length).toBe(5);
-    for (const l of lakes) {
-      expect(l.coordinates.length).toBeGreaterThan(30);
-    }
+    expect(lakes[0].coordinates.length).toBeGreaterThan(500);
   });
 });
