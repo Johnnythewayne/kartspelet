@@ -125,6 +125,9 @@ const Index: React.FC = () => {
     <div className="min-h-screen bg-background flex flex-col items-center p-4 gap-4">
       <div className="w-full max-w-lg space-y-2">
         <div className="flex justify-between items-center">
+          <Button variant="ghost" size="sm" onClick={() => setPhase("start")} className="text-muted-foreground hover:text-foreground">
+            ← Tillbaka
+          </Button>
           <span className="text-sm text-muted-foreground">
             {country.flag} Stad {currentIndex + 1} av {cities.length}
           </span>

@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import germanyGeoJson from "@/data/germany-border.json";
 import swedenGeoJson from "@/data/sweden-border.json";
+import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import type { CountryConfig } from "@/data/countries";
 
 const geoJsonMap: Record<string, unknown> = {
@@ -81,6 +82,26 @@ const CountryMap: React.FC<CountryMapProps> = ({
         stroke="hsl(142, 30%, 50%)"
         strokeWidth="3"
       />
+
+      {countryId === "sweden" && SWEDEN_LAKES.map((lake) => {
+        const lngRange = bounds.maxLng - bounds.minLng;
+        const latRange = bounds.maxLat - bounds.minLat;
+        const points = lake.coordinates.map(([lng, lat]) => {
+          const x = ((lng - bounds.minLng) / lngRange) * 1000;
+          const y = ((bounds.maxLat - lat) / latRange) * 1000;
+          return `${x.toFixed(1)},${y.toFixed(1)}`;
+        });
+        const d = `M ${points[0]} L ${points.slice(1).join(" ")} Z`;
+        return (
+          <path
+            key={lake.name}
+            d={d}
+            fill="hsl(210, 50%, 82%)"
+            stroke="hsl(210, 40%, 65%)"
+            strokeWidth="1.5"
+          />
+        );
+      })}
 
       {showResult && guessMarker && correctMarker && (
         <line
