@@ -9,7 +9,7 @@ const geoJsonMap: Record<string, unknown> = {
   sweden: swedenGeoJson,
 };
 
-function geoJsonToSvgPath(countryId: string, bounds: CountryConfig["bounds"]): string {
+function geoJsonToSvgPath(countryId: string, bounds: CountryConfig["bounds"], svgHeight: number): string {
   const geoJson = geoJsonMap[countryId] as any;
   if (!geoJson) return "";
   const feature = geoJson.features[0];
@@ -26,7 +26,7 @@ function geoJsonToSvgPath(countryId: string, bounds: CountryConfig["bounds"]): s
     .map((coords: number[][]) => {
       const points = coords.map(([lng, lat]) => {
         const x = ((lng - bounds.minLng) / lngRange) * 1000;
-        const y = ((bounds.maxLat - lat) / latRange) * 1000;
+        const y = ((bounds.maxLat - lat) / latRange) * svgHeight;
         return `${x.toFixed(1)},${y.toFixed(1)}`;
       });
       return `M ${points[0]} L ${points.slice(1).join(" ")} Z`;
@@ -37,6 +37,7 @@ function geoJsonToSvgPath(countryId: string, bounds: CountryConfig["bounds"]): s
 interface CountryMapProps {
   countryId: string;
   bounds: CountryConfig["bounds"];
+  svgHeight: number;
   onMapClick: (x: number, y: number) => void;
   guessMarker?: { x: number; y: number } | null;
   correctMarker?: { x: number; y: number } | null;
@@ -47,6 +48,7 @@ interface CountryMapProps {
 const CountryMap: React.FC<CountryMapProps> = ({
   countryId,
   bounds,
+  svgHeight,
   onMapClick,
   guessMarker,
   correctMarker,
@@ -54,7 +56,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
   disabled,
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
-  const path = geoJsonToSvgPath(countryId, bounds);
+  const path = geoJsonToSvgPath(countryId, bounds, svgHeight);
 
   const handleClick = (e: React.MouseEvent<SVGSVGElement>) => {
     if (disabled) return;
@@ -62,19 +64,18 @@ const CountryMap: React.FC<CountryMapProps> = ({
     if (!svg) return;
     const rect = svg.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 1000;
-    const y = ((e.clientY - rect.top) / rect.height) * 1000;
+    const y = ((e.clientY - rect.top) / rect.height) * svgHeight;
     onMapClick(x, y);
   };
 
   return (
     <svg
       ref={svgRef}
-      viewBox="0 0 1000 1000"
+      viewBox={`0 0 1000 ${svgHeight}`}
       className="w-full max-w-lg mx-auto cursor-crosshair select-none"
       onClick={handleClick}
-      style={{ aspectRatio: "1/1" }}
     >
-      <rect width="1000" height="1000" fill="hsl(210, 40%, 96%)" rx="12" />
+      <rect width="1000" height={svgHeight} fill="hsl(210, 40%, 96%)" rx="12" />
 
       <path
         d={path}
@@ -88,7 +89,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
         const latRange = bounds.maxLat - bounds.minLat;
         const points = lake.coordinates.map(([lng, lat]) => {
           const x = ((lng - bounds.minLng) / lngRange) * 1000;
-          const y = ((bounds.maxLat - lat) / latRange) * 1000;
+          const y = ((bounds.maxLat - lat) / latRange) * svgHeight;
           return `${x.toFixed(1)},${y.toFixed(1)}`;
         });
         const d = `M ${points[0]} L ${points.slice(1).join(" ")} Z`;

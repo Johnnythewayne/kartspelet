@@ -39,7 +39,7 @@ const Index: React.FC = () => {
   const [results, setResults] = useState<RoundResult[]>([]);
 
   const currentCity = cities[currentIndex];
-  const correctPos = currentCity ? latLngToSvg(currentCity.lat, currentCity.lng, country.bounds) : null;
+  const correctPos = currentCity ? latLngToSvg(currentCity.lat, currentCity.lng, country.bounds, country.svgHeight) : null;
 
   const startGame = useCallback((selectedCountry: CountryConfig) => {
     setCountry(selectedCountry);
@@ -55,7 +55,7 @@ const Index: React.FC = () => {
   const handleMapClick = useCallback(
     (x: number, y: number) => {
       if (phase !== "playing") return;
-      const guess = svgToLatLng(x, y, country.bounds);
+      const guess = svgToLatLng(x, y, country.bounds, country.svgHeight);
       const dist = haversineDistance(guess.lat, guess.lng, currentCity.lat, currentCity.lng);
       const score = calculateScore(dist);
       setGuessPos({ x, y });
@@ -148,6 +148,7 @@ const Index: React.FC = () => {
       <CountryMap
         countryId={country.id}
         bounds={country.bounds}
+        svgHeight={country.svgHeight}
         onMapClick={handleMapClick}
         guessMarker={guessPos}
         correctMarker={correctPos}
