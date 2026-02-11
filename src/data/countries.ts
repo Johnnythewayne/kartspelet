@@ -205,7 +205,7 @@ export const COUNTRIES: CountryConfig[] = [
   },
   {
     id: "sweden",
-    name: "Sverige",
+    name: "Swideni",
     flag: "🇸🇪",
     citiesByDifficulty: { easy: SWEDEN_EASY, medium: SWEDEN_MEDIUM, hard: SWEDEN_HARD },
     bounds: SWEDEN_BOUNDS,
