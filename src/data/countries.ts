@@ -15,6 +15,7 @@ export interface CountryConfig {
     minLng: number;
     maxLng: number;
   };
+  svgHeight: number; // computed from real-world aspect ratio
 }
 
 const GERMANY_CITIES: City[] = [
@@ -47,50 +48,66 @@ const SWEDEN_CITIES: City[] = [
   { name: "Karlstad", lat: 59.3793, lng: 13.5036 },
 ];
 
+function computeSvgHeight(bounds: CountryConfig["bounds"]): number {
+  const avgLat = (bounds.minLat + bounds.maxLat) / 2;
+  const cosLat = Math.cos((avgLat * Math.PI) / 180);
+  const realWidth = (bounds.maxLng - bounds.minLng) * cosLat;
+  const realHeight = bounds.maxLat - bounds.minLat;
+  return Math.round((realHeight / realWidth) * 1000);
+}
+
+const GERMANY_BOUNDS = {
+  minLat: 47.27,
+  maxLat: 55.06,
+  minLng: 5.87,
+  maxLng: 15.04,
+};
+
+const SWEDEN_BOUNDS = {
+  minLat: 55.2,
+  maxLat: 69.2,
+  minLng: 10.9,
+  maxLng: 24.2,
+};
+
 export const COUNTRIES: CountryConfig[] = [
   {
     id: "germany",
     name: "Tyskland",
     flag: "🇩🇪",
     cities: GERMANY_CITIES,
-    bounds: {
-      minLat: 47.27,
-      maxLat: 55.06,
-      minLng: 5.87,
-      maxLng: 15.04,
-    },
+    bounds: GERMANY_BOUNDS,
+    svgHeight: computeSvgHeight(GERMANY_BOUNDS),
   },
   {
     id: "sweden",
     name: "Sverige",
     flag: "🇸🇪",
     cities: SWEDEN_CITIES,
-    bounds: {
-      minLat: 55.2,
-      maxLat: 69.2,
-      minLng: 10.9,
-      maxLng: 24.2,
-    },
+    bounds: SWEDEN_BOUNDS,
+    svgHeight: computeSvgHeight(SWEDEN_BOUNDS),
   },
 ];
 
 export function latLngToSvg(
   lat: number,
   lng: number,
-  bounds: CountryConfig["bounds"]
+  bounds: CountryConfig["bounds"],
+  svgHeight: number = 1000
 ): { x: number; y: number } {
   const x = ((lng - bounds.minLng) / (bounds.maxLng - bounds.minLng)) * 1000;
-  const y = ((bounds.maxLat - lat) / (bounds.maxLat - bounds.minLat)) * 1000;
+  const y = ((bounds.maxLat - lat) / (bounds.maxLat - bounds.minLat)) * svgHeight;
   return { x, y };
 }
 
 export function svgToLatLng(
   x: number,
   y: number,
-  bounds: CountryConfig["bounds"]
+  bounds: CountryConfig["bounds"],
+  svgHeight: number = 1000
 ): { lat: number; lng: number } {
   const lng = (x / 1000) * (bounds.maxLng - bounds.minLng) + bounds.minLng;
-  const lat = bounds.maxLat - (y / 1000) * (bounds.maxLat - bounds.minLat);
+  const lat = bounds.maxLat - (y / svgHeight) * (bounds.maxLat - bounds.minLat);
   return { lat, lng };
 }
 
