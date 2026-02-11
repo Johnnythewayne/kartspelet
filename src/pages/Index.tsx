@@ -5,6 +5,7 @@ import CountryMap from "@/components/CountryMap";
 import GameResults from "@/components/GameResults";
 import {
   COUNTRIES,
+  DIFFICULTIES,
   latLngToSvg,
   svgToLatLng,
   haversineDistance,
@@ -18,7 +19,7 @@ interface RoundResult {
   score: number;
 }
 
-type GamePhase = "start" | "playing" | "feedback" | "results";
+type GamePhase = "start" | "pick-difficulty" | "playing" | "feedback" | "results";
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -32,7 +33,7 @@ function shuffleArray<T>(arr: T[]): T[] {
 const Index: React.FC = () => {
   const [phase, setPhase] = useState<GamePhase>("start");
   const [country, setCountry] = useState<CountryConfig>(COUNTRIES[0]);
-  const [cities, setCities] = useState(country.cities);
+  const [cities, setCities] = useState(country.citiesByDifficulty.easy);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [guessPos, setGuessPos] = useState<{ x: number; y: number } | null>(null);
   const [roundResult, setRoundResult] = useState<{ distanceKm: number; score: number } | null>(null);
@@ -41,16 +42,21 @@ const Index: React.FC = () => {
   const currentCity = cities[currentIndex];
   const correctPos = currentCity ? latLngToSvg(currentCity.lat, currentCity.lng, country.bounds, country.svgHeight) : null;
 
-  const startGame = useCallback((selectedCountry: CountryConfig) => {
+  const pickCountry = useCallback((selectedCountry: CountryConfig) => {
     setCountry(selectedCountry);
-    const shuffled = shuffleArray(selectedCountry.cities);
+    setPhase("pick-difficulty");
+  }, []);
+
+  const startGame = useCallback((difficultyId: string) => {
+    const gameCities = country.citiesByDifficulty[difficultyId] || country.citiesByDifficulty.easy;
+    const shuffled = shuffleArray(gameCities);
     setCities(shuffled);
     setCurrentIndex(0);
     setGuessPos(null);
     setRoundResult(null);
     setResults([]);
     setPhase("playing");
-  }, []);
+  }, [country]);
 
   const handleMapClick = useCallback(
     (x: number, y: number) => {
@@ -62,7 +68,7 @@ const Index: React.FC = () => {
       setRoundResult({ distanceKm: dist, score });
       setPhase("feedback");
     },
-    [phase, currentCity, country.bounds]
+    [phase, currentCity, country.bounds, country.svgHeight]
   );
 
   const nextCity = useCallback(() => {
@@ -94,7 +100,7 @@ const Index: React.FC = () => {
               <Button
                 key={c.id}
                 size="lg"
-                onClick={() => startGame(c)}
+                onClick={() => pickCountry(c)}
                 className="text-lg px-8"
                 variant="outline"
               >
@@ -102,6 +108,33 @@ const Index: React.FC = () => {
               </Button>
             ))}
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (phase === "pick-difficulty") {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background p-4">
+        <div className="text-center space-y-6 max-w-md">
+          <h1 className="text-3xl font-extrabold text-foreground">{country.flag} {country.name}</h1>
+          <p className="text-sm text-muted-foreground">Välj svårighetsgrad:</p>
+          <div className="flex flex-col gap-3">
+            {DIFFICULTIES.map((d) => (
+              <Button
+                key={d.id}
+                size="lg"
+                onClick={() => startGame(d.id)}
+                variant="outline"
+                className="text-lg"
+              >
+                {d.label} – {d.description}
+              </Button>
+            ))}
+          </div>
+          <Button variant="ghost" onClick={() => setPhase("start")} className="text-muted-foreground">
+            ← Tillbaka
+          </Button>
         </div>
       </div>
     );
