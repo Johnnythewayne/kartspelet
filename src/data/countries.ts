@@ -13,6 +13,7 @@ export interface Difficulty {
 export const DIFFICULTIES: Difficulty[] = [
   { id: "easy", label: "Lätt", description: "De 12 största städerna" },
   { id: "medium", label: "Medel", description: "Städer rankade 13–24" },
+  { id: "hard", label: "Svår", description: "Städer rankade 25–36" },
 ];
 
 export interface CountryConfig {
@@ -59,6 +60,21 @@ const GERMANY_MEDIUM: City[] = [
   { name: "Wiesbaden", lat: 50.0782, lng: 8.2398 },
 ];
 
+const GERMANY_HARD: City[] = [
+  { name: "Aachen", lat: 50.7753, lng: 6.0839 },
+  { name: "Kiel", lat: 54.3233, lng: 10.1228 },
+  { name: "Gelsenkirchen", lat: 51.5177, lng: 7.0857 },
+  { name: "Mönchengladbach", lat: 51.1805, lng: 6.4428 },
+  { name: "Braunschweig", lat: 52.2689, lng: 10.5268 },
+  { name: "Freiburg", lat: 47.999, lng: 7.842 },
+  { name: "Lübeck", lat: 53.8655, lng: 10.6866 },
+  { name: "Erfurt", lat: 50.9787, lng: 11.0328 },
+  { name: "Rostock", lat: 54.0924, lng: 12.0991 },
+  { name: "Mainz", lat: 49.9929, lng: 8.2473 },
+  { name: "Kassel", lat: 51.3127, lng: 9.4797 },
+  { name: "Hagen", lat: 51.3671, lng: 7.4633 },
+];
+
 const SWEDEN_EASY: City[] = [
   { name: "Stockholm", lat: 59.3293, lng: 18.0686 },
   { name: "Göteborg", lat: 57.7089, lng: 11.9746 },
@@ -89,6 +105,21 @@ const SWEDEN_MEDIUM: City[] = [
   { name: "Skellefteå", lat: 64.7507, lng: 20.9528 },
 ];
 
+const SWEDEN_HARD: City[] = [
+  { name: "Trollhättan", lat: 58.2837, lng: 12.2886 },
+  { name: "Östersund", lat: 63.1792, lng: 14.6357 },
+  { name: "Lidingö", lat: 59.3667, lng: 18.1500 },
+  { name: "Kalmar", lat: 56.6634, lng: 16.3566 },
+  { name: "Nyköping", lat: 58.7530, lng: 17.0086 },
+  { name: "Falun", lat: 60.6065, lng: 15.6355 },
+  { name: "Varberg", lat: 57.1057, lng: 12.2508 },
+  { name: "Skövde", lat: 58.3911, lng: 13.8456 },
+  { name: "Motala", lat: 58.5372, lng: 15.0364 },
+  { name: "Kiruna", lat: 67.8558, lng: 20.2253 },
+  { name: "Visby", lat: 57.6349, lng: 18.2948 },
+  { name: "Ängelholm", lat: 56.2428, lng: 12.8622 },
+];
+
 function computeSvgHeight(bounds: CountryConfig["bounds"]): number {
   const avgLat = (bounds.minLat + bounds.maxLat) / 2;
   const cosLat = Math.cos((avgLat * Math.PI) / 180);
@@ -116,7 +147,7 @@ export const COUNTRIES: CountryConfig[] = [
     id: "germany",
     name: "Tyskland",
     flag: "🇩🇪",
-    citiesByDifficulty: { easy: GERMANY_EASY, medium: GERMANY_MEDIUM },
+    citiesByDifficulty: { easy: GERMANY_EASY, medium: GERMANY_MEDIUM, hard: GERMANY_HARD },
     bounds: GERMANY_BOUNDS,
     svgHeight: computeSvgHeight(GERMANY_BOUNDS),
   },
@@ -124,7 +155,7 @@ export const COUNTRIES: CountryConfig[] = [
     id: "sweden",
     name: "Sverige",
     flag: "🇸🇪",
-    citiesByDifficulty: { easy: SWEDEN_EASY, medium: SWEDEN_MEDIUM },
+    citiesByDifficulty: { easy: SWEDEN_EASY, medium: SWEDEN_MEDIUM, hard: SWEDEN_HARD },
     bounds: SWEDEN_BOUNDS,
     svgHeight: computeSvgHeight(SWEDEN_BOUNDS),
   },
