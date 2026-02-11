@@ -8,8 +8,8 @@ import {
   latLngToSvg,
   svgToLatLng,
   haversineDistance,
-  calculateScore,
-} from "@/data/countries";
+  calculateScore } from
+"@/data/countries";
 import type { CountryConfig } from "@/data/countries";
 import { LANGUAGES, t } from "@/data/translations";
 import type { Language } from "@/data/translations";
@@ -37,8 +37,8 @@ const Index: React.FC = () => {
   const [country, setCountry] = useState<CountryConfig>(COUNTRIES[0]);
   const [cities, setCities] = useState(country.citiesByDifficulty.easy);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [guessPos, setGuessPos] = useState<{ x: number; y: number } | null>(null);
-  const [roundResult, setRoundResult] = useState<{ distanceKm: number; score: number } | null>(null);
+  const [guessPos, setGuessPos] = useState<{x: number;y: number;} | null>(null);
+  const [roundResult, setRoundResult] = useState<{distanceKm: number;score: number;} | null>(null);
   const [results, setResults] = useState<RoundResult[]>([]);
 
   const currentCity = cities[currentIndex];
@@ -75,9 +75,9 @@ const Index: React.FC = () => {
 
   const nextCity = useCallback(() => {
     setResults((prev) => [
-      ...prev,
-      { cityName: currentCity.name, distanceKm: roundResult!.distanceKm, score: roundResult!.score },
-    ]);
+    ...prev,
+    { cityName: currentCity.name, distanceKm: roundResult!.distanceKm, score: roundResult!.score }]
+    );
     if (currentIndex + 1 >= cities.length) {
       setPhase("results");
     } else {
@@ -93,23 +93,23 @@ const Index: React.FC = () => {
       <div className="flex min-h-screen items-center justify-center bg-background p-4">
         <div className="text-center space-y-6 max-w-md">
           <h1 className="text-4xl font-extrabold text-foreground">🗺️</h1>
-          <p className="text-sm text-muted-foreground">Choose language / Välj språk:</p>
+          
           <div className="flex flex-col gap-3">
-            {LANGUAGES.map((l) => (
-              <Button
-                key={l.id}
-                size="lg"
-                onClick={() => { setLang(l.id); setPhase("start"); }}
-                variant="outline"
-                className="text-lg"
-              >
+            {LANGUAGES.map((l) =>
+            <Button
+              key={l.id}
+              size="lg"
+              onClick={() => {setLang(l.id);setPhase("start");}}
+              variant="outline"
+              className="text-lg">
+
                 {l.flag} {l.label}
               </Button>
-            ))}
+            )}
           </div>
         </div>
-      </div>
-    );
+      </div>);
+
   }
 
   if (phase === "start") {
@@ -120,31 +120,31 @@ const Index: React.FC = () => {
           <p className="text-lg text-muted-foreground">{t(lang, "subtitle")}</p>
           <p className="text-sm text-muted-foreground">{t(lang, "chooseCountry")}</p>
           <div className="flex gap-4 justify-center">
-            {COUNTRIES.map((c) => (
-              <Button
-                key={c.id}
-                size="lg"
-                onClick={() => pickCountry(c)}
-                className="text-lg px-8"
-                variant="outline"
-              >
+            {COUNTRIES.map((c) =>
+            <Button
+              key={c.id}
+              size="lg"
+              onClick={() => pickCountry(c)}
+              className="text-lg px-8"
+              variant="outline">
+
                 {c.flag} {c.name}
               </Button>
-            ))}
+            )}
           </div>
           <Button variant="ghost" onClick={() => setPhase("pick-language")} className="text-muted-foreground">
             {t(lang, "back")}
           </Button>
         </div>
-      </div>
-    );
+      </div>);
+
   }
 
   const difficulties = [
-    { id: "easy", label: t(lang, "diffEasy"), description: t(lang, "diffEasyDesc") },
-    { id: "medium", label: t(lang, "diffMedium"), description: t(lang, "diffMediumDesc") },
-    { id: "hard", label: t(lang, "diffHard"), description: t(lang, "diffHardDesc") },
-  ];
+  { id: "easy", label: t(lang, "diffEasy"), description: t(lang, "diffEasyDesc") },
+  { id: "medium", label: t(lang, "diffMedium"), description: t(lang, "diffMediumDesc") },
+  { id: "hard", label: t(lang, "diffHard"), description: t(lang, "diffHardDesc") }];
+
 
   if (phase === "pick-difficulty") {
     return (
@@ -153,24 +153,24 @@ const Index: React.FC = () => {
           <h1 className="text-3xl font-extrabold text-foreground">{country.flag} {country.name}</h1>
           <p className="text-sm text-muted-foreground">{t(lang, "chooseDifficulty")}</p>
           <div className="flex flex-col gap-3">
-            {difficulties.map((d) => (
-              <Button
-                key={d.id}
-                size="lg"
-                onClick={() => startGame(d.id)}
-                variant="outline"
-                className="text-lg"
-              >
+            {difficulties.map((d) =>
+            <Button
+              key={d.id}
+              size="lg"
+              onClick={() => startGame(d.id)}
+              variant="outline"
+              className="text-lg">
+
                 {d.label} – {d.description}
               </Button>
-            ))}
+            )}
           </div>
           <Button variant="ghost" onClick={() => setPhase("start")} className="text-muted-foreground">
             {t(lang, "back")}
           </Button>
         </div>
-      </div>
-    );
+      </div>);
+
   }
 
   if (phase === "results") {
@@ -178,14 +178,14 @@ const Index: React.FC = () => {
       <div className="min-h-screen bg-background py-8">
         <GameResults
           results={[
-            ...results,
-            { cityName: currentCity.name, distanceKm: roundResult!.distanceKm, score: roundResult!.score },
-          ]}
+          ...results,
+          { cityName: currentCity.name, distanceKm: roundResult!.distanceKm, score: roundResult!.score }]
+          }
           onPlayAgain={() => setPhase("pick-language")}
-          lang={lang}
-        />
-      </div>
-    );
+          lang={lang} />
+
+      </div>);
+
   }
 
   return (
@@ -202,7 +202,7 @@ const Index: React.FC = () => {
             {t(lang, "score")}: {results.reduce((s, r) => s + r.score, 0)}
           </span>
         </div>
-        <Progress value={(currentIndex / cities.length) * 100} className="h-2" />
+        <Progress value={currentIndex / cities.length * 100} className="h-2" />
       </div>
 
       <h2 className="text-3xl font-bold text-foreground">
@@ -220,11 +220,11 @@ const Index: React.FC = () => {
         guessMarker={guessPos}
         correctMarker={correctPos}
         showResult={phase === "feedback"}
-        disabled={phase === "feedback"}
-      />
+        disabled={phase === "feedback"} />
 
-      {phase === "feedback" && roundResult && (
-        <div className="w-full max-w-lg space-y-3 text-center">
+
+      {phase === "feedback" && roundResult &&
+      <div className="w-full max-w-lg space-y-3 text-center">
           <div className="flex justify-center gap-6">
             <div className="text-center">
               <p className="text-sm text-muted-foreground">{t(lang, "distance")}</p>
@@ -239,9 +239,9 @@ const Index: React.FC = () => {
             {currentIndex + 1 >= cities.length ? t(lang, "seeResults") : t(lang, "nextCity")}
           </Button>
         </div>
-      )}
-    </div>
-  );
+      }
+    </div>);
+
 };
 
 export default Index;
