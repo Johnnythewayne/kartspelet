@@ -1,15 +1,16 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import GermanyMap from "@/components/GermanyMap";
+import CountryMap from "@/components/CountryMap";
 import GameResults from "@/components/GameResults";
 import {
-  CITIES,
+  COUNTRIES,
   latLngToSvg,
   svgToLatLng,
   haversineDistance,
   calculateScore,
-} from "@/data/cities";
+} from "@/data/countries";
+import type { CountryConfig } from "@/data/countries";
 
 interface RoundResult {
   cityName: string;
@@ -30,17 +31,20 @@ function shuffleArray<T>(arr: T[]): T[] {
 
 const Index: React.FC = () => {
   const [phase, setPhase] = useState<GamePhase>("start");
-  const [cities, setCities] = useState(CITIES);
+  const [country, setCountry] = useState<CountryConfig>(COUNTRIES[0]);
+  const [cities, setCities] = useState(country.cities);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [guessPos, setGuessPos] = useState<{ x: number; y: number } | null>(null);
   const [roundResult, setRoundResult] = useState<{ distanceKm: number; score: number } | null>(null);
   const [results, setResults] = useState<RoundResult[]>([]);
 
   const currentCity = cities[currentIndex];
-  const correctPos = currentCity ? latLngToSvg(currentCity.lat, currentCity.lng) : null;
+  const correctPos = currentCity ? latLngToSvg(currentCity.lat, currentCity.lng, country.bounds) : null;
 
-  const startGame = useCallback(() => {
-    setCities(shuffleArray(CITIES));
+  const startGame = useCallback((selectedCountry: CountryConfig) => {
+    setCountry(selectedCountry);
+    const shuffled = shuffleArray(selectedCountry.cities);
+    setCities(shuffled);
     setCurrentIndex(0);
     setGuessPos(null);
     setRoundResult(null);
@@ -51,14 +55,14 @@ const Index: React.FC = () => {
   const handleMapClick = useCallback(
     (x: number, y: number) => {
       if (phase !== "playing") return;
-      const guess = svgToLatLng(x, y);
+      const guess = svgToLatLng(x, y, country.bounds);
       const dist = haversineDistance(guess.lat, guess.lng, currentCity.lat, currentCity.lng);
       const score = calculateScore(dist);
       setGuessPos({ x, y });
       setRoundResult({ distanceKm: dist, score });
       setPhase("feedback");
     },
-    [phase, currentCity]
+    [phase, currentCity, country.bounds]
   );
 
   const nextCity = useCallback(() => {
@@ -80,13 +84,24 @@ const Index: React.FC = () => {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background p-4">
         <div className="text-center space-y-6 max-w-md">
-          <h1 className="text-4xl font-extrabold text-foreground">🇩🇪 Tyska Städer</h1>
+          <h1 className="text-4xl font-extrabold text-foreground">🗺️ Städer på kartan</h1>
           <p className="text-lg text-muted-foreground">
-            Placera {CITIES.length} tyska städer på kartan. Ju närmare du klickar, desto fler poäng!
+            Placera städer på kartan. Ju närmare du klickar, desto fler poäng!
           </p>
-          <Button size="lg" onClick={startGame} className="text-lg px-8">
-            Starta spelet
-          </Button>
+          <p className="text-sm text-muted-foreground">Välj ett land:</p>
+          <div className="flex gap-4 justify-center">
+            {COUNTRIES.map((c) => (
+              <Button
+                key={c.id}
+                size="lg"
+                onClick={() => startGame(c)}
+                className="text-lg px-8"
+                variant="outline"
+              >
+                {c.flag} {c.name}
+              </Button>
+            ))}
+          </div>
         </div>
       </div>
     );
@@ -100,29 +115,26 @@ const Index: React.FC = () => {
             ...results,
             { cityName: currentCity.name, distanceKm: roundResult!.distanceKm, score: roundResult!.score },
           ]}
-          onPlayAgain={startGame}
+          onPlayAgain={() => setPhase("start")}
         />
       </div>
     );
   }
 
-  // playing / feedback
   return (
     <div className="min-h-screen bg-background flex flex-col items-center p-4 gap-4">
-      {/* Header */}
       <div className="w-full max-w-lg space-y-2">
         <div className="flex justify-between items-center">
           <span className="text-sm text-muted-foreground">
-            Stad {currentIndex + 1} av {cities.length}
+            {country.flag} Stad {currentIndex + 1} av {cities.length}
           </span>
           <span className="text-sm font-medium text-foreground">
             Poäng: {results.reduce((s, r) => s + r.score, 0)}
           </span>
         </div>
-        <Progress value={((currentIndex) / cities.length) * 100} className="h-2" />
+        <Progress value={(currentIndex / cities.length) * 100} className="h-2" />
       </div>
 
-      {/* City name */}
       <h2 className="text-3xl font-bold text-foreground">
         📍 {currentCity.name}
       </h2>
@@ -130,8 +142,9 @@ const Index: React.FC = () => {
         {phase === "playing" ? "Klicka på kartan där du tror staden ligger" : ""}
       </p>
 
-      {/* Map */}
-      <GermanyMap
+      <CountryMap
+        countryId={country.id}
+        bounds={country.bounds}
         onMapClick={handleMapClick}
         guessMarker={guessPos}
         correctMarker={correctPos}
@@ -139,7 +152,6 @@ const Index: React.FC = () => {
         disabled={phase === "feedback"}
       />
 
-      {/* Feedback */}
       {phase === "feedback" && roundResult && (
         <div className="w-full max-w-lg space-y-3 text-center">
           <div className="flex justify-center gap-6">
