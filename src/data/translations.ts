@@ -39,6 +39,9 @@ const translations = {
     diffMediumDesc: "Städer rankade 13–24",
     diffHard: "Svår",
     diffHardDesc: "Städer rankade 25–36",
+    countryGermany: "Tyskland",
+    countrySweden: "Sverige",
+    countryUganda: "Uganda",
   },
   en: {
     title: "🗺️ Cities on the Map",
@@ -66,6 +69,9 @@ const translations = {
     diffMediumDesc: "Cities ranked 13–24",
     diffHard: "Hard",
     diffHardDesc: "Cities ranked 25–36",
+    countryGermany: "Germany",
+    countrySweden: "Sweden",
+    countryUganda: "Uganda",
   },
   lg: {
     title: "🗺️ Ebibuga ku Maapu",
@@ -93,6 +99,9 @@ const translations = {
     diffMediumDesc: "Ebibuga ebiri mu 13–24",
     diffHard: "Kizibu",
     diffHardDesc: "Ebibuga ebiri mu 25–36",
+    countryGermany: "Budaaki",
+    countrySweden: "Swideni",
+    countryUganda: "Uganda",
   },
 } as const;
 
