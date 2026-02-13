@@ -4,7 +4,7 @@ import swedenGeoJson from "@/data/sweden-border.json";
 import ugandaGeoJson from "@/data/uganda-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
-import globalRivers from "@/data/rivers-global.json";
+import { GLOBAL_RIVERS } from "@/data/rivers-hires";
 import {
   GERMANY_NEIGHBOURS,
   SWEDEN_NEIGHBOURS,
@@ -94,7 +94,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
 
   const clippedRivers = useMemo(() => {
     // Filter rivers that intersect the bounding box
-    const candidates = (globalRivers as { name: string; coordinates: [number, number][] }[]).filter(
+    const candidates = GLOBAL_RIVERS.filter(
       (r) => r.coordinates.some(([lng, lat]) =>
         lng >= bounds.minLng - 0.5 && lng <= bounds.maxLng + 0.5 &&
         lat >= bounds.minLat - 0.5 && lat <= bounds.maxLat + 0.5
@@ -138,10 +138,17 @@ const CountryMap: React.FC<CountryMapProps> = ({
     }
 
 
-    // Log longest river for Uganda
+    // Log river stats for Uganda
     if (countryId === "uganda" && result.length > 0) {
-      const longest = result.reduce((a, b) => a.coordinates.length > b.coordinates.length ? a : b);
-      console.log(`[Uganda] Longest river: ${longest.name} (${longest.coordinates.length} coordinates)`);
+      const vnBefore = candidates.filter(r => r.name === "Victoria Nile");
+      const vnBeforeCoords = vnBefore.reduce((s, r) => s + r.coordinates.length, 0);
+      const vnAfter = result.filter(r => r.name === "Victoria Nile");
+      const vnAfterCoords = vnAfter.reduce((s, r) => s + r.coordinates.length, 0);
+      const totalClipped = result.reduce((s, r) => s + r.coordinates.length, 0);
+      console.log(`[Uganda] Total coordinates (clipped): ${totalClipped}`);
+      console.log(`[Uganda] Victoria Nile before clipping: ${vnBeforeCoords} coords`);
+      console.log(`[Uganda] Victoria Nile after clipping: ${vnAfterCoords} coords`);
+      console.log(`[Uganda] Dataset total: ${GLOBAL_RIVERS.reduce((s, r) => s + r.coordinates.length, 0)} coords, file: rivers-hires.ts`);
     }
 
     return result;
