@@ -4,7 +4,7 @@ import swedenGeoJson from "@/data/sweden-border.json";
 import ugandaGeoJson from "@/data/uganda-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
-import { GLOBAL_RIVERS } from "@/data/rivers";
+import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
 import {
   GERMANY_NEIGHBOURS,
   SWEDEN_NEIGHBOURS,
@@ -93,13 +93,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
   }, [countryId]);
 
   const clippedRivers = useMemo(() => {
-    // Filter rivers that intersect the bounding box
-    const candidates = GLOBAL_RIVERS.filter(
-      (r) => r.coordinates.some(([lng, lat]) =>
-        lng >= bounds.minLng - 0.5 && lng <= bounds.maxLng + 0.5 &&
-        lat >= bounds.minLat - 0.5 && lat <= bounds.maxLat + 0.5
-      )
-    );
+    const countryRivers = getRiversForCountry(countryId);
 
     // Point-in-polygon (ray casting)
     function pointInPolygon(lng: number, lat: number, poly: [number, number][]): boolean {
@@ -120,7 +114,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
 
     // Clip each river: split into segments inside the country
     const result: { name: string; coordinates: [number, number][] }[] = [];
-    for (const river of candidates) {
+    for (const river of countryRivers) {
       let segment: [number, number][] = [];
       for (const coord of river.coordinates) {
         if (isInsideCountry(coord[0], coord[1])) {
@@ -137,22 +131,8 @@ const CountryMap: React.FC<CountryMapProps> = ({
       }
     }
 
-
-    // Log river stats for Uganda
-    if (countryId === "uganda" && result.length > 0) {
-      const vnBefore = candidates.filter(r => r.name === "Victoria Nile");
-      const vnBeforeCoords = vnBefore.reduce((s, r) => s + r.coordinates.length, 0);
-      const vnAfter = result.filter(r => r.name === "Victoria Nile");
-      const vnAfterCoords = vnAfter.reduce((s, r) => s + r.coordinates.length, 0);
-      const totalClipped = result.reduce((s, r) => s + r.coordinates.length, 0);
-      console.log(`[Uganda] Total coordinates (clipped): ${totalClipped}`);
-      console.log(`[Uganda] Victoria Nile before clipping: ${vnBeforeCoords} coords`);
-      console.log(`[Uganda] Victoria Nile after clipping: ${vnAfterCoords} coords`);
-      console.log(`[Uganda] Dataset total: ${GLOBAL_RIVERS.reduce((s, r) => s + r.coordinates.length, 0)} coords, file: rivers-hires.ts`);
-    }
-
     return result;
-  }, [countryId, bounds, countryPolygons]);
+  }, [countryId, countryPolygons]);
   const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "uganda" ? UGANDA_LAKES : [];
 
   const neighbourPaths = useMemo(() => {
