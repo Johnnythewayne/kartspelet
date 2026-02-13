@@ -4,9 +4,7 @@ import swedenGeoJson from "@/data/sweden-border.json";
 import ugandaGeoJson from "@/data/uganda-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
-import { GERMANY_RIVERS } from "@/data/germany-rivers";
-import { SWEDEN_RIVERS } from "@/data/sweden-rivers";
-import { UGANDA_RIVERS_HIRES as UGANDA_RIVERS } from "@/data/uganda-rivers";
+import globalRivers from "@/data/rivers-global.json";
 import {
   GERMANY_NEIGHBOURS,
   SWEDEN_NEIGHBOURS,
@@ -83,7 +81,63 @@ const CountryMap: React.FC<CountryMapProps> = ({
   const svgRef = useRef<SVGSVGElement>(null);
   const path = geoJsonToSvgPath(countryId, bounds, svgHeight);
   const neighbours = neighboursMap[countryId] || [];
-  const rivers = countryId === "germany" ? GERMANY_RIVERS : countryId === "sweden" ? SWEDEN_RIVERS : countryId === "uganda" ? UGANDA_RIVERS : [];
+  const countryPolygons = useMemo(() => {
+    const geoJson = geoJsonMap[countryId] as any;
+    if (!geoJson) return [];
+    const feature = geoJson.features[0];
+    const geometry = feature.geometry;
+    if (geometry.type === "MultiPolygon") {
+      return geometry.coordinates.map((poly: number[][][]) => poly[0] as [number, number][]);
+    }
+    return [geometry.coordinates[0] as [number, number][]];
+  }, [countryId]);
+
+  const clippedRivers = useMemo(() => {
+    // Filter rivers that intersect the bounding box
+    const candidates = (globalRivers as { name: string; coordinates: [number, number][] }[]).filter(
+      (r) => r.coordinates.some(([lng, lat]) =>
+        lng >= bounds.minLng - 0.5 && lng <= bounds.maxLng + 0.5 &&
+        lat >= bounds.minLat - 0.5 && lat <= bounds.maxLat + 0.5
+      )
+    );
+
+    // Point-in-polygon (ray casting)
+    function pointInPolygon(lng: number, lat: number, poly: [number, number][]): boolean {
+      let inside = false;
+      for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+        const [xi, yi] = poly[i];
+        const [xj, yj] = poly[j];
+        if ((yi > lat) !== (yj > lat) && lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi) {
+          inside = !inside;
+        }
+      }
+      return inside;
+    }
+
+    function isInsideCountry(lng: number, lat: number): boolean {
+      return countryPolygons.some((poly) => pointInPolygon(lng, lat, poly));
+    }
+
+    // Clip each river: split into segments inside the country
+    const result: { name: string; coordinates: [number, number][] }[] = [];
+    for (const river of candidates) {
+      let segment: [number, number][] = [];
+      for (const coord of river.coordinates) {
+        if (isInsideCountry(coord[0], coord[1])) {
+          segment.push(coord);
+        } else {
+          if (segment.length >= 2) {
+            result.push({ name: river.name, coordinates: segment });
+          }
+          segment = [];
+        }
+      }
+      if (segment.length >= 2) {
+        result.push({ name: river.name, coordinates: segment });
+      }
+    }
+    return result;
+  }, [countryId, bounds, countryPolygons]);
   const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "uganda" ? UGANDA_LAKES : [];
 
   const neighbourPaths = useMemo(() => {
@@ -158,7 +212,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
       })}
 
       {/* Rivers */}
-      {rivers.map((river) => {
+      {clippedRivers.map((river, idx) => {
         const points = river.coordinates.map(([lng, lat]) => {
           const { x, y } = coordToSvg(lng, lat, bounds, svgHeight);
           return `${x.toFixed(1)},${y.toFixed(1)}`;
@@ -166,7 +220,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
         const d = `M ${points[0]} L ${points.slice(1).join(" ")}`;
         return (
           <path
-            key={river.name}
+            key={`${river.name}-${idx}`}
             d={d}
             fill="none"
             stroke="hsl(210, 50%, 70%)"
