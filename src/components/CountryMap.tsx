@@ -4,7 +4,7 @@ import swedenGeoJson from "@/data/sweden-border.json";
 import ugandaGeoJson from "@/data/uganda-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
-import { GLOBAL_RIVERS } from "@/data/rivers-hires.ts";
+import { GLOBAL_RIVERS } from "@/data/rivers-hires";
 import {
   GERMANY_NEIGHBOURS,
   SWEDEN_NEIGHBOURS,
