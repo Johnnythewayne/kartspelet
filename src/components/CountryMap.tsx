@@ -136,6 +136,14 @@ const CountryMap: React.FC<CountryMapProps> = ({
         result.push({ name: river.name, coordinates: segment });
       }
     }
+
+
+    // Log longest river for Uganda
+    if (countryId === "uganda" && result.length > 0) {
+      const longest = result.reduce((a, b) => a.coordinates.length > b.coordinates.length ? a : b);
+      console.log(`[Uganda] Longest river: ${longest.name} (${longest.coordinates.length} coordinates)`);
+    }
+
     return result;
   }, [countryId, bounds, countryPolygons]);
   const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "uganda" ? UGANDA_LAKES : [];
