@@ -91,6 +91,28 @@ function dedup(poly: number[][]): number[][] {
   return result;
 }
 
+// Douglas-Peucker simplification
+function simplifyPoly(coords: number[][], epsilon: number): number[][] {
+  if (coords.length <= 2) return coords;
+  let maxDist = 0;
+  let maxIdx = 0;
+  const [x1, y1] = coords[0];
+  const [x2, y2] = coords[coords.length - 1];
+  for (let i = 1; i < coords.length - 1; i++) {
+    const [x, y] = coords[i];
+    const num = Math.abs((y2 - y1) * x - (x2 - x1) * y + x2 * y1 - y2 * x1);
+    const den = Math.sqrt((y2 - y1) ** 2 + (x2 - x1) ** 2);
+    const dist = den === 0 ? Math.sqrt((x - x1) ** 2 + (y - y1) ** 2) : num / den;
+    if (dist > maxDist) { maxDist = dist; maxIdx = i; }
+  }
+  if (maxDist > epsilon) {
+    const left = simplifyPoly(coords.slice(0, maxIdx + 1), epsilon);
+    const right = simplifyPoly(coords.slice(maxIdx), epsilon);
+    return [...left.slice(0, -1), ...right];
+  }
+  return [coords[0], coords[coords.length - 1]];
+}
+
 describe("Process GADM neighbours (optimized)", () => {
   it("processes all countries and writes JSON files", () => {
     const margin = 2; // degrees beyond map viewport
@@ -118,15 +140,18 @@ describe("Process GADM neighbours (optimized)", () => {
         const gadmJson = JSON.parse(fs.readFileSync(gadmPath, "utf-8"));
         const allPolys = extractPolygons(gadmJson);
         
+        // Adaptive epsilon: smaller countries near the target get finer detail
+        const epsilon = 0.01; // ~1km - good visual quality at map scale
+        
         const relevant = allPolys
           .map(poly => {
             const bbox = polyBBox(poly);
-            // Must overlap viewport
             if (!bboxOverlaps(bbox, viewport)) return null;
-            // Must be large enough to see
             const extent = Math.max(bbox.maxLng - bbox.minLng, bbox.maxLat - bbox.minLat);
             if (extent < minExtent && poly.length < 20) return null;
-            return dedup(roundCoords(poly, 4));
+            // Simplify, round to 2 decimals, dedup
+            const simplified = simplifyPoly(poly, epsilon);
+            return dedup(roundCoords(simplified, 2));
           })
           .filter((p): p is number[][] => p !== null && p.length >= 3);
         

@@ -170,8 +170,10 @@ describe("Generate per-country river JSON", () => {
       }
       
       const outPath = path.resolve(__dirname, `../data/rivers-${countryId}.json`);
-      fs.writeFileSync(outPath, JSON.stringify(deduped));
-      console.log(`Wrote ${outPath} (${JSON.stringify(deduped).length} bytes)`);
+      const jsonStr = JSON.stringify(deduped);
+      fs.writeFileSync(outPath, jsonStr);
+      console.log(`RIVER_JSON_${countryId.toUpperCase()}:${jsonStr}`);
+      console.log(`Wrote ${outPath} (${jsonStr.length} bytes)`);
     });
   }
 });
