@@ -6,7 +6,7 @@ import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
 import { GERMANY_RIVERS } from "@/data/germany-rivers";
 import { SWEDEN_RIVERS } from "@/data/sweden-rivers";
-import { UGANDA_RIVERS } from "@/data/uganda-rivers";
+import { UGANDA_RIVERS_HIRES as UGANDA_RIVERS } from "@/data/uganda-rivers";
 import {
   GERMANY_NEIGHBOURS,
   SWEDEN_NEIGHBOURS,
