@@ -4,6 +4,7 @@ import swedenGeoJson from "@/data/sweden-border.json";
 import ugandaGeoJson from "@/data/uganda-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
+import { GERMANY_RIVERS } from "@/data/germany-rivers";
 import type { CountryConfig } from "@/data/countries";
 
 const geoJsonMap: Record<string, unknown> = {
@@ -105,6 +106,28 @@ const CountryMap: React.FC<CountryMapProps> = ({
             fill="hsl(210, 50%, 82%)"
             stroke="hsl(210, 40%, 65%)"
             strokeWidth="1.5"
+          />
+        );
+      })}
+
+      {countryId === "germany" && GERMANY_RIVERS.map((river) => {
+        const lngRange = bounds.maxLng - bounds.minLng;
+        const latRange = bounds.maxLat - bounds.minLat;
+        const points = river.coordinates.map(([lng, lat]) => {
+          const x = ((lng - bounds.minLng) / lngRange) * 1000;
+          const y = ((bounds.maxLat - lat) / latRange) * svgHeight;
+          return `${x.toFixed(1)},${y.toFixed(1)}`;
+        });
+        const d = `M ${points[0]} L ${points.slice(1).join(" ")}`;
+        return (
+          <path
+            key={river.name}
+            d={d}
+            fill="none"
+            stroke="hsl(210, 50%, 70%)"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         );
       })}

@@ -121,7 +121,7 @@ const Index: React.FC = () => {
           <h1 className="text-4xl font-extrabold text-foreground">{t(lang, "title")}</h1>
           <p className="text-lg text-muted-foreground">{t(lang, "subtitle")}</p>
           <p className="text-sm text-muted-foreground">{t(lang, "chooseCountry")}</p>
-          <div className="flex gap-4 justify-center">
+          <div className="flex flex-col gap-3">
             {COUNTRIES.map((c) => {
             const nameKey = `country${c.id.charAt(0).toUpperCase()}${c.id.slice(1)}` as any;
             return (
