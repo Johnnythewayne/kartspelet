@@ -135,12 +135,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
   }, [countryId, countryPolygons]);
   const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "uganda" ? UGANDA_LAKES : [];
 
-  // DEBUG: log data state
-  console.log("countryCode:", countryId);
-  console.log("rivers:", clippedRivers);
-  console.log("lakes:", lakes);
-  console.log("borders (neighbours):", neighbours);
-  console.log("projection (bounds):", bounds);
+
 
   const neighbourPaths = useMemo(() => {
     return neighbours.map((nb) => {
@@ -174,18 +169,16 @@ const CountryMap: React.FC<CountryMapProps> = ({
       className="w-full max-w-lg mx-auto cursor-crosshair select-none"
       onClick={handleClick}
     >
-      {/* DEBUG: red background to verify rendering */}
-      <rect width="100%" height="100%" fill="red" />
       <rect width="1000" height={svgHeight} fill="hsl(210, 40%, 96%)" rx="12" />
 
-      {/* Neighbouring country borders - DEBUG: blue stroke, no fill */}
+      {/* Neighbouring country borders */}
       {neighbourPaths.map((nb) => (
         <path
           key={nb.name}
           d={nb.d}
-          fill="none"
-          stroke="blue"
-          strokeWidth={2}
+          fill="hsl(0, 0%, 93%)"
+          stroke="hsl(0, 0%, 75%)"
+          strokeWidth={1}
         />
       ))}
 
@@ -208,7 +201,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
           <path
             key={lake.name}
             d={d}
-            fill="cyan"
+            fill="hsl(210, 60%, 80%)"
             stroke="hsl(210, 40%, 65%)"
             strokeWidth="1.5"
           />
