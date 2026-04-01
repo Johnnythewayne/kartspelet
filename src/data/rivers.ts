@@ -23,6 +23,7 @@ import ugandaRivers from "./rivers-uganda.json";
 import myanmarRivers from "./rivers-myanmar.json";
 import franceRivers from "./rivers-france.json";
 import englandRivers from "./rivers-england.json";
+import usaRivers from "./rivers-usa.json";
 
 function validateRivers(data: unknown, label: string): RiverSegment[] {
   if (!Array.isArray(data) || data.length === 0) {
