@@ -45,7 +45,7 @@ const translations = {
     countryUganda: "Uganda",
   },
   en: {
-    title: "🗺️ Cities on the Map",
+    title: "🗺️ The Map Game",
     subtitle: "Place cities on the map. The closer you click, the more points you get!",
     chooseLanguage: "Choose language:",
     chooseCountry: "Choose a country:",
