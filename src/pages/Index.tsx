@@ -197,8 +197,9 @@ const Index: React.FC = () => {
           <Button variant="ghost" size="sm" onClick={() => setPhase("pick-difficulty")} className="text-muted-foreground hover:text-foreground">
             {t(lang, "back")}
           </Button>
-          <span className="text-sm text-muted-foreground">
-            {country.flag} {t(lang, "city")} {currentIndex + 1} {t(lang, "of")} {cities.length}
+          <span className="text-sm text-muted-foreground flex items-center gap-1">
+            <img src={FLAG_IMAGES[country.id]} alt={country.name} width={18} height={12} className="shrink-0 rounded-sm object-contain" />
+            {t(lang, "city")} {currentIndex + 1} {t(lang, "of")} {cities.length}
           </span>
           <span className="text-sm font-medium text-foreground">
             {t(lang, "score")}: {results.reduce((s, r) => s + r.score, 0)}
