@@ -6,11 +6,13 @@ import ugandaGeoJson from "@/data/uganda-border.json";
 import myanmarGeoJson from "@/data/myanmar-border.json";
 import franceGeoJson from "@/data/france-border.json";
 import englandGeoJson from "@/data/england-border.json";
+import usaGeoJson from "@/data/usa-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { NORWAY_LAKES } from "@/data/norway-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
 import { FRANCE_LAKES } from "@/data/france-lakes";
 import { ENGLAND_LAKES } from "@/data/england-lakes";
+import { USA_LAKES } from "@/data/usa-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
 
 import {
