@@ -11,8 +11,9 @@ import {
   calculateScore } from
 "@/data/countries";
 import type { CountryConfig } from "@/data/countries";
-import { LANGUAGES, t } from "@/data/translations";
+import { t } from "@/data/translations";
 import type { Language } from "@/data/translations";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 interface RoundResult {
   cityName: string;
@@ -20,7 +21,7 @@ interface RoundResult {
   score: number;
 }
 
-type GamePhase = "pick-language" | "start" | "pick-difficulty" | "playing" | "feedback" | "results";
+type GamePhase = "start" | "pick-difficulty" | "playing" | "feedback" | "results";
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -32,7 +33,7 @@ function shuffleArray<T>(arr: T[]): T[] {
 }
 
 const Index: React.FC = () => {
-  const [phase, setPhase] = useState<GamePhase>("pick-language");
+  const [phase, setPhase] = useState<GamePhase>("start");
   const [lang, setLang] = useState<Language>("sv");
   const [country, setCountry] = useState<CountryConfig>(COUNTRIES[0]);
   const [cities, setCities] = useState(country.citiesByDifficulty.easy);
@@ -94,33 +95,16 @@ const Index: React.FC = () => {
     [phase, currentCity, country.bounds, country.svgHeight, nextCity]
   );
 
-  if (phase === "pick-language") {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-background p-4">
-        <div className="text-center space-y-6 max-w-md">
-          <h1 className="text-4xl font-extrabold text-foreground">🗺️</h1>
-          
-          <div className="flex flex-col gap-3">
-            {LANGUAGES.map((l) =>
-            <Button
-              key={l.id}
-              size="lg"
-              onClick={() => {setLang(l.id);setPhase("start");}}
-              variant="outline"
-              className="text-lg">
-
-                {l.flag} {l.label}
-              </Button>
-            )}
-          </div>
-        </div>
-      </div>);
-
-  }
+  const langSwitcher = (
+    <div className="absolute top-4 right-4">
+      <LanguageSwitcher lang={lang} onLangChange={setLang} />
+    </div>
+  );
 
   if (phase === "start") {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-background p-4">
+      <div className="relative flex min-h-screen items-center justify-center bg-background p-4">
+        {langSwitcher}
         <div className="text-center space-y-6 max-w-md">
           <h1 className="text-4xl font-extrabold text-foreground">{t(lang, "title")}</h1>
           <p className="text-lg text-muted-foreground">{t(lang, "subtitle")}</p>
@@ -140,9 +124,6 @@ const Index: React.FC = () => {
             );
             })}
           </div>
-          <Button variant="ghost" onClick={() => setPhase("pick-language")} className="text-muted-foreground">
-            {t(lang, "back")}
-          </Button>
         </div>
       </div>);
 
@@ -156,7 +137,8 @@ const Index: React.FC = () => {
 
   if (phase === "pick-difficulty") {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-background p-4">
+      <div className="relative flex min-h-screen items-center justify-center bg-background p-4">
+        {langSwitcher}
         <div className="text-center space-y-6 max-w-md">
           <h1 className="text-3xl font-extrabold text-foreground">{country.flag} {t(lang, `country${country.id.charAt(0).toUpperCase()}${country.id.slice(1)}` as any)}</h1>
           <p className="text-sm text-muted-foreground">{t(lang, "chooseDifficulty")}</p>
