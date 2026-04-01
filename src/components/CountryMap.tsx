@@ -192,7 +192,25 @@ const CountryMap: React.FC<CountryMapProps> = ({
         strokeWidth="3"
       />
 
-      {/* Lakes */}
+      {/* Mountain ranges */}
+      {mountains.map((mt) => {
+        const points = mt.coordinates.map(([lng, lat]) => {
+          const { x, y } = coordToSvg(lng, lat, bounds, svgHeight);
+          return `${x.toFixed(1)},${y.toFixed(1)}`;
+        });
+        const d = `M ${points[0]} L ${points.slice(1).join(" ")} Z`;
+        return (
+          <path
+            key={mt.name}
+            d={d}
+            fill="hsl(35, 30%, 78%)"
+            stroke="hsl(35, 25%, 65%)"
+            strokeWidth="1"
+            opacity="0.5"
+          />
+        );
+      })}
+
       {lakes.map((lake) => {
         const points = lake.coordinates.map(([lng, lat]) => {
           const { x, y } = coordToSvg(lng, lat, bounds, svgHeight);
