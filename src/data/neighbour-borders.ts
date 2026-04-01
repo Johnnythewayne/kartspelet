@@ -8,6 +8,7 @@ import swedenNeighbours from "./neighbours-sweden.json";
 import norwayNeighbours from "./neighbours-norway.json";
 import ugandaNeighbours from "./neighbours-uganda.json";
 import franceNeighbours from "./neighbours-france.json";
+import englandNeighbours from "./neighbours-england.json";
 
 function validateNeighbours(data: unknown, label: string): NeighbourBorder[] {
   if (!Array.isArray(data) || data.length === 0) {
@@ -28,3 +29,4 @@ export const SWEDEN_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(swedenNei
 export const NORWAY_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(norwayNeighbours, "Norway");
 export const UGANDA_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(ugandaNeighbours, "Uganda");
 export const FRANCE_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(franceNeighbours, "France");
+export const ENGLAND_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(englandNeighbours, "England");

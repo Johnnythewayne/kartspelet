@@ -260,6 +260,58 @@ const FRANCE_BOUNDS = {
   maxLng: 8.3,
 };
 
+const ENGLAND_BOUNDS = {
+  minLat: 49.8,
+  maxLat: 59.0,
+  minLng: -7.5,
+  maxLng: 2.0,
+};
+
+const ENGLAND_EASY: City[] = [
+  { name: "London", lat: 51.5074, lng: -0.1278 },
+  { name: "Birmingham", lat: 52.4862, lng: -1.8904 },
+  { name: "Manchester", lat: 53.4808, lng: -2.2426 },
+  { name: "Glasgow", lat: 55.8642, lng: -4.2518 },
+  { name: "Liverpool", lat: 53.4084, lng: -2.9916 },
+  { name: "Edinburgh", lat: 55.9533, lng: -3.1883 },
+  { name: "Bristol", lat: 51.4545, lng: -2.5879 },
+  { name: "Leeds", lat: 53.8008, lng: -1.5491 },
+  { name: "Sheffield", lat: 53.3811, lng: -1.4701 },
+  { name: "Cardiff", lat: 51.4816, lng: -3.1791 },
+  { name: "Newcastle", lat: 54.9783, lng: -1.6178 },
+  { name: "Belfast", lat: 54.5973, lng: -5.9301 },
+];
+
+const ENGLAND_MEDIUM: City[] = [
+  { name: "Nottingham", lat: 52.9548, lng: -1.1581 },
+  { name: "Southampton", lat: 50.9097, lng: -1.4044 },
+  { name: "Aberdeen", lat: 57.1497, lng: -2.0943 },
+  { name: "Leicester", lat: 52.6369, lng: -1.1398 },
+  { name: "Brighton", lat: 50.8225, lng: -0.1372 },
+  { name: "Plymouth", lat: 50.3755, lng: -4.1427 },
+  { name: "Dundee", lat: 56.4620, lng: -2.9707 },
+  { name: "Coventry", lat: 52.4068, lng: -1.5197 },
+  { name: "Swansea", lat: 51.6214, lng: -3.9436 },
+  { name: "Stoke-on-Trent", lat: 53.0027, lng: -2.1794 },
+  { name: "York", lat: 53.9591, lng: -1.0815 },
+  { name: "Oxford", lat: 51.7520, lng: -1.2577 },
+];
+
+const ENGLAND_HARD: City[] = [
+  { name: "Cambridge", lat: 52.2053, lng: 0.1218 },
+  { name: "Bath", lat: 51.3811, lng: -2.3590 },
+  { name: "Inverness", lat: 57.4778, lng: -4.2247 },
+  { name: "Canterbury", lat: 51.2802, lng: 1.0789 },
+  { name: "Exeter", lat: 50.7184, lng: -3.5339 },
+  { name: "Norwich", lat: 52.6309, lng: 1.2974 },
+  { name: "Chester", lat: 53.1930, lng: -2.8931 },
+  { name: "Stirling", lat: 56.1166, lng: -3.9369 },
+  { name: "Perth", lat: 56.3950, lng: -3.4308 },
+  { name: "Carlisle", lat: 54.8925, lng: -2.9329 },
+  { name: "Ipswich", lat: 52.0567, lng: 1.1482 },
+  { name: "Lincoln", lat: 53.2307, lng: -0.5406 },
+];
+
 const FRANCE_EASY: City[] = [
   { name: "Paris", lat: 48.8566, lng: 2.3522 },
   { name: "Marseille", lat: 43.2965, lng: 5.3698 },
@@ -398,6 +450,14 @@ export const COUNTRIES: CountryConfig[] = [
     citiesByDifficulty: { easy: FRANCE_EASY, medium: FRANCE_MEDIUM, hard: FRANCE_HARD },
     bounds: FRANCE_BOUNDS,
     svgHeight: computeSvgHeight(FRANCE_BOUNDS),
+  },
+  {
+    id: "england",
+    name: "England",
+    flag: "🇬🇧",
+    citiesByDifficulty: { easy: ENGLAND_EASY, medium: ENGLAND_MEDIUM, hard: ENGLAND_HARD },
+    bounds: ENGLAND_BOUNDS,
+    svgHeight: computeSvgHeight(ENGLAND_BOUNDS),
   },
 ];
 

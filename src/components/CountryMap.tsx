@@ -5,10 +5,12 @@ import norwayGeoJson from "@/data/norway-border.json";
 import ugandaGeoJson from "@/data/uganda-border.json";
 import myanmarGeoJson from "@/data/myanmar-border.json";
 import franceGeoJson from "@/data/france-border.json";
+import englandGeoJson from "@/data/england-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { NORWAY_LAKES } from "@/data/norway-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
 import { FRANCE_LAKES } from "@/data/france-lakes";
+import { ENGLAND_LAKES } from "@/data/england-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
 
 import {
@@ -16,8 +18,9 @@ import {
   SWEDEN_NEIGHBOURS,
   NORWAY_NEIGHBOURS,
   UGANDA_NEIGHBOURS,
+  FRANCE_NEIGHBOURS,
+  ENGLAND_NEIGHBOURS,
 } from "@/data/neighbour-borders";
-import { FRANCE_NEIGHBOURS } from "@/data/neighbour-borders";
 import type { NeighbourBorder } from "@/data/neighbour-borders";
 import type { CountryConfig } from "@/data/countries";
 
@@ -28,6 +31,7 @@ const geoJsonMap: Record<string, unknown> = {
   uganda: ugandaGeoJson,
   myanmar: myanmarGeoJson,
   france: franceGeoJson,
+  england: englandGeoJson,
 };
 
 const neighboursMap: Record<string, NeighbourBorder[]> = {
@@ -37,6 +41,7 @@ const neighboursMap: Record<string, NeighbourBorder[]> = {
   uganda: UGANDA_NEIGHBOURS,
   myanmar: [],
   france: FRANCE_NEIGHBOURS,
+  england: ENGLAND_NEIGHBOURS,
 };
 
 function coordToSvg(
@@ -147,7 +152,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
 
     return result;
   }, [countryId, countryPolygons]);
-  const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "norway" ? NORWAY_LAKES : countryId === "uganda" ? UGANDA_LAKES : countryId === "france" ? FRANCE_LAKES : [];
+  const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "norway" ? NORWAY_LAKES : countryId === "uganda" ? UGANDA_LAKES : countryId === "france" ? FRANCE_LAKES : countryId === "england" ? ENGLAND_LAKES : [];
 
 
   const neighbourPaths = useMemo(() => {
