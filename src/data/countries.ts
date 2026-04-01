@@ -451,6 +451,14 @@ export const COUNTRIES: CountryConfig[] = [
     bounds: FRANCE_BOUNDS,
     svgHeight: computeSvgHeight(FRANCE_BOUNDS),
   },
+  {
+    id: "england",
+    name: "England",
+    flag: "🇬🇧",
+    citiesByDifficulty: { easy: ENGLAND_EASY, medium: ENGLAND_MEDIUM, hard: ENGLAND_HARD },
+    bounds: ENGLAND_BOUNDS,
+    svgHeight: computeSvgHeight(ENGLAND_BOUNDS),
+  },
 ];
 
 export function latLngToSvg(
