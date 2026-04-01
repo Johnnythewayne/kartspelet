@@ -33,7 +33,7 @@ function shuffleArray<T>(arr: T[]): T[] {
 }
 
 const Index: React.FC = () => {
-  const [phase, setPhase] = useState<GamePhase>("pick-language");
+  const [phase, setPhase] = useState<GamePhase>("start");
   const [lang, setLang] = useState<Language>("sv");
   const [country, setCountry] = useState<CountryConfig>(COUNTRIES[0]);
   const [cities, setCities] = useState(country.citiesByDifficulty.easy);
