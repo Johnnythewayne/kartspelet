@@ -14,7 +14,7 @@ export const LANGUAGES: LanguageOption[] = [
 
 const translations = {
   sv: {
-    title: "🗺️ Städer på kartan",
+    title: "🗺️ Kartspelet",
     subtitle: "Placera städer på kartan. Ju närmare du klickar, desto fler poäng!",
     chooseLanguage: "Välj språk:",
     chooseCountry: "Välj ett land:",
@@ -45,7 +45,7 @@ const translations = {
     countryUganda: "Uganda",
   },
   en: {
-    title: "🗺️ Cities on the Map",
+    title: "🗺️ The Map Game",
     subtitle: "Place cities on the map. The closer you click, the more points you get!",
     chooseLanguage: "Choose language:",
     chooseCountry: "Choose a country:",
@@ -76,7 +76,7 @@ const translations = {
     countryUganda: "Uganda",
   },
   lg: {
-    title: "🗺️ Ebibuga ku Maapu",
+    title: "🗺️ Omuzannyo gw'Emaapu",
     subtitle: "Teeka ebibuga ku maapu. Bw'oneesigama okusinga, ofuna amannya amasinga!",
     chooseLanguage: "Londa olulimi:",
     chooseCountry: "Londa ensi:",
