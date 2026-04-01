@@ -62,19 +62,6 @@ const Index: React.FC = () => {
     setPhase("playing");
   }, [country]);
 
-  const handleMapClick = useCallback(
-    (x: number, y: number) => {
-      if (phase !== "playing") return;
-      const guess = svgToLatLng(x, y, country.bounds, country.svgHeight);
-      const dist = haversineDistance(guess.lat, guess.lng, currentCity.lat, currentCity.lng);
-      const score = calculateScore(dist);
-      setGuessPos({ x, y });
-      setRoundResult({ distanceKm: dist, score });
-      setPhase("feedback");
-    },
-    [phase, currentCity, country.bounds, country.svgHeight]
-  );
-
   const nextCity = useCallback(() => {
     setResults((prev) => [
     ...prev,
@@ -89,6 +76,23 @@ const Index: React.FC = () => {
       setPhase("playing");
     }
   }, [currentCity, roundResult, currentIndex, cities.length]);
+
+  const handleMapClick = useCallback(
+    (x: number, y: number) => {
+      if (phase === "feedback") {
+        nextCity();
+        return;
+      }
+      if (phase !== "playing") return;
+      const guess = svgToLatLng(x, y, country.bounds, country.svgHeight);
+      const dist = haversineDistance(guess.lat, guess.lng, currentCity.lat, currentCity.lng);
+      const score = calculateScore(dist);
+      setGuessPos({ x, y });
+      setRoundResult({ distanceKm: dist, score });
+      setPhase("feedback");
+    },
+    [phase, currentCity, country.bounds, country.svgHeight, nextCity]
+  );
 
   if (phase === "pick-language") {
     return (
@@ -212,7 +216,7 @@ const Index: React.FC = () => {
         guessMarker={guessPos}
         correctMarker={correctPos}
         showResult={phase === "feedback"}
-        disabled={phase === "feedback"} />
+        disabled={false} />
 
       <h2 className="text-3xl font-bold text-foreground">
         📍 {currentCity.name}
@@ -234,9 +238,7 @@ const Index: React.FC = () => {
               <p className="text-2xl font-bold text-primary">{roundResult.score}</p>
             </div>
           </div>
-          <Button onClick={nextCity} size="lg" className="w-full">
-            {currentIndex + 1 >= cities.length ? t(lang, "seeResults") : t(lang, "nextCity")}
-          </Button>
+          <p className="text-sm text-muted-foreground">{t(lang, "clickInstruction").replace(/📍.*/, "📍 " + (currentIndex + 1 >= cities.length ? t(lang, "seeResults") : t(lang, "nextCity")))}</p>
         </div>
       }
     </div>);
