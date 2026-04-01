@@ -196,9 +196,14 @@ const Index: React.FC = () => {
     <div className="min-h-screen bg-background flex flex-col items-center p-4 gap-4">
       <div className="w-full max-w-lg space-y-2">
         <div className="flex justify-between items-center">
-          <Button variant="ghost" size="sm" onClick={() => setPhase("pick-difficulty")} className="text-muted-foreground hover:text-foreground">
-            {t(lang, "back")}
-          </Button>
+          <div className="flex items-center gap-1">
+            <Button variant="ghost" size="sm" onClick={() => setPhase("start")} className="text-muted-foreground hover:text-foreground" title="Home">
+              🏠
+            </Button>
+            <Button variant="ghost" size="sm" onClick={() => setPhase("pick-difficulty")} className="text-muted-foreground hover:text-foreground">
+              {t(lang, "back")}
+            </Button>
+          </div>
           <span className="text-sm text-muted-foreground flex items-center gap-1">
             <img src={FLAG_IMAGES[country.id]} alt={country.name} width={18} height={12} className="shrink-0 rounded-sm object-contain" />
             {t(lang, "city")} {currentIndex + 1} {t(lang, "of")} {cities.length}
