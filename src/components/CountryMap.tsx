@@ -18,8 +18,9 @@ import {
   SWEDEN_NEIGHBOURS,
   NORWAY_NEIGHBOURS,
   UGANDA_NEIGHBOURS,
+  FRANCE_NEIGHBOURS,
+  ENGLAND_NEIGHBOURS,
 } from "@/data/neighbour-borders";
-import { FRANCE_NEIGHBOURS } from "@/data/neighbour-borders";
 import type { NeighbourBorder } from "@/data/neighbour-borders";
 import type { CountryConfig } from "@/data/countries";
 
