@@ -10,12 +10,14 @@ export const GERMANY_RIVERS: RiverSegment[] = [];
 export const SWEDEN_RIVERS: RiverSegment[] = [];
 export const NORWAY_RIVERS: RiverSegment[] = [];
 export const UGANDA_RIVERS: RiverSegment[] = [];
+export const MYANMAR_RIVERS: RiverSegment[] = [];
 
 // Populated at module load via JSON imports
 import germanyRivers from "./rivers-germany.json";
 import swedenRivers from "./rivers-sweden.json";
 import norwayRivers from "./rivers-norway.json";
 import ugandaRivers from "./rivers-uganda.json";
+import myanmarRivers from "./rivers-myanmar.json";
 
 function validateRivers(data: unknown, label: string): RiverSegment[] {
   if (!Array.isArray(data) || data.length === 0) {
@@ -35,12 +37,14 @@ function validateRivers(data: unknown, label: string): RiverSegment[] {
 (SWEDEN_RIVERS as RiverSegment[]).push(...validateRivers(swedenRivers, "Sweden"));
 (NORWAY_RIVERS as RiverSegment[]).push(...validateRivers(norwayRivers, "Norway"));
 (UGANDA_RIVERS as RiverSegment[]).push(...validateRivers(ugandaRivers, "Uganda"));
+(MYANMAR_RIVERS as RiverSegment[]).push(...validateRivers(myanmarRivers, "Myanmar"));
 
 const RIVERS_MAP: Record<string, RiverSegment[]> = {
   germany: GERMANY_RIVERS,
   sweden: SWEDEN_RIVERS,
   norway: NORWAY_RIVERS,
   uganda: UGANDA_RIVERS,
+  myanmar: MYANMAR_RIVERS,
 };
 
 export function getRiversForCountry(countryId: string): RiverSegment[] {
