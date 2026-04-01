@@ -253,6 +253,58 @@ const MYANMAR_BOUNDS = {
   maxLng: 101.2,
 };
 
+const FRANCE_BOUNDS = {
+  minLat: 42.0,
+  maxLat: 51.2,
+  minLng: -5.2,
+  maxLng: 8.3,
+};
+
+const FRANCE_EASY: City[] = [
+  { name: "Paris", lat: 48.8566, lng: 2.3522 },
+  { name: "Marseille", lat: 43.2965, lng: 5.3698 },
+  { name: "Lyon", lat: 45.764, lng: 4.8357 },
+  { name: "Toulouse", lat: 43.6047, lng: 1.4442 },
+  { name: "Nice", lat: 43.7102, lng: 7.262 },
+  { name: "Nantes", lat: 47.2184, lng: -1.5536 },
+  { name: "Strasbourg", lat: 48.5734, lng: 7.7521 },
+  { name: "Montpellier", lat: 43.6108, lng: 3.8767 },
+  { name: "Bordeaux", lat: 44.8378, lng: -0.5792 },
+  { name: "Lille", lat: 50.6292, lng: 3.0573 },
+  { name: "Rennes", lat: 48.1173, lng: -1.6778 },
+  { name: "Reims", lat: 49.2583, lng: 3.6844 },
+];
+
+const FRANCE_MEDIUM: City[] = [
+  { name: "Saint-Étienne", lat: 45.4397, lng: 4.3872 },
+  { name: "Le Havre", lat: 49.4944, lng: 0.1079 },
+  { name: "Toulon", lat: 43.1242, lng: 5.928 },
+  { name: "Grenoble", lat: 45.1885, lng: 5.7245 },
+  { name: "Dijon", lat: 47.322, lng: 5.0415 },
+  { name: "Angers", lat: 47.4784, lng: -0.5632 },
+  { name: "Nîmes", lat: 43.8367, lng: 4.3601 },
+  { name: "Clermont-Ferrand", lat: 45.7772, lng: 3.087 },
+  { name: "Tours", lat: 47.3941, lng: 0.6848 },
+  { name: "Amiens", lat: 49.894, lng: 2.2957 },
+  { name: "Limoges", lat: 45.8336, lng: 1.2611 },
+  { name: "Metz", lat: 49.1193, lng: 6.1757 },
+];
+
+const FRANCE_HARD: City[] = [
+  { name: "Perpignan", lat: 42.6887, lng: 2.8948 },
+  { name: "Besançon", lat: 47.2378, lng: 6.0241 },
+  { name: "Orléans", lat: 47.9029, lng: 1.909 },
+  { name: "Rouen", lat: 49.4432, lng: 1.0993 },
+  { name: "Caen", lat: 49.1829, lng: -0.3707 },
+  { name: "Nancy", lat: 48.6921, lng: 6.1844 },
+  { name: "Avignon", lat: 43.9493, lng: 4.8055 },
+  { name: "Poitiers", lat: 46.5802, lng: 0.3404 },
+  { name: "La Rochelle", lat: 46.1603, lng: -1.1511 },
+  { name: "Pau", lat: 43.2951, lng: -0.3708 },
+  { name: "Ajaccio", lat: 41.9192, lng: 8.7386 },
+  { name: "Brest", lat: 48.3904, lng: -4.4861 },
+];
+
 const MYANMAR_EASY: City[] = [
   { name: "Yangon", lat: 16.8661, lng: 96.1951 },
   { name: "Mandalay", lat: 21.9588, lng: 96.0891 },
@@ -338,6 +390,14 @@ export const COUNTRIES: CountryConfig[] = [
     citiesByDifficulty: { easy: MYANMAR_EASY, medium: MYANMAR_MEDIUM, hard: MYANMAR_HARD },
     bounds: MYANMAR_BOUNDS,
     svgHeight: computeSvgHeight(MYANMAR_BOUNDS),
+  },
+  {
+    id: "france",
+    name: "Frankrike",
+    flag: "🇫🇷",
+    citiesByDifficulty: { easy: FRANCE_EASY, medium: FRANCE_MEDIUM, hard: FRANCE_HARD },
+    bounds: FRANCE_BOUNDS,
+    svgHeight: computeSvgHeight(FRANCE_BOUNDS),
   },
 ];
 
