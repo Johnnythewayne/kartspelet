@@ -13,6 +13,7 @@ import { UGANDA_LAKES } from "@/data/uganda-lakes";
 import { FRANCE_LAKES } from "@/data/france-lakes";
 import { ENGLAND_LAKES } from "@/data/england-lakes";
 import { USA_LAKES } from "@/data/usa-lakes";
+import { MYANMAR_LAKES } from "@/data/myanmar-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
 
 import {
@@ -157,7 +158,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
 
     return result;
   }, [countryId, countryPolygons]);
-  const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "norway" ? NORWAY_LAKES : countryId === "uganda" ? UGANDA_LAKES : countryId === "france" ? FRANCE_LAKES : countryId === "england" ? ENGLAND_LAKES : countryId === "usa" ? USA_LAKES : [];
+  const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "norway" ? NORWAY_LAKES : countryId === "uganda" ? UGANDA_LAKES : countryId === "france" ? FRANCE_LAKES : countryId === "england" ? ENGLAND_LAKES : countryId === "usa" ? USA_LAKES : countryId === "myanmar" ? MYANMAR_LAKES : [];
 
 
   const neighbourPaths = useMemo(() => {
