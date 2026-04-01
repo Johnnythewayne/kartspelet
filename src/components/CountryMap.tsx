@@ -139,7 +139,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
 
     return result;
   }, [countryId, countryPolygons]);
-  const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "uganda" ? UGANDA_LAKES : [];
+  const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "norway" ? NORWAY_LAKES : countryId === "uganda" ? UGANDA_LAKES : [];
 
 
   const neighbourPaths = useMemo(() => {

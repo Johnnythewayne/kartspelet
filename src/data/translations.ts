@@ -103,6 +103,7 @@ const translations = {
     diffHardDesc: "Ebibuga ebiri mu 25–36",
     countryGermany: "Budaaki",
     countrySweden: "Swideni",
+    countryNorway: "Nowe",
     countryUganda: "Uganda",
   },
 } as const;

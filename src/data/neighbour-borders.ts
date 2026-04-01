@@ -5,6 +5,7 @@ export interface NeighbourBorder {
 
 import germanyNeighbours from "./neighbours-germany.json";
 import swedenNeighbours from "./neighbours-sweden.json";
+import norwayNeighbours from "./neighbours-norway.json";
 import ugandaNeighbours from "./neighbours-uganda.json";
 
 function validateNeighbours(data: unknown, label: string): NeighbourBorder[] {
@@ -23,4 +24,5 @@ function validateNeighbours(data: unknown, label: string): NeighbourBorder[] {
 
 export const GERMANY_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(germanyNeighbours, "Germany");
 export const SWEDEN_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(swedenNeighbours, "Sweden");
+export const NORWAY_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(norwayNeighbours, "Norway");
 export const UGANDA_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(ugandaNeighbours, "Uganda");
