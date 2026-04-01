@@ -13,6 +13,7 @@ import { UGANDA_LAKES } from "@/data/uganda-lakes";
 import { FRANCE_LAKES } from "@/data/france-lakes";
 import { ENGLAND_LAKES } from "@/data/england-lakes";
 import { USA_LAKES } from "@/data/usa-lakes";
+import { MYANMAR_LAKES } from "@/data/myanmar-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
 
 import {
