@@ -239,6 +239,7 @@ const NORWAY_BOUNDS = {
   maxLng: 31.5,
 };
 
+const UGANDA_BOUNDS = {
   minLat: -1.5,
   maxLat: 4.3,
   minLng: 29.5,
