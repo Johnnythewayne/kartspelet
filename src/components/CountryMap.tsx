@@ -244,7 +244,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
             d={d}
             fill="none"
             stroke="hsl(210, 60%, 55%)"
-            strokeWidth="3"
+            strokeWidth={countryId === "usa" ? "1.5" : "3"}
             strokeLinecap="round"
             strokeLinejoin="round"
           />
