@@ -46,6 +46,7 @@ function validateRivers(data: unknown, label: string): RiverSegment[] {
 (MYANMAR_RIVERS as RiverSegment[]).push(...validateRivers(myanmarRivers, "Myanmar"));
 (FRANCE_RIVERS as RiverSegment[]).push(...validateRivers(franceRivers, "France"));
 (ENGLAND_RIVERS as RiverSegment[]).push(...validateRivers(englandRivers, "England"));
+(USA_RIVERS as RiverSegment[]).push(...validateRivers(usaRivers, "USA"));
 
 const RIVERS_MAP: Record<string, RiverSegment[]> = {
   germany: GERMANY_RIVERS,
@@ -55,6 +56,7 @@ const RIVERS_MAP: Record<string, RiverSegment[]> = {
   myanmar: MYANMAR_RIVERS,
   france: FRANCE_RIVERS,
   england: ENGLAND_RIVERS,
+  usa: USA_RIVERS,
 };
 
 export function getRiversForCountry(countryId: string): RiverSegment[] {
