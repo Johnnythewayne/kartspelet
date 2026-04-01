@@ -137,7 +137,8 @@ const Index: React.FC = () => {
 
   if (phase === "pick-difficulty") {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-background p-4">
+      <div className="relative flex min-h-screen items-center justify-center bg-background p-4">
+        {langSwitcher}
         <div className="text-center space-y-6 max-w-md">
           <h1 className="text-3xl font-extrabold text-foreground">{country.flag} {t(lang, `country${country.id.charAt(0).toUpperCase()}${country.id.slice(1)}` as any)}</h1>
           <p className="text-sm text-muted-foreground">{t(lang, "chooseDifficulty")}</p>
