@@ -238,9 +238,7 @@ const Index: React.FC = () => {
               <p className="text-2xl font-bold text-primary">{roundResult.score}</p>
             </div>
           </div>
-          <Button onClick={nextCity} size="lg" className="w-full">
-            {currentIndex + 1 >= cities.length ? t(lang, "seeResults") : t(lang, "nextCity")}
-          </Button>
+          <p className="text-sm text-muted-foreground">{t(lang, "clickInstruction").replace(/📍.*/, "📍 " + (currentIndex + 1 >= cities.length ? t(lang, "seeResults") : t(lang, "nextCity")))}</p>
         </div>
       }
     </div>);
