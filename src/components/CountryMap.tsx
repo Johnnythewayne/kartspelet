@@ -27,6 +27,7 @@ const geoJsonMap: Record<string, unknown> = {
   norway: norwayGeoJson,
   uganda: ugandaGeoJson,
   myanmar: myanmarGeoJson,
+  france: franceGeoJson,
 };
 
 const neighboursMap: Record<string, NeighbourBorder[]> = {
@@ -35,6 +36,7 @@ const neighboursMap: Record<string, NeighbourBorder[]> = {
   norway: NORWAY_NEIGHBOURS,
   uganda: UGANDA_NEIGHBOURS,
   myanmar: [],
+  france: FRANCE_NEIGHBOURS,
 };
 
 function coordToSvg(
