@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import CountryMap from "@/components/CountryMap";
 import GameResults from "@/components/GameResults";
+import CountryThumbnail from "@/components/CountryThumbnail";
 import {
   COUNTRIES,
   latLngToSvg,
@@ -117,8 +118,9 @@ const Index: React.FC = () => {
               key={c.id}
               size="lg"
               onClick={() => pickCountry(c)}
-              className="text-lg px-8"
+              className="text-lg px-8 flex items-center gap-3 justify-start"
               variant="outline">
+                <CountryThumbnail countryId={c.id} size={32} />
                 {c.flag} {t(lang, nameKey)}
               </Button>
             );
