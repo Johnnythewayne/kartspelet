@@ -267,6 +267,58 @@ const ENGLAND_BOUNDS = {
   maxLng: 2.0,
 };
 
+const USA_BOUNDS = {
+  minLat: 24.5,
+  maxLat: 49.5,
+  minLng: -125.0,
+  maxLng: -66.0,
+};
+
+const USA_EASY: City[] = [
+  { name: "New York", lat: 40.7128, lng: -74.0060 },
+  { name: "Los Angeles", lat: 34.0522, lng: -118.2437 },
+  { name: "Chicago", lat: 41.8781, lng: -87.6298 },
+  { name: "Houston", lat: 29.7604, lng: -95.3698 },
+  { name: "Phoenix", lat: 33.4484, lng: -112.0740 },
+  { name: "Philadelphia", lat: 39.9526, lng: -75.1652 },
+  { name: "San Antonio", lat: 29.4241, lng: -98.4936 },
+  { name: "San Diego", lat: 32.7157, lng: -117.1611 },
+  { name: "Dallas", lat: 32.7767, lng: -96.7970 },
+  { name: "Miami", lat: 25.7617, lng: -80.1918 },
+  { name: "Atlanta", lat: 33.7490, lng: -84.3880 },
+  { name: "Washington D.C.", lat: 38.9072, lng: -77.0369 },
+];
+
+const USA_MEDIUM: City[] = [
+  { name: "Boston", lat: 42.3601, lng: -71.0589 },
+  { name: "Seattle", lat: 47.6062, lng: -122.3321 },
+  { name: "Denver", lat: 39.7392, lng: -104.9903 },
+  { name: "Nashville", lat: 36.1627, lng: -86.7816 },
+  { name: "Detroit", lat: 42.3314, lng: -83.0458 },
+  { name: "Portland", lat: 45.5152, lng: -122.6784 },
+  { name: "Las Vegas", lat: 36.1699, lng: -115.1398 },
+  { name: "Minneapolis", lat: 44.9778, lng: -93.2650 },
+  { name: "New Orleans", lat: 29.9511, lng: -90.0715 },
+  { name: "San Francisco", lat: 37.7749, lng: -122.4194 },
+  { name: "Charlotte", lat: 35.2271, lng: -80.8431 },
+  { name: "Salt Lake City", lat: 40.7608, lng: -111.8910 },
+];
+
+const USA_HARD: City[] = [
+  { name: "Indianapolis", lat: 39.7684, lng: -86.1581 },
+  { name: "Milwaukee", lat: 43.0389, lng: -87.9065 },
+  { name: "Kansas City", lat: 39.0997, lng: -94.5786 },
+  { name: "Memphis", lat: 35.1495, lng: -90.0490 },
+  { name: "Albuquerque", lat: 35.0844, lng: -106.6504 },
+  { name: "Tucson", lat: 32.2226, lng: -110.9747 },
+  { name: "Omaha", lat: 41.2565, lng: -95.9345 },
+  { name: "Raleigh", lat: 35.7796, lng: -78.6382 },
+  { name: "Cleveland", lat: 41.4993, lng: -81.6944 },
+  { name: "Pittsburgh", lat: 40.4406, lng: -79.9959 },
+  { name: "St. Louis", lat: 38.6270, lng: -90.1994 },
+  { name: "Tampa", lat: 27.9506, lng: -82.4572 },
+];
+
 const ENGLAND_EASY: City[] = [
   { name: "London", lat: 51.5074, lng: -0.1278 },
   { name: "Birmingham", lat: 52.4862, lng: -1.8904 },
