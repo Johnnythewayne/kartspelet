@@ -220,8 +220,8 @@ const CountryMap: React.FC<CountryMapProps> = ({
             key={`${river.name}-${idx}`}
             d={d}
             fill="none"
-            stroke="hsl(210, 50%, 70%)"
-            strokeWidth="2.5"
+            stroke="hsl(210, 60%, 55%)"
+            strokeWidth="3"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
