@@ -8,11 +8,13 @@ export interface RiverSegment {
 
 export const GERMANY_RIVERS: RiverSegment[] = [];
 export const SWEDEN_RIVERS: RiverSegment[] = [];
+export const NORWAY_RIVERS: RiverSegment[] = [];
 export const UGANDA_RIVERS: RiverSegment[] = [];
 
 // Populated at module load via JSON imports
 import germanyRivers from "./rivers-germany.json";
 import swedenRivers from "./rivers-sweden.json";
+import norwayRivers from "./rivers-norway.json";
 import ugandaRivers from "./rivers-uganda.json";
 
 function validateRivers(data: unknown, label: string): RiverSegment[] {
@@ -31,11 +33,13 @@ function validateRivers(data: unknown, label: string): RiverSegment[] {
 
 (GERMANY_RIVERS as RiverSegment[]).push(...validateRivers(germanyRivers, "Germany"));
 (SWEDEN_RIVERS as RiverSegment[]).push(...validateRivers(swedenRivers, "Sweden"));
+(NORWAY_RIVERS as RiverSegment[]).push(...validateRivers(norwayRivers, "Norway"));
 (UGANDA_RIVERS as RiverSegment[]).push(...validateRivers(ugandaRivers, "Uganda"));
 
 const RIVERS_MAP: Record<string, RiverSegment[]> = {
   germany: GERMANY_RIVERS,
   sweden: SWEDEN_RIVERS,
+  norway: NORWAY_RIVERS,
   uganda: UGANDA_RIVERS,
 };
 

@@ -1,14 +1,17 @@
 import React, { useRef, useMemo } from "react";
 import germanyGeoJson from "@/data/germany-border.json";
 import swedenGeoJson from "@/data/sweden-border.json";
+import norwayGeoJson from "@/data/norway-border.json";
 import ugandaGeoJson from "@/data/uganda-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
+import { NORWAY_LAKES } from "@/data/norway-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
 
 import {
   GERMANY_NEIGHBOURS,
   SWEDEN_NEIGHBOURS,
+  NORWAY_NEIGHBOURS,
   UGANDA_NEIGHBOURS,
 } from "@/data/neighbour-borders";
 import type { NeighbourBorder } from "@/data/neighbour-borders";
@@ -17,12 +20,14 @@ import type { CountryConfig } from "@/data/countries";
 const geoJsonMap: Record<string, unknown> = {
   germany: germanyGeoJson,
   sweden: swedenGeoJson,
+  norway: norwayGeoJson,
   uganda: ugandaGeoJson,
 };
 
 const neighboursMap: Record<string, NeighbourBorder[]> = {
   germany: GERMANY_NEIGHBOURS,
   sweden: SWEDEN_NEIGHBOURS,
+  norway: NORWAY_NEIGHBOURS,
   uganda: UGANDA_NEIGHBOURS,
 };
 
@@ -134,7 +139,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
 
     return result;
   }, [countryId, countryPolygons]);
-  const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "uganda" ? UGANDA_LAKES : [];
+  const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "norway" ? NORWAY_LAKES : countryId === "uganda" ? UGANDA_LAKES : [];
 
 
   const neighbourPaths = useMemo(() => {

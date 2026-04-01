@@ -165,6 +165,51 @@ const SWEDEN_HARD: City[] = [
   { name: "Ängelholm", lat: 56.2428, lng: 12.8622 },
 ];
 
+const NORWAY_EASY: City[] = [
+  { name: "Oslo", lat: 59.9139, lng: 10.7522 },
+  { name: "Bergen", lat: 60.3913, lng: 5.3221 },
+  { name: "Trondheim", lat: 63.4305, lng: 10.3951 },
+  { name: "Stavanger", lat: 58.9700, lng: 5.7331 },
+  { name: "Drammen", lat: 59.7441, lng: 10.2045 },
+  { name: "Fredrikstad", lat: 59.2181, lng: 10.9298 },
+  { name: "Kristiansand", lat: 58.1599, lng: 8.0182 },
+  { name: "Tromsø", lat: 69.6496, lng: 18.9560 },
+  { name: "Sandnes", lat: 58.8520, lng: 5.7352 },
+  { name: "Sarpsborg", lat: 59.2839, lng: 11.1096 },
+  { name: "Bodø", lat: 67.2804, lng: 14.4049 },
+  { name: "Ålesund", lat: 62.4722, lng: 6.1549 },
+];
+
+const NORWAY_MEDIUM: City[] = [
+  { name: "Tønsberg", lat: 59.2674, lng: 10.4076 },
+  { name: "Haugesund", lat: 59.4138, lng: 5.2680 },
+  { name: "Moss", lat: 59.4340, lng: 10.6577 },
+  { name: "Sandefjord", lat: 59.1314, lng: 10.2166 },
+  { name: "Arendal", lat: 58.4615, lng: 8.7726 },
+  { name: "Porsgrunn", lat: 59.1405, lng: 9.6560 },
+  { name: "Hamar", lat: 60.7945, lng: 11.0680 },
+  { name: "Larvik", lat: 59.0530, lng: 10.0345 },
+  { name: "Halden", lat: 59.1226, lng: 11.3876 },
+  { name: "Lillehammer", lat: 61.1153, lng: 10.4662 },
+  { name: "Molde", lat: 62.7373, lng: 7.1590 },
+  { name: "Harstad", lat: 68.7984, lng: 16.5415 },
+];
+
+const NORWAY_HARD: City[] = [
+  { name: "Hammerfest", lat: 70.6634, lng: 23.6821 },
+  { name: "Narvik", lat: 68.4385, lng: 17.4272 },
+  { name: "Gjøvik", lat: 60.7957, lng: 10.6915 },
+  { name: "Steinkjer", lat: 64.0149, lng: 11.4953 },
+  { name: "Elverum", lat: 60.8818, lng: 11.5610 },
+  { name: "Kongsberg", lat: 59.6630, lng: 9.6465 },
+  { name: "Mandal", lat: 58.0294, lng: 7.4610 },
+  { name: "Grimstad", lat: 58.3405, lng: 8.5934 },
+  { name: "Vardø", lat: 70.3716, lng: 31.1089 },
+  { name: "Alta", lat: 69.9689, lng: 23.2716 },
+  { name: "Mo i Rana", lat: 66.3167, lng: 14.1631 },
+  { name: "Kirkenes", lat: 69.7271, lng: 30.0458 },
+];
+
 function computeSvgHeight(bounds: CountryConfig["bounds"]): number {
   const avgLat = (bounds.minLat + bounds.maxLat) / 2;
   const cosLat = Math.cos((avgLat * Math.PI) / 180);
@@ -194,6 +239,13 @@ const UGANDA_BOUNDS = {
   maxLng: 35.1,
 };
 
+const NORWAY_BOUNDS = {
+  minLat: 57.8,
+  maxLat: 71.5,
+  minLng: 3.0,
+  maxLng: 31.5,
+};
+
 export const COUNTRIES: CountryConfig[] = [
   {
     id: "germany",
@@ -210,6 +262,14 @@ export const COUNTRIES: CountryConfig[] = [
     citiesByDifficulty: { easy: SWEDEN_EASY, medium: SWEDEN_MEDIUM, hard: SWEDEN_HARD },
     bounds: SWEDEN_BOUNDS,
     svgHeight: computeSvgHeight(SWEDEN_BOUNDS),
+  },
+  {
+    id: "norway",
+    name: "Norge",
+    flag: "🇳🇴",
+    citiesByDifficulty: { easy: NORWAY_EASY, medium: NORWAY_MEDIUM, hard: NORWAY_HARD },
+    bounds: NORWAY_BOUNDS,
+    svgHeight: computeSvgHeight(NORWAY_BOUNDS),
   },
   {
     id: "uganda",

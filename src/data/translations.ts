@@ -41,6 +41,7 @@ const translations = {
     diffHardDesc: "Städer rankade 25–36",
     countryGermany: "Tyskland",
     countrySweden: "Sverige",
+    countryNorway: "Norge",
     countryUganda: "Uganda",
   },
   en: {
@@ -71,6 +72,7 @@ const translations = {
     diffHardDesc: "Cities ranked 25–36",
     countryGermany: "Germany",
     countrySweden: "Sweden",
+    countryNorway: "Norway",
     countryUganda: "Uganda",
   },
   lg: {
@@ -101,6 +103,7 @@ const translations = {
     diffHardDesc: "Ebibuga ebiri mu 25–36",
     countryGermany: "Budaaki",
     countrySweden: "Swideni",
+    countryNorway: "Nowe",
     countryUganda: "Uganda",
   },
 } as const;
