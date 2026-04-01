@@ -391,6 +391,14 @@ export const COUNTRIES: CountryConfig[] = [
     bounds: MYANMAR_BOUNDS,
     svgHeight: computeSvgHeight(MYANMAR_BOUNDS),
   },
+  {
+    id: "france",
+    name: "Frankrike",
+    flag: "🇫🇷",
+    citiesByDifficulty: { easy: FRANCE_EASY, medium: FRANCE_MEDIUM, hard: FRANCE_HARD },
+    bounds: FRANCE_BOUNDS,
+    svgHeight: computeSvgHeight(FRANCE_BOUNDS),
+  },
 ];
 
 export function latLngToSvg(
