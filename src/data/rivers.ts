@@ -12,6 +12,7 @@ export const NORWAY_RIVERS: RiverSegment[] = [];
 export const UGANDA_RIVERS: RiverSegment[] = [];
 export const MYANMAR_RIVERS: RiverSegment[] = [];
 export const FRANCE_RIVERS: RiverSegment[] = [];
+export const ENGLAND_RIVERS: RiverSegment[] = [];
 
 // Populated at module load via JSON imports
 import germanyRivers from "./rivers-germany.json";
