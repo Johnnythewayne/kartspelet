@@ -78,6 +78,7 @@ const translations = {
     countryNorway: "Norway",
     countryUganda: "Uganda",
     countryMyanmar: "Myanmar",
+    countryFrance: "France",
   },
   no: {
     title: "🗺️ Kartspillet",
