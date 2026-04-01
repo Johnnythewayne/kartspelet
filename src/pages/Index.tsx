@@ -214,6 +214,7 @@ const Index: React.FC = () => {
             </span>
             <LanguageSwitcher lang={lang} onLangChange={setLang} />
           </div>
+        </div>
         <Progress value={currentIndex / cities.length * 100} className="h-2" />
       </div>
 
