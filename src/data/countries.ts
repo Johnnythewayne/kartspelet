@@ -333,7 +333,7 @@ export const COUNTRIES: CountryConfig[] = [
   },
   {
     id: "myanmar",
-    name: "Burma",
+    name: "Myanmar",
     flag: "🇲🇲",
     citiesByDifficulty: { easy: MYANMAR_EASY, medium: MYANMAR_MEDIUM, hard: MYANMAR_HARD },
     bounds: MYANMAR_BOUNDS,
