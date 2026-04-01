@@ -95,33 +95,16 @@ const Index: React.FC = () => {
     [phase, currentCity, country.bounds, country.svgHeight, nextCity]
   );
 
-  if (phase === "pick-language") {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-background p-4">
-        <div className="text-center space-y-6 max-w-md">
-          <h1 className="text-4xl font-extrabold text-foreground">🗺️</h1>
-          
-          <div className="flex flex-col gap-3">
-            {LANGUAGES.map((l) =>
-            <Button
-              key={l.id}
-              size="lg"
-              onClick={() => {setLang(l.id);setPhase("start");}}
-              variant="outline"
-              className="text-lg">
-
-                {l.flag} {l.label}
-              </Button>
-            )}
-          </div>
-        </div>
-      </div>);
-
-  }
+  const langSwitcher = (
+    <div className="absolute top-4 right-4">
+      <LanguageSwitcher lang={lang} onLangChange={setLang} />
+    </div>
+  );
 
   if (phase === "start") {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-background p-4">
+      <div className="relative flex min-h-screen items-center justify-center bg-background p-4">
+        {langSwitcher}
         <div className="text-center space-y-6 max-w-md">
           <h1 className="text-4xl font-extrabold text-foreground">{t(lang, "title")}</h1>
           <p className="text-lg text-muted-foreground">{t(lang, "subtitle")}</p>
@@ -141,9 +124,6 @@ const Index: React.FC = () => {
             );
             })}
           </div>
-          <Button variant="ghost" onClick={() => setPhase("pick-language")} className="text-muted-foreground">
-            {t(lang, "back")}
-          </Button>
         </div>
       </div>);
 
