@@ -23,6 +23,7 @@ const geoJsonMap: Record<string, unknown> = {
   sweden: swedenGeoJson,
   norway: norwayGeoJson,
   uganda: ugandaGeoJson,
+  myanmar: myanmarGeoJson,
 };
 
 const neighboursMap: Record<string, NeighbourBorder[]> = {
