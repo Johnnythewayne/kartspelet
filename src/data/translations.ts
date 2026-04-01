@@ -9,6 +9,7 @@ export interface LanguageOption {
 export const LANGUAGES: LanguageOption[] = [
   { id: "sv", label: "Svenska", flag: "🇸🇪" },
   { id: "en", label: "English", flag: "🇬🇧" },
+  { id: "no", label: "Norsk", flag: "🇳🇴" },
   { id: "lg", label: "Luganda", flag: "🇺🇬" },
 ];
 
