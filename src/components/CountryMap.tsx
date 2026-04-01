@@ -5,6 +5,7 @@ import ugandaGeoJson from "@/data/uganda-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
+import { getMountainsForCountry } from "@/data/mountains";
 import {
   GERMANY_NEIGHBOURS,
   SWEDEN_NEIGHBOURS,
