@@ -62,6 +62,21 @@ const Index: React.FC = () => {
     setPhase("playing");
   }, [country]);
 
+  const nextCity = useCallback(() => {
+    setResults((prev) => [
+    ...prev,
+    { cityName: currentCity.name, distanceKm: roundResult!.distanceKm, score: roundResult!.score }]
+    );
+    if (currentIndex + 1 >= cities.length) {
+      setPhase("results");
+    } else {
+      setCurrentIndex((i) => i + 1);
+      setGuessPos(null);
+      setRoundResult(null);
+      setPhase("playing");
+    }
+  }, [currentCity, roundResult, currentIndex, cities.length]);
+
   const handleMapClick = useCallback(
     (x: number, y: number) => {
       if (phase === "feedback") {
@@ -78,21 +93,6 @@ const Index: React.FC = () => {
     },
     [phase, currentCity, country.bounds, country.svgHeight, nextCity]
   );
-
-  const nextCity = useCallback(() => {
-    setResults((prev) => [
-    ...prev,
-    { cityName: currentCity.name, distanceKm: roundResult!.distanceKm, score: roundResult!.score }]
-    );
-    if (currentIndex + 1 >= cities.length) {
-      setPhase("results");
-    } else {
-      setCurrentIndex((i) => i + 1);
-      setGuessPos(null);
-      setRoundResult(null);
-      setPhase("playing");
-    }
-  }, [currentCity, roundResult, currentIndex, cities.length]);
 
   if (phase === "pick-language") {
     return (
