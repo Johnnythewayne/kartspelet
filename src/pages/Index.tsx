@@ -132,7 +132,8 @@ const Index: React.FC = () => {
               className="text-lg px-8 flex items-center gap-3 justify-start"
               variant="outline">
                 <CountryThumbnail countryId={c.id} size={32} />
-                {c.flag} {t(lang, nameKey)}
+                <img src={FLAG_IMAGES[c.id]} alt={c.name} width={24} height={16} className="shrink-0 rounded-sm object-contain" />
+                {t(lang, nameKey)}
               </Button>
             );
             })}
