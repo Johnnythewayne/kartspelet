@@ -15,6 +15,17 @@ import type { CountryConfig } from "@/data/countries";
 import { t } from "@/data/translations";
 import type { Language } from "@/data/translations";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import flagGermany from "@/assets/flag-germany.png";
+import flagSweden from "@/assets/flag-sweden.png";
+import flagNorway from "@/assets/flag-norway.png";
+import flagUganda from "@/assets/flag-uganda.png";
+
+const FLAG_IMAGES: Record<string, string> = {
+  germany: flagGermany,
+  sweden: flagSweden,
+  norway: flagNorway,
+  uganda: flagUganda,
+};
 
 interface RoundResult {
   cityName: string;
