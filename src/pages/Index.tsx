@@ -181,15 +181,10 @@ const Index: React.FC = () => {
     return (
       <div className="min-h-screen bg-background py-8">
         <GameResults
-          results={[
-          ...results,
-          { cityName: currentCity.name, distanceKm: roundResult!.distanceKm, score: roundResult!.score }]
-          }
+          results={results}
           onPlayAgain={() => startGame(currentDifficulty)}
           lang={lang} />
-
       </div>);
-
   }
 
   return (
