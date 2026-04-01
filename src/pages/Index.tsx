@@ -216,7 +216,7 @@ const Index: React.FC = () => {
         guessMarker={guessPos}
         correctMarker={correctPos}
         showResult={phase === "feedback"}
-        disabled={phase === "feedback"} />
+        disabled={false} />
 
       <h2 className="text-3xl font-bold text-foreground">
         📍 {currentCity.name}
