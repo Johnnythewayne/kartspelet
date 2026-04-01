@@ -4,11 +4,26 @@ import swedenBorder from "@/data/sweden-border.json";
 import norwayBorder from "@/data/norway-border.json";
 import ugandaBorder from "@/data/uganda-border.json";
 
+function extractRings(geojson: any): number[][][] {
+  const rings: number[][][] = [];
+  for (const feature of geojson.features ?? []) {
+    const geom = feature.geometry;
+    if (geom.type === "Polygon") {
+      rings.push(...geom.coordinates);
+    } else if (geom.type === "MultiPolygon") {
+      for (const poly of geom.coordinates) {
+        rings.push(...poly);
+      }
+    }
+  }
+  return rings;
+}
+
 const BORDERS: Record<string, number[][][]> = {
-  germany: germanyBorder as number[][][],
-  sweden: swedenBorder as number[][][],
-  norway: norwayBorder as number[][][],
-  uganda: ugandaBorder as number[][][],
+  germany: extractRings(germanyBorder),
+  sweden: extractRings(swedenBorder),
+  norway: extractRings(norwayBorder),
+  uganda: extractRings(ugandaBorder),
 };
 
 interface Props {
@@ -19,9 +34,8 @@ interface Props {
 const CountryThumbnail: React.FC<Props> = ({ countryId, size = 40 }) => {
   const path = useMemo(() => {
     const rings = BORDERS[countryId];
-    if (!rings) return "";
+    if (!rings || rings.length === 0) return "";
 
-    // Find bounds
     let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
     for (const ring of rings) {
       for (const [lng, lat] of ring) {
@@ -41,10 +55,11 @@ const CountryThumbnail: React.FC<Props> = ({ countryId, size = 40 }) => {
     const offY = padding + (drawSize - h * scale) / 2;
 
     return rings
+      .filter((ring) => ring.length > 10) // skip tiny islands
       .map((ring) => {
         const pts = ring.map(([lng, lat]) => {
           const x = offX + (lng - minX) * scale;
-          const y = offY + (maxY - lat) * scale; // flip Y
+          const y = offY + (maxY - lat) * scale;
           return `${x.toFixed(1)},${y.toFixed(1)}`;
         });
         return `M${pts.join("L")}Z`;
