@@ -14,7 +14,7 @@ export const LANGUAGES: LanguageOption[] = [
 
 const translations = {
   sv: {
-    title: "🗺️ Städer på kartan",
+    title: "🗺️ Kartspelet",
     subtitle: "Placera städer på kartan. Ju närmare du klickar, desto fler poäng!",
     chooseLanguage: "Välj språk:",
     chooseCountry: "Välj ett land:",
