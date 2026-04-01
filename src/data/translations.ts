@@ -111,6 +111,7 @@ const translations = {
     countryNorway: "Norge",
     countryUganda: "Uganda",
     countryMyanmar: "Myanmar",
+    countryFrance: "Frankrike",
   },
   lg: {
     title: "🗺️ Omuzannyo gw'Emaapu",
