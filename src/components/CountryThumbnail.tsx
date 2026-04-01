@@ -3,6 +3,7 @@ import germanyBorder from "@/data/germany-border.json";
 import swedenBorder from "@/data/sweden-border.json";
 import norwayBorder from "@/data/norway-border.json";
 import ugandaBorder from "@/data/uganda-border.json";
+import myanmarBorder from "@/data/myanmar-border.json";
 
 function extractRings(geojson: any): number[][][] {
   const rings: number[][][] = [];
@@ -24,6 +25,7 @@ const BORDERS: Record<string, number[][][]> = {
   sweden: extractRings(swedenBorder),
   norway: extractRings(norwayBorder),
   uganda: extractRings(ugandaBorder),
+  myanmar: extractRings(myanmarBorder),
 };
 
 interface Props {
