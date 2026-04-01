@@ -76,7 +76,7 @@ const translations = {
     countryUganda: "Uganda",
   },
   lg: {
-    title: "🗺️ Ebibuga ku Maapu",
+    title: "🗺️ Omuzannyo gw'Emaapu",
     subtitle: "Teeka ebibuga ku maapu. Bw'oneesigama okusinga, ofuna amannya amasinga!",
     chooseLanguage: "Londa olulimi:",
     chooseCountry: "Londa ensi:",
