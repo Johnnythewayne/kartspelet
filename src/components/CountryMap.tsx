@@ -6,11 +6,13 @@ import ugandaGeoJson from "@/data/uganda-border.json";
 import myanmarGeoJson from "@/data/myanmar-border.json";
 import franceGeoJson from "@/data/france-border.json";
 import englandGeoJson from "@/data/england-border.json";
+import usaGeoJson from "@/data/usa-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { NORWAY_LAKES } from "@/data/norway-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
 import { FRANCE_LAKES } from "@/data/france-lakes";
 import { ENGLAND_LAKES } from "@/data/england-lakes";
+import { USA_LAKES } from "@/data/usa-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
 
 import {
@@ -20,6 +22,7 @@ import {
   UGANDA_NEIGHBOURS,
   FRANCE_NEIGHBOURS,
   ENGLAND_NEIGHBOURS,
+  USA_NEIGHBOURS,
 } from "@/data/neighbour-borders";
 import type { NeighbourBorder } from "@/data/neighbour-borders";
 import type { CountryConfig } from "@/data/countries";
@@ -32,6 +35,7 @@ const geoJsonMap: Record<string, unknown> = {
   myanmar: myanmarGeoJson,
   france: franceGeoJson,
   england: englandGeoJson,
+  usa: usaGeoJson,
 };
 
 const neighboursMap: Record<string, NeighbourBorder[]> = {
@@ -42,6 +46,7 @@ const neighboursMap: Record<string, NeighbourBorder[]> = {
   myanmar: [],
   france: FRANCE_NEIGHBOURS,
   england: ENGLAND_NEIGHBOURS,
+  usa: USA_NEIGHBOURS,
 };
 
 function coordToSvg(
@@ -152,7 +157,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
 
     return result;
   }, [countryId, countryPolygons]);
-  const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "norway" ? NORWAY_LAKES : countryId === "uganda" ? UGANDA_LAKES : countryId === "france" ? FRANCE_LAKES : countryId === "england" ? ENGLAND_LAKES : [];
+  const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "norway" ? NORWAY_LAKES : countryId === "uganda" ? UGANDA_LAKES : countryId === "france" ? FRANCE_LAKES : countryId === "england" ? ENGLAND_LAKES : countryId === "usa" ? USA_LAKES : [];
 
 
   const neighbourPaths = useMemo(() => {

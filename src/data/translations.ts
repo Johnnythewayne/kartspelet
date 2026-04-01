@@ -47,6 +47,7 @@ const translations = {
     countryMyanmar: "Myanmar",
     countryFrance: "Frankrike",
     countryEngland: "England",
+    countryUsa: "USA",
   },
   en: {
     title: "🗺️ The Map Game",
@@ -81,6 +82,7 @@ const translations = {
     countryMyanmar: "Myanmar",
     countryFrance: "France",
     countryEngland: "England",
+    countryUsa: "USA",
   },
   no: {
     title: "🗺️ Kartspillet",
@@ -115,6 +117,7 @@ const translations = {
     countryMyanmar: "Myanmar",
     countryFrance: "Frankrike",
     countryEngland: "England",
+    countryUsa: "USA",
   },
   lg: {
     title: "🗺️ Omuzannyo gw'Emaapu",
@@ -149,6 +152,7 @@ const translations = {
     countryMyanmar: "Myanmar",
     countryFrance: "Bufalansa",
     countryEngland: "Bungereza",
+    countryUsa: "Amerika",
   },
 } as const;
 
