@@ -27,3 +27,4 @@ export const GERMANY_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(germanyN
 export const SWEDEN_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(swedenNeighbours, "Sweden");
 export const NORWAY_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(norwayNeighbours, "Norway");
 export const UGANDA_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(ugandaNeighbours, "Uganda");
+export const FRANCE_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(franceNeighbours, "France");
