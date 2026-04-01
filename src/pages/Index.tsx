@@ -19,12 +19,14 @@ import flagGermany from "@/assets/flag-germany.png";
 import flagSweden from "@/assets/flag-sweden.png";
 import flagNorway from "@/assets/flag-norway.png";
 import flagUganda from "@/assets/flag-uganda.png";
+import flagMyanmar from "@/assets/flag-myanmar.png";
 
 const FLAG_IMAGES: Record<string, string> = {
   germany: flagGermany,
   sweden: flagSweden,
   norway: flagNorway,
   uganda: flagUganda,
+  myanmar: flagMyanmar,
 };
 
 interface RoundResult {

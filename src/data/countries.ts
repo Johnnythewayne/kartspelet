@@ -232,6 +232,13 @@ const SWEDEN_BOUNDS = {
   maxLng: 24.2,
 };
 
+const NORWAY_BOUNDS = {
+  minLat: 57.8,
+  maxLat: 71.5,
+  minLng: 3.0,
+  maxLng: 31.5,
+};
+
 const UGANDA_BOUNDS = {
   minLat: -1.5,
   maxLat: 4.3,
@@ -239,12 +246,57 @@ const UGANDA_BOUNDS = {
   maxLng: 35.1,
 };
 
-const NORWAY_BOUNDS = {
-  minLat: 57.8,
-  maxLat: 71.5,
-  minLng: 3.0,
-  maxLng: 31.5,
+const MYANMAR_BOUNDS = {
+  minLat: 9.5,
+  maxLat: 28.5,
+  minLng: 92.0,
+  maxLng: 101.2,
 };
+
+const MYANMAR_EASY: City[] = [
+  { name: "Yangon", lat: 16.8661, lng: 96.1951 },
+  { name: "Mandalay", lat: 21.9588, lng: 96.0891 },
+  { name: "Naypyidaw", lat: 19.7633, lng: 96.0785 },
+  { name: "Mawlamyine", lat: 16.4905, lng: 97.6256 },
+  { name: "Bago", lat: 17.3366, lng: 96.4814 },
+  { name: "Pathein", lat: 16.7794, lng: 94.7362 },
+  { name: "Monywa", lat: 21.9099, lng: 95.1336 },
+  { name: "Meiktila", lat: 20.8784, lng: 95.8585 },
+  { name: "Sittwe", lat: 20.1463, lng: 92.8984 },
+  { name: "Myitkyina", lat: 25.3867, lng: 97.3958 },
+  { name: "Taunggyi", lat: 20.7893, lng: 97.0378 },
+  { name: "Lashio", lat: 22.9362, lng: 97.7497 },
+];
+
+const MYANMAR_MEDIUM: City[] = [
+  { name: "Pyay", lat: 18.8240, lng: 95.2220 },
+  { name: "Magway", lat: 20.1544, lng: 94.9247 },
+  { name: "Dawei", lat: 14.0833, lng: 98.2000 },
+  { name: "Myingyan", lat: 21.4600, lng: 95.3885 },
+  { name: "Pakokku", lat: 21.3337, lng: 95.1000 },
+  { name: "Hpa-An", lat: 16.8910, lng: 97.6344 },
+  { name: "Sagaing", lat: 21.8787, lng: 95.9785 },
+  { name: "Thaton", lat: 16.9186, lng: 97.3711 },
+  { name: "Taungoo", lat: 18.9418, lng: 96.4347 },
+  { name: "Pyinmana", lat: 19.7381, lng: 96.2147 },
+  { name: "Mogok", lat: 22.9217, lng: 96.5086 },
+  { name: "Bhamo", lat: 24.2519, lng: 97.2333 },
+];
+
+const MYANMAR_HARD: City[] = [
+  { name: "Kalay", lat: 23.1942, lng: 94.0667 },
+  { name: "Kengtung", lat: 21.2914, lng: 99.6050 },
+  { name: "Loikaw", lat: 19.6741, lng: 97.2097 },
+  { name: "Hakha", lat: 21.9787, lng: 93.6133 },
+  { name: "Mudon", lat: 16.2600, lng: 97.7250 },
+  { name: "Kyaukphyu", lat: 19.4264, lng: 93.5494 },
+  { name: "Shwebo", lat: 22.5700, lng: 95.6967 },
+  { name: "Muse", lat: 23.9883, lng: 97.8533 },
+  { name: "Tachileik", lat: 20.4478, lng: 99.8833 },
+  { name: "Putao", lat: 27.3200, lng: 97.3900 },
+  { name: "Mergui", lat: 12.4381, lng: 98.5986 },
+  { name: "Haka", lat: 22.6400, lng: 93.6167 },
+];
 
 export const COUNTRIES: CountryConfig[] = [
   {
@@ -278,6 +330,14 @@ export const COUNTRIES: CountryConfig[] = [
     citiesByDifficulty: { easy: UGANDA_EASY, medium: UGANDA_MEDIUM, hard: UGANDA_HARD },
     bounds: UGANDA_BOUNDS,
     svgHeight: computeSvgHeight(UGANDA_BOUNDS),
+  },
+  {
+    id: "myanmar",
+    name: "Burma",
+    flag: "🇲🇲",
+    citiesByDifficulty: { easy: MYANMAR_EASY, medium: MYANMAR_MEDIUM, hard: MYANMAR_HARD },
+    bounds: MYANMAR_BOUNDS,
+    svgHeight: computeSvgHeight(MYANMAR_BOUNDS),
   },
 ];
 

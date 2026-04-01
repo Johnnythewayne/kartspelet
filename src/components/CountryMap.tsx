@@ -3,6 +3,7 @@ import germanyGeoJson from "@/data/germany-border.json";
 import swedenGeoJson from "@/data/sweden-border.json";
 import norwayGeoJson from "@/data/norway-border.json";
 import ugandaGeoJson from "@/data/uganda-border.json";
+import myanmarGeoJson from "@/data/myanmar-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { NORWAY_LAKES } from "@/data/norway-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
@@ -22,6 +23,7 @@ const geoJsonMap: Record<string, unknown> = {
   sweden: swedenGeoJson,
   norway: norwayGeoJson,
   uganda: ugandaGeoJson,
+  myanmar: myanmarGeoJson,
 };
 
 const neighboursMap: Record<string, NeighbourBorder[]> = {
@@ -29,6 +31,7 @@ const neighboursMap: Record<string, NeighbourBorder[]> = {
   sweden: SWEDEN_NEIGHBOURS,
   norway: NORWAY_NEIGHBOURS,
   uganda: UGANDA_NEIGHBOURS,
+  myanmar: [],
 };
 
 function coordToSvg(

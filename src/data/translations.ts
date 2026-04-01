@@ -43,6 +43,7 @@ const translations = {
     countrySweden: "Sverige",
     countryNorway: "Norge",
     countryUganda: "Uganda",
+    countryMyanmar: "Burma",
   },
   en: {
     title: "🗺️ The Map Game",
@@ -74,6 +75,7 @@ const translations = {
     countrySweden: "Sweden",
     countryNorway: "Norway",
     countryUganda: "Uganda",
+    countryMyanmar: "Burma",
   },
   lg: {
     title: "🗺️ Omuzannyo gw'Emaapu",
@@ -105,6 +107,7 @@ const translations = {
     countrySweden: "Swideni",
     countryNorway: "Nowe",
     countryUganda: "Uganda",
+    countryMyanmar: "Burma",
   },
 } as const;
 
