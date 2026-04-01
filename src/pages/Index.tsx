@@ -154,7 +154,10 @@ const Index: React.FC = () => {
       <div className="relative flex min-h-screen items-center justify-center bg-background p-4">
         {langSwitcher}
         <div className="text-center space-y-6 max-w-md">
-          <h1 className="text-3xl font-extrabold text-foreground">{country.flag} {t(lang, `country${country.id.charAt(0).toUpperCase()}${country.id.slice(1)}` as any)}</h1>
+          <h1 className="text-3xl font-extrabold text-foreground flex items-center justify-center gap-2">
+            <img src={FLAG_IMAGES[country.id]} alt={country.name} width={32} height={22} className="shrink-0 rounded-sm object-contain" />
+            {t(lang, `country${country.id.charAt(0).toUpperCase()}${country.id.slice(1)}` as any)}
+          </h1>
           <p className="text-sm text-muted-foreground">{t(lang, "chooseDifficulty")}</p>
           <div className="flex flex-col gap-3">
             {difficulties.map((d) =>
@@ -194,8 +197,9 @@ const Index: React.FC = () => {
           <Button variant="ghost" size="sm" onClick={() => setPhase("pick-difficulty")} className="text-muted-foreground hover:text-foreground">
             {t(lang, "back")}
           </Button>
-          <span className="text-sm text-muted-foreground">
-            {country.flag} {t(lang, "city")} {currentIndex + 1} {t(lang, "of")} {cities.length}
+          <span className="text-sm text-muted-foreground flex items-center gap-1">
+            <img src={FLAG_IMAGES[country.id]} alt={country.name} width={18} height={12} className="shrink-0 rounded-sm object-contain" />
+            {t(lang, "city")} {currentIndex + 1} {t(lang, "of")} {cities.length}
           </span>
           <span className="text-sm font-medium text-foreground">
             {t(lang, "score")}: {results.reduce((s, r) => s + r.score, 0)}
