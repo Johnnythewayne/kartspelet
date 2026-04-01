@@ -22,6 +22,7 @@ import {
   UGANDA_NEIGHBOURS,
   FRANCE_NEIGHBOURS,
   ENGLAND_NEIGHBOURS,
+  USA_NEIGHBOURS,
 } from "@/data/neighbour-borders";
 import type { NeighbourBorder } from "@/data/neighbour-borders";
 import type { CountryConfig } from "@/data/countries";
