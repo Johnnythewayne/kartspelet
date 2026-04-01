@@ -239,6 +239,13 @@ const UGANDA_BOUNDS = {
   maxLng: 35.1,
 };
 
+const NORWAY_BOUNDS = {
+  minLat: 57.8,
+  maxLat: 71.5,
+  minLng: 3.0,
+  maxLng: 31.5,
+};
+
 export const COUNTRIES: CountryConfig[] = [
   {
     id: "germany",
@@ -255,6 +262,14 @@ export const COUNTRIES: CountryConfig[] = [
     citiesByDifficulty: { easy: SWEDEN_EASY, medium: SWEDEN_MEDIUM, hard: SWEDEN_HARD },
     bounds: SWEDEN_BOUNDS,
     svgHeight: computeSvgHeight(SWEDEN_BOUNDS),
+  },
+  {
+    id: "norway",
+    name: "Norge",
+    flag: "🇳🇴",
+    citiesByDifficulty: { easy: NORWAY_EASY, medium: NORWAY_MEDIUM, hard: NORWAY_HARD },
+    bounds: NORWAY_BOUNDS,
+    svgHeight: computeSvgHeight(NORWAY_BOUNDS),
   },
   {
     id: "uganda",
