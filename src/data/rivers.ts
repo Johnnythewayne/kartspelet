@@ -11,6 +11,7 @@ export const SWEDEN_RIVERS: RiverSegment[] = [];
 export const NORWAY_RIVERS: RiverSegment[] = [];
 export const UGANDA_RIVERS: RiverSegment[] = [];
 export const MYANMAR_RIVERS: RiverSegment[] = [];
+export const FRANCE_RIVERS: RiverSegment[] = [];
 
 // Populated at module load via JSON imports
 import germanyRivers from "./rivers-germany.json";
@@ -18,6 +19,7 @@ import swedenRivers from "./rivers-sweden.json";
 import norwayRivers from "./rivers-norway.json";
 import ugandaRivers from "./rivers-uganda.json";
 import myanmarRivers from "./rivers-myanmar.json";
+import franceRivers from "./rivers-france.json";
 
 function validateRivers(data: unknown, label: string): RiverSegment[] {
   if (!Array.isArray(data) || data.length === 0) {
