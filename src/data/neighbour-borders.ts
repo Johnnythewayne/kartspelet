@@ -7,6 +7,7 @@ import germanyNeighbours from "./neighbours-germany.json";
 import swedenNeighbours from "./neighbours-sweden.json";
 import norwayNeighbours from "./neighbours-norway.json";
 import ugandaNeighbours from "./neighbours-uganda.json";
+import franceNeighbours from "./neighbours-france.json";
 
 function validateNeighbours(data: unknown, label: string): NeighbourBorder[] {
   if (!Array.isArray(data) || data.length === 0) {
