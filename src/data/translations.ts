@@ -72,6 +72,7 @@ const translations = {
     diffHardDesc: "Cities ranked 25–36",
     countryGermany: "Germany",
     countrySweden: "Sweden",
+    countryNorway: "Norway",
     countryUganda: "Uganda",
   },
   lg: {
