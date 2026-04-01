@@ -1,4 +1,4 @@
-export type Language = "sv" | "en" | "lg";
+export type Language = "sv" | "en" | "no" | "lg";
 
 export interface LanguageOption {
   id: Language;
