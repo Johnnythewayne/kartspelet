@@ -21,7 +21,7 @@ interface RoundResult {
   score: number;
 }
 
-type GamePhase = "pick-language" | "start" | "pick-difficulty" | "playing" | "feedback" | "results";
+type GamePhase = "start" | "pick-difficulty" | "playing" | "feedback" | "results";
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
