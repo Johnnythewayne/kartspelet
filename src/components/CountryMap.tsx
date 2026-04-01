@@ -4,9 +4,11 @@ import swedenGeoJson from "@/data/sweden-border.json";
 import norwayGeoJson from "@/data/norway-border.json";
 import ugandaGeoJson from "@/data/uganda-border.json";
 import myanmarGeoJson from "@/data/myanmar-border.json";
+import franceGeoJson from "@/data/france-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { NORWAY_LAKES } from "@/data/norway-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
+import { FRANCE_LAKES } from "@/data/france-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
 
 import {
@@ -15,6 +17,7 @@ import {
   NORWAY_NEIGHBOURS,
   UGANDA_NEIGHBOURS,
 } from "@/data/neighbour-borders";
+import { FRANCE_NEIGHBOURS } from "@/data/neighbour-borders";
 import type { NeighbourBorder } from "@/data/neighbour-borders";
 import type { CountryConfig } from "@/data/countries";
 
