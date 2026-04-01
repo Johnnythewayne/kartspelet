@@ -64,6 +64,10 @@ const Index: React.FC = () => {
 
   const handleMapClick = useCallback(
     (x: number, y: number) => {
+      if (phase === "feedback") {
+        nextCity();
+        return;
+      }
       if (phase !== "playing") return;
       const guess = svgToLatLng(x, y, country.bounds, country.svgHeight);
       const dist = haversineDistance(guess.lat, guess.lng, currentCity.lat, currentCity.lng);
@@ -72,7 +76,7 @@ const Index: React.FC = () => {
       setRoundResult({ distanceKm: dist, score });
       setPhase("feedback");
     },
-    [phase, currentCity, country.bounds, country.svgHeight]
+    [phase, currentCity, country.bounds, country.svgHeight, nextCity]
   );
 
   const nextCity = useCallback(() => {
