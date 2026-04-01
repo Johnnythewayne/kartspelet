@@ -1,4 +1,4 @@
-export type Language = "sv" | "en" | "lg";
+export type Language = "sv" | "en" | "no" | "lg";
 
 export interface LanguageOption {
   id: Language;
@@ -9,6 +9,7 @@ export interface LanguageOption {
 export const LANGUAGES: LanguageOption[] = [
   { id: "sv", label: "Svenska", flag: "🇸🇪" },
   { id: "en", label: "English", flag: "🇬🇧" },
+  { id: "no", label: "Norsk", flag: "🇳🇴" },
   { id: "lg", label: "Luganda", flag: "🇺🇬" },
 ];
 
@@ -74,6 +75,38 @@ const translations = {
     countryGermany: "Germany",
     countrySweden: "Sweden",
     countryNorway: "Norway",
+    countryUganda: "Uganda",
+    countryMyanmar: "Burma",
+  },
+  no: {
+    title: "🗺️ Kartspillet",
+    subtitle: "Plasser byer på kartet. Jo nærmere du klikker, desto flere poeng!",
+    chooseLanguage: "Velg språk:",
+    chooseCountry: "Velg et land:",
+    chooseDifficulty: "Velg vanskelighetsgrad:",
+    back: "← Tilbake",
+    city: "By",
+    of: "av",
+    score: "Poeng",
+    clickInstruction: "Klikk på kartet der du tror byen ligger",
+    distance: "Avstand",
+    seeResults: "Se resultater",
+    nextCity: "Neste by →",
+    results: "🏁 Resultater",
+    ofPossible: "av {max} mulige poeng",
+    bestGuess: "🎯 Beste gjetning",
+    worstGuess: "😅 Dårligste gjetning",
+    playAgain: "🔄 Spill igjen",
+    points: "p",
+    diffEasy: "Lett",
+    diffEasyDesc: "De 12 største byene",
+    diffMedium: "Middels",
+    diffMediumDesc: "Byer rangert 13–24",
+    diffHard: "Vanskelig",
+    diffHardDesc: "Byer rangert 25–36",
+    countryGermany: "Tyskland",
+    countrySweden: "Sverige",
+    countryNorway: "Norge",
     countryUganda: "Uganda",
     countryMyanmar: "Burma",
   },
