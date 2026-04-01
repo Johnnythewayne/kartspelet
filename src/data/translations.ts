@@ -41,6 +41,7 @@ const translations = {
     diffHardDesc: "Städer rankade 25–36",
     countryGermany: "Tyskland",
     countrySweden: "Sverige",
+    countryNorway: "Norge",
     countryUganda: "Uganda",
   },
   en: {
