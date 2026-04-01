@@ -140,7 +140,7 @@ const translations = {
     countrySweden: "Swideni",
     countryNorway: "Nowe",
     countryUganda: "Uganda",
-    countryMyanmar: "Burma",
+    countryMyanmar: "Myanmar",
   },
 } as const;
 
