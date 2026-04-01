@@ -31,6 +31,7 @@ const neighboursMap: Record<string, NeighbourBorder[]> = {
   sweden: SWEDEN_NEIGHBOURS,
   norway: NORWAY_NEIGHBOURS,
   uganda: UGANDA_NEIGHBOURS,
+  myanmar: [],
 };
 
 function coordToSvg(
