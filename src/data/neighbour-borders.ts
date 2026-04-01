@@ -9,6 +9,7 @@ import norwayNeighbours from "./neighbours-norway.json";
 import ugandaNeighbours from "./neighbours-uganda.json";
 import franceNeighbours from "./neighbours-france.json";
 import englandNeighbours from "./neighbours-england.json";
+import usaNeighbours from "./neighbours-usa.json";
 
 function validateNeighbours(data: unknown, label: string): NeighbourBorder[] {
   if (!Array.isArray(data) || data.length === 0) {
