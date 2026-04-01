@@ -208,10 +208,12 @@ const Index: React.FC = () => {
             <img src={FLAG_IMAGES[country.id]} alt={country.name} width={18} height={12} className="shrink-0 rounded-sm object-contain" />
             {t(lang, "city")} {currentIndex + 1} {t(lang, "of")} {cities.length}
           </span>
-          <span className="text-sm font-medium text-foreground">
-            {t(lang, "score")}: {results.reduce((s, r) => s + r.score, 0)}
-          </span>
-        </div>
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-medium text-foreground">
+              {t(lang, "score")}: {results.reduce((s, r) => s + r.score, 0)}
+            </span>
+            <LanguageSwitcher lang={lang} onLangChange={setLang} />
+          </div>
         <Progress value={currentIndex / cities.length * 100} className="h-2" />
       </div>
 
