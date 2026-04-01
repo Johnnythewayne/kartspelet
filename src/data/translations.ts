@@ -46,6 +46,7 @@ const translations = {
     countryUganda: "Uganda",
     countryMyanmar: "Myanmar",
     countryFrance: "Frankrike",
+    countryEngland: "England",
   },
   en: {
     title: "🗺️ The Map Game",
