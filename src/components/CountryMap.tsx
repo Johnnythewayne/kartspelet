@@ -5,6 +5,7 @@ import ugandaGeoJson from "@/data/uganda-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
+import { getMountainsForCountry } from "@/data/mountains";
 import {
   GERMANY_NEIGHBOURS,
   SWEDEN_NEIGHBOURS,
@@ -134,6 +135,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
     return result;
   }, [countryId, countryPolygons]);
   const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "uganda" ? UGANDA_LAKES : [];
+  const mountains = useMemo(() => getMountainsForCountry(countryId), [countryId]);
 
 
 
@@ -190,7 +192,25 @@ const CountryMap: React.FC<CountryMapProps> = ({
         strokeWidth="3"
       />
 
-      {/* Lakes */}
+      {/* Mountain ranges */}
+      {mountains.map((mt) => {
+        const points = mt.coordinates.map(([lng, lat]) => {
+          const { x, y } = coordToSvg(lng, lat, bounds, svgHeight);
+          return `${x.toFixed(1)},${y.toFixed(1)}`;
+        });
+        const d = `M ${points[0]} L ${points.slice(1).join(" ")} Z`;
+        return (
+          <path
+            key={mt.name}
+            d={d}
+            fill="hsl(35, 30%, 78%)"
+            stroke="hsl(35, 25%, 65%)"
+            strokeWidth="1"
+            opacity="0.5"
+          />
+        );
+      })}
+
       {lakes.map((lake) => {
         const points = lake.coordinates.map(([lng, lat]) => {
           const { x, y } = coordToSvg(lng, lat, bounds, svgHeight);
