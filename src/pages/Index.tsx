@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import CountryMap from "@/components/CountryMap";
 import GameResults from "@/components/GameResults";
+import CountryThumbnail from "@/components/CountryThumbnail";
 import {
   COUNTRIES,
   latLngToSvg,
