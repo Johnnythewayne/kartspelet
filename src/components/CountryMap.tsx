@@ -3,6 +3,7 @@ import germanyGeoJson from "@/data/germany-border.json";
 import swedenGeoJson from "@/data/sweden-border.json";
 import norwayGeoJson from "@/data/norway-border.json";
 import ugandaGeoJson from "@/data/uganda-border.json";
+import myanmarGeoJson from "@/data/myanmar-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { NORWAY_LAKES } from "@/data/norway-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
