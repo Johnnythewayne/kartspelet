@@ -15,6 +15,17 @@ import type { CountryConfig } from "@/data/countries";
 import { t } from "@/data/translations";
 import type { Language } from "@/data/translations";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import flagGermany from "@/assets/flag-germany.png";
+import flagSweden from "@/assets/flag-sweden.png";
+import flagNorway from "@/assets/flag-norway.png";
+import flagUganda from "@/assets/flag-uganda.png";
+
+const FLAG_IMAGES: Record<string, string> = {
+  germany: flagGermany,
+  sweden: flagSweden,
+  norway: flagNorway,
+  uganda: flagUganda,
+};
 
 interface RoundResult {
   cityName: string;
@@ -121,7 +132,8 @@ const Index: React.FC = () => {
               className="text-lg px-8 flex items-center gap-3 justify-start"
               variant="outline">
                 <CountryThumbnail countryId={c.id} size={32} />
-                {c.flag} {t(lang, nameKey)}
+                <img src={FLAG_IMAGES[c.id]} alt={c.name} width={24} height={16} className="shrink-0 rounded-sm object-contain" />
+                {t(lang, nameKey)}
               </Button>
             );
             })}
