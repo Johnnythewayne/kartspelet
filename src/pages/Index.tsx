@@ -11,8 +11,9 @@ import {
   calculateScore } from
 "@/data/countries";
 import type { CountryConfig } from "@/data/countries";
-import { LANGUAGES, t } from "@/data/translations";
+import { t } from "@/data/translations";
 import type { Language } from "@/data/translations";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 interface RoundResult {
   cityName: string;
