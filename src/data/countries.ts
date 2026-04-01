@@ -232,7 +232,13 @@ const SWEDEN_BOUNDS = {
   maxLng: 24.2,
 };
 
-const UGANDA_BOUNDS = {
+const NORWAY_BOUNDS = {
+  minLat: 57.8,
+  maxLat: 71.5,
+  minLng: 3.0,
+  maxLng: 31.5,
+};
+
   minLat: -1.5,
   maxLat: 4.3,
   minLng: 29.5,
