@@ -272,6 +272,7 @@ const translations = {
     countryPakistan: "Pakisitaani",
     countryTurkey: "Ttake",
     countryAustria: "Awosituliya",
+    countryDenmark: "Denimaaka",
   },
 } as const;
 
