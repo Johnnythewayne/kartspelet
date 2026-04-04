@@ -824,6 +824,56 @@ export const COUNTRIES: CountryConfig[] = [
     citiesByDifficulty: { easy: DENMARK_EASY, medium: DENMARK_MEDIUM, hard: DENMARK_HARD },
     bounds: DENMARK_BOUNDS, svgHeight: computeSvgHeight(DENMARK_BOUNDS),
   },
+  {
+    id: "algeria", name: "Algeriet", flag: "🇩🇿",
+    citiesByDifficulty: { easy: ALGERIA_EASY, medium: ALGERIA_MEDIUM, hard: ALGERIA_HARD },
+    bounds: ALGERIA_BOUNDS, svgHeight: computeSvgHeight(ALGERIA_BOUNDS),
+  },
+  {
+    id: "dr_congo", name: "DR Kongo", flag: "🇨🇩",
+    citiesByDifficulty: { easy: DR_CONGO_EASY, medium: DR_CONGO_MEDIUM, hard: DR_CONGO_HARD },
+    bounds: DR_CONGO_BOUNDS, svgHeight: computeSvgHeight(DR_CONGO_BOUNDS),
+  },
+  {
+    id: "sudan", name: "Sudan", flag: "🇸🇩",
+    citiesByDifficulty: { easy: SUDAN_EASY, medium: SUDAN_MEDIUM, hard: SUDAN_HARD },
+    bounds: SUDAN_BOUNDS, svgHeight: computeSvgHeight(SUDAN_BOUNDS),
+  },
+  {
+    id: "libya", name: "Libyen", flag: "🇱🇾",
+    citiesByDifficulty: { easy: LIBYA_EASY, medium: LIBYA_MEDIUM, hard: LIBYA_HARD },
+    bounds: LIBYA_BOUNDS, svgHeight: computeSvgHeight(LIBYA_BOUNDS),
+  },
+  {
+    id: "chad", name: "Tchad", flag: "🇹🇩",
+    citiesByDifficulty: { easy: CHAD_EASY, medium: CHAD_MEDIUM, hard: CHAD_HARD },
+    bounds: CHAD_BOUNDS, svgHeight: computeSvgHeight(CHAD_BOUNDS),
+  },
+  {
+    id: "niger", name: "Niger", flag: "🇳🇪",
+    citiesByDifficulty: { easy: NIGER_EASY, medium: NIGER_MEDIUM, hard: NIGER_HARD },
+    bounds: NIGER_BOUNDS, svgHeight: computeSvgHeight(NIGER_BOUNDS),
+  },
+  {
+    id: "angola", name: "Angola", flag: "🇦🇴",
+    citiesByDifficulty: { easy: ANGOLA_EASY, medium: ANGOLA_MEDIUM, hard: ANGOLA_HARD },
+    bounds: ANGOLA_BOUNDS, svgHeight: computeSvgHeight(ANGOLA_BOUNDS),
+  },
+  {
+    id: "mali", name: "Mali", flag: "🇲🇱",
+    citiesByDifficulty: { easy: MALI_EASY, medium: MALI_MEDIUM, hard: MALI_HARD },
+    bounds: MALI_BOUNDS, svgHeight: computeSvgHeight(MALI_BOUNDS),
+  },
+  {
+    id: "south_africa", name: "Sydafrika", flag: "🇿🇦",
+    citiesByDifficulty: { easy: SOUTH_AFRICA_EASY, medium: SOUTH_AFRICA_MEDIUM, hard: SOUTH_AFRICA_HARD },
+    bounds: SOUTH_AFRICA_BOUNDS, svgHeight: computeSvgHeight(SOUTH_AFRICA_BOUNDS),
+  },
+  {
+    id: "south_sudan", name: "Sydsudan", flag: "🇸🇸",
+    citiesByDifficulty: { easy: SOUTH_SUDAN_EASY, medium: SOUTH_SUDAN_MEDIUM, hard: SOUTH_SUDAN_HARD },
+    bounds: SOUTH_SUDAN_BOUNDS, svgHeight: computeSvgHeight(SOUTH_SUDAN_BOUNDS),
+  },
 ];
 
 export function latLngToSvg(
