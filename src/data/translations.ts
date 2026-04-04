@@ -77,6 +77,7 @@ const translations = {
     countryPakistan: "Pakistan",
     countryTurkey: "Turkiet",
     countryAustria: "Österrike",
+    countryDenmark: "Danmark",
   },
   en: {
     title: "🗺️ The Map Game",
