@@ -15,6 +15,26 @@ import argentinaBorder from "@/data/argentina-border.json";
 import indiaBorder from "@/data/india-border.json";
 import chinaBorder from "@/data/china-border.json";
 import australiaBorder from "@/data/australia-border.json";
+import russiaBorder from "@/data/russia-border.json";
+import ukraineBorder from "@/data/ukraine-border.json";
+import finlandBorder from "@/data/finland-border.json";
+import canadaBorder from "@/data/canada-border.json";
+import mexicoBorder from "@/data/mexico-border.json";
+import peruBorder from "@/data/peru-border.json";
+import colombiaBorder from "@/data/colombia-border.json";
+import boliviaBorder from "@/data/bolivia-border.json";
+import venezuelaBorder from "@/data/venezuela-border.json";
+import chileBorder from "@/data/chile-border.json";
+import paraguayBorder from "@/data/paraguay-border.json";
+import ecuadorBorder from "@/data/ecuador-border.json";
+import guyanaBorder from "@/data/guyana-border.json";
+import kazakhstanBorder from "@/data/kazakhstan-border.json";
+import saudi_arabiaBorder from "@/data/saudi-arabia-border.json";
+import iranBorder from "@/data/iran-border.json";
+import mongoliaBorder from "@/data/mongolia-border.json";
+import indonesiaBorder from "@/data/indonesia-border.json";
+import pakistanBorder from "@/data/pakistan-border.json";
+import turkeyBorder from "@/data/turkey-border.json";
 
 function extractRings(geojson: any): number[][][] {
   const rings: number[][][] = [];
@@ -48,6 +68,26 @@ const BORDERS: Record<string, number[][][]> = {
   india: extractRings(indiaBorder),
   china: extractRings(chinaBorder),
   australia: extractRings(australiaBorder),
+  russia: extractRings(russiaBorder),
+  ukraine: extractRings(ukraineBorder),
+  finland: extractRings(finlandBorder),
+  canada: extractRings(canadaBorder),
+  mexico: extractRings(mexicoBorder),
+  peru: extractRings(peruBorder),
+  colombia: extractRings(colombiaBorder),
+  bolivia: extractRings(boliviaBorder),
+  venezuela: extractRings(venezuelaBorder),
+  chile: extractRings(chileBorder),
+  paraguay: extractRings(paraguayBorder),
+  ecuador: extractRings(ecuadorBorder),
+  guyana: extractRings(guyanaBorder),
+  kazakhstan: extractRings(kazakhstanBorder),
+  saudi_arabia: extractRings(saudi_arabiaBorder),
+  iran: extractRings(iranBorder),
+  mongolia: extractRings(mongoliaBorder),
+  indonesia: extractRings(indonesiaBorder),
+  pakistan: extractRings(pakistanBorder),
+  turkey: extractRings(turkeyBorder),
 };
 
 interface Props {

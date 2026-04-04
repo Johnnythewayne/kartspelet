@@ -6,6 +6,26 @@ import { ARGENTINA_EASY, ARGENTINA_MEDIUM, ARGENTINA_HARD } from "./cities-argen
 import { INDIA_EASY, INDIA_MEDIUM, INDIA_HARD } from "./cities-india";
 import { CHINA_EASY, CHINA_MEDIUM, CHINA_HARD } from "./cities-china";
 import { AUSTRALIA_EASY, AUSTRALIA_MEDIUM, AUSTRALIA_HARD } from "./cities-australia";
+import { RUSSIA_EASY, RUSSIA_MEDIUM, RUSSIA_HARD } from "./cities-russia";
+import { UKRAINE_EASY, UKRAINE_MEDIUM, UKRAINE_HARD } from "./cities-ukraine";
+import { FINLAND_EASY, FINLAND_MEDIUM, FINLAND_HARD } from "./cities-finland";
+import { CANADA_EASY, CANADA_MEDIUM, CANADA_HARD } from "./cities-canada";
+import { MEXICO_EASY, MEXICO_MEDIUM, MEXICO_HARD } from "./cities-mexico";
+import { PERU_EASY, PERU_MEDIUM, PERU_HARD } from "./cities-peru";
+import { COLOMBIA_EASY, COLOMBIA_MEDIUM, COLOMBIA_HARD } from "./cities-colombia";
+import { BOLIVIA_EASY, BOLIVIA_MEDIUM, BOLIVIA_HARD } from "./cities-bolivia";
+import { VENEZUELA_EASY, VENEZUELA_MEDIUM, VENEZUELA_HARD } from "./cities-venezuela";
+import { CHILE_EASY, CHILE_MEDIUM, CHILE_HARD } from "./cities-chile";
+import { PARAGUAY_EASY, PARAGUAY_MEDIUM, PARAGUAY_HARD } from "./cities-paraguay";
+import { ECUADOR_EASY, ECUADOR_MEDIUM, ECUADOR_HARD } from "./cities-ecuador";
+import { GUYANA_EASY, GUYANA_MEDIUM, GUYANA_HARD } from "./cities-guyana";
+import { KAZAKHSTAN_EASY, KAZAKHSTAN_MEDIUM, KAZAKHSTAN_HARD } from "./cities-kazakhstan";
+import { SAUDI_ARABIA_EASY, SAUDI_ARABIA_MEDIUM, SAUDI_ARABIA_HARD } from "./cities-saudi-arabia";
+import { IRAN_EASY, IRAN_MEDIUM, IRAN_HARD } from "./cities-iran";
+import { MONGOLIA_EASY, MONGOLIA_MEDIUM, MONGOLIA_HARD } from "./cities-mongolia";
+import { INDONESIA_EASY, INDONESIA_MEDIUM, INDONESIA_HARD } from "./cities-indonesia";
+import { PAKISTAN_EASY, PAKISTAN_MEDIUM, PAKISTAN_HARD } from "./cities-pakistan";
+import { TURKEY_EASY, TURKEY_MEDIUM, TURKEY_HARD } from "./cities-turkey";
 
 export interface City {
   name: string;
@@ -519,6 +539,28 @@ const MYANMAR_HARD: City[] = [
   { name: "Haka", lat: 22.6400, lng: 93.6167 },
 ];
 
+
+const RUSSIA_BOUNDS = { minLat: 41.0, maxLat: 82.0, minLng: 19.0, maxLng: 190.0 };
+const UKRAINE_BOUNDS = { minLat: 44.3, maxLat: 52.4, minLng: 22.1, maxLng: 40.2 };
+const FINLAND_BOUNDS = { minLat: 59.7, maxLat: 70.1, minLng: 20.5, maxLng: 31.6 };
+const CANADA_BOUNDS = { minLat: 41.7, maxLat: 83.1, minLng: -141.0, maxLng: -52.6 };
+const MEXICO_BOUNDS = { minLat: 14.5, maxLat: 32.7, minLng: -118.4, maxLng: -86.7 };
+const PERU_BOUNDS = { minLat: -18.4, maxLat: -0.0, minLng: -81.4, maxLng: -68.7 };
+const COLOMBIA_BOUNDS = { minLat: -4.3, maxLat: 12.5, minLng: -79.0, maxLng: -66.9 };
+const BOLIVIA_BOUNDS = { minLat: -22.9, maxLat: -9.7, minLng: -69.6, maxLng: -57.5 };
+const VENEZUELA_BOUNDS = { minLat: 0.6, maxLat: 12.2, minLng: -73.4, maxLng: -59.8 };
+const CHILE_BOUNDS = { minLat: -55.9, maxLat: -17.5, minLng: -75.7, maxLng: -66.9 };
+const PARAGUAY_BOUNDS = { minLat: -27.6, maxLat: -19.3, minLng: -62.7, maxLng: -54.3 };
+const ECUADOR_BOUNDS = { minLat: -5.0, maxLat: 1.5, minLng: -81.1, maxLng: -75.2 };
+const GUYANA_BOUNDS = { minLat: 1.2, maxLat: 8.6, minLng: -61.4, maxLng: -56.5 };
+const KAZAKHSTAN_BOUNDS = { minLat: 40.6, maxLat: 55.4, minLng: 46.5, maxLng: 87.4 };
+const SAUDI_ARABIA_BOUNDS = { minLat: 15.6, maxLat: 32.2, minLng: 34.5, maxLng: 55.7 };
+const IRAN_BOUNDS = { minLat: 25.1, maxLat: 39.8, minLng: 44.0, maxLng: 63.3 };
+const MONGOLIA_BOUNDS = { minLat: 41.6, maxLat: 52.2, minLng: 87.7, maxLng: 119.9 };
+const INDONESIA_BOUNDS = { minLat: -11.0, maxLat: 5.9, minLng: 95.0, maxLng: 141.0 };
+const PAKISTAN_BOUNDS = { minLat: 23.7, maxLat: 37.1, minLng: 60.9, maxLng: 77.8 };
+const TURKEY_BOUNDS = { minLat: 35.8, maxLat: 42.1, minLng: 26.0, maxLng: 44.8 };
+
 export const COUNTRIES: CountryConfig[] = [
   {
     id: "germany",
@@ -647,6 +689,106 @@ export const COUNTRIES: CountryConfig[] = [
     citiesByDifficulty: { easy: AUSTRALIA_EASY, medium: AUSTRALIA_MEDIUM, hard: AUSTRALIA_HARD },
     bounds: AUSTRALIA_BOUNDS,
     svgHeight: computeSvgHeight(AUSTRALIA_BOUNDS),
+  },
+  {
+    id: "russia", name: "Ryssland", flag: "🇷🇺",
+    citiesByDifficulty: { easy: RUSSIA_EASY, medium: RUSSIA_MEDIUM, hard: RUSSIA_HARD },
+    bounds: RUSSIA_BOUNDS, svgHeight: computeSvgHeight(RUSSIA_BOUNDS),
+  },
+  {
+    id: "ukraine", name: "Ukraina", flag: "🇺🇦",
+    citiesByDifficulty: { easy: UKRAINE_EASY, medium: UKRAINE_MEDIUM, hard: UKRAINE_HARD },
+    bounds: UKRAINE_BOUNDS, svgHeight: computeSvgHeight(UKRAINE_BOUNDS),
+  },
+  {
+    id: "finland", name: "Finland", flag: "🇫🇮",
+    citiesByDifficulty: { easy: FINLAND_EASY, medium: FINLAND_MEDIUM, hard: FINLAND_HARD },
+    bounds: FINLAND_BOUNDS, svgHeight: computeSvgHeight(FINLAND_BOUNDS),
+  },
+  {
+    id: "canada", name: "Kanada", flag: "🇨🇦",
+    citiesByDifficulty: { easy: CANADA_EASY, medium: CANADA_MEDIUM, hard: CANADA_HARD },
+    bounds: CANADA_BOUNDS, svgHeight: computeSvgHeight(CANADA_BOUNDS),
+  },
+  {
+    id: "mexico", name: "Mexiko", flag: "🇲🇽",
+    citiesByDifficulty: { easy: MEXICO_EASY, medium: MEXICO_MEDIUM, hard: MEXICO_HARD },
+    bounds: MEXICO_BOUNDS, svgHeight: computeSvgHeight(MEXICO_BOUNDS),
+  },
+  {
+    id: "peru", name: "Peru", flag: "🇵🇪",
+    citiesByDifficulty: { easy: PERU_EASY, medium: PERU_MEDIUM, hard: PERU_HARD },
+    bounds: PERU_BOUNDS, svgHeight: computeSvgHeight(PERU_BOUNDS),
+  },
+  {
+    id: "colombia", name: "Colombia", flag: "🇨🇴",
+    citiesByDifficulty: { easy: COLOMBIA_EASY, medium: COLOMBIA_MEDIUM, hard: COLOMBIA_HARD },
+    bounds: COLOMBIA_BOUNDS, svgHeight: computeSvgHeight(COLOMBIA_BOUNDS),
+  },
+  {
+    id: "bolivia", name: "Bolivia", flag: "🇧🇴",
+    citiesByDifficulty: { easy: BOLIVIA_EASY, medium: BOLIVIA_MEDIUM, hard: BOLIVIA_HARD },
+    bounds: BOLIVIA_BOUNDS, svgHeight: computeSvgHeight(BOLIVIA_BOUNDS),
+  },
+  {
+    id: "venezuela", name: "Venezuela", flag: "🇻🇪",
+    citiesByDifficulty: { easy: VENEZUELA_EASY, medium: VENEZUELA_MEDIUM, hard: VENEZUELA_HARD },
+    bounds: VENEZUELA_BOUNDS, svgHeight: computeSvgHeight(VENEZUELA_BOUNDS),
+  },
+  {
+    id: "chile", name: "Chile", flag: "🇨🇱",
+    citiesByDifficulty: { easy: CHILE_EASY, medium: CHILE_MEDIUM, hard: CHILE_HARD },
+    bounds: CHILE_BOUNDS, svgHeight: computeSvgHeight(CHILE_BOUNDS),
+  },
+  {
+    id: "paraguay", name: "Paraguay", flag: "🇵🇾",
+    citiesByDifficulty: { easy: PARAGUAY_EASY, medium: PARAGUAY_MEDIUM, hard: PARAGUAY_HARD },
+    bounds: PARAGUAY_BOUNDS, svgHeight: computeSvgHeight(PARAGUAY_BOUNDS),
+  },
+  {
+    id: "ecuador", name: "Ecuador", flag: "🇪🇨",
+    citiesByDifficulty: { easy: ECUADOR_EASY, medium: ECUADOR_MEDIUM, hard: ECUADOR_HARD },
+    bounds: ECUADOR_BOUNDS, svgHeight: computeSvgHeight(ECUADOR_BOUNDS),
+  },
+  {
+    id: "guyana", name: "Guyana", flag: "🇬🇾",
+    citiesByDifficulty: { easy: GUYANA_EASY, medium: GUYANA_MEDIUM, hard: GUYANA_HARD },
+    bounds: GUYANA_BOUNDS, svgHeight: computeSvgHeight(GUYANA_BOUNDS),
+  },
+  {
+    id: "kazakhstan", name: "Kazakstan", flag: "🇰🇿",
+    citiesByDifficulty: { easy: KAZAKHSTAN_EASY, medium: KAZAKHSTAN_MEDIUM, hard: KAZAKHSTAN_HARD },
+    bounds: KAZAKHSTAN_BOUNDS, svgHeight: computeSvgHeight(KAZAKHSTAN_BOUNDS),
+  },
+  {
+    id: "saudi_arabia", name: "Saudiarabien", flag: "🇸🇦",
+    citiesByDifficulty: { easy: SAUDI_ARABIA_EASY, medium: SAUDI_ARABIA_MEDIUM, hard: SAUDI_ARABIA_HARD },
+    bounds: SAUDI_ARABIA_BOUNDS, svgHeight: computeSvgHeight(SAUDI_ARABIA_BOUNDS),
+  },
+  {
+    id: "iran", name: "Iran", flag: "🇮🇷",
+    citiesByDifficulty: { easy: IRAN_EASY, medium: IRAN_MEDIUM, hard: IRAN_HARD },
+    bounds: IRAN_BOUNDS, svgHeight: computeSvgHeight(IRAN_BOUNDS),
+  },
+  {
+    id: "mongolia", name: "Mongoliet", flag: "🇲🇳",
+    citiesByDifficulty: { easy: MONGOLIA_EASY, medium: MONGOLIA_MEDIUM, hard: MONGOLIA_HARD },
+    bounds: MONGOLIA_BOUNDS, svgHeight: computeSvgHeight(MONGOLIA_BOUNDS),
+  },
+  {
+    id: "indonesia", name: "Indonesien", flag: "🇮🇩",
+    citiesByDifficulty: { easy: INDONESIA_EASY, medium: INDONESIA_MEDIUM, hard: INDONESIA_HARD },
+    bounds: INDONESIA_BOUNDS, svgHeight: computeSvgHeight(INDONESIA_BOUNDS),
+  },
+  {
+    id: "pakistan", name: "Pakistan", flag: "🇵🇰",
+    citiesByDifficulty: { easy: PAKISTAN_EASY, medium: PAKISTAN_MEDIUM, hard: PAKISTAN_HARD },
+    bounds: PAKISTAN_BOUNDS, svgHeight: computeSvgHeight(PAKISTAN_BOUNDS),
+  },
+  {
+    id: "turkey", name: "Turkiet", flag: "🇹🇷",
+    citiesByDifficulty: { easy: TURKEY_EASY, medium: TURKEY_MEDIUM, hard: TURKEY_HARD },
+    bounds: TURKEY_BOUNDS, svgHeight: computeSvgHeight(TURKEY_BOUNDS),
   },
 ];
 
