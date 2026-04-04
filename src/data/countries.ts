@@ -274,6 +274,62 @@ const USA_BOUNDS = {
   maxLng: -66.0,
 };
 
+const SPAIN_BOUNDS = {
+  minLat: 35.8,
+  maxLat: 43.8,
+  minLng: -9.4,
+  maxLng: 3.4,
+};
+
+const ITALY_BOUNDS = {
+  minLat: 36.5,
+  maxLat: 47.1,
+  minLng: 6.6,
+  maxLng: 18.6,
+};
+
+const POLAND_BOUNDS = {
+  minLat: 49.0,
+  maxLat: 54.9,
+  minLng: 14.1,
+  maxLng: 24.2,
+};
+
+const BRAZIL_BOUNDS = {
+  minLat: -33.8,
+  maxLat: 5.3,
+  minLng: -73.9,
+  maxLng: -34.8,
+};
+
+const ARGENTINA_BOUNDS = {
+  minLat: -55.1,
+  maxLat: -21.8,
+  minLng: -73.6,
+  maxLng: -53.6,
+};
+
+const INDIA_BOUNDS = {
+  minLat: 6.7,
+  maxLat: 35.5,
+  minLng: 68.1,
+  maxLng: 97.4,
+};
+
+const CHINA_BOUNDS = {
+  minLat: 18.0,
+  maxLat: 53.6,
+  minLng: 73.5,
+  maxLng: 134.8,
+};
+
+const AUSTRALIA_BOUNDS = {
+  minLat: -44.0,
+  maxLat: -10.5,
+  minLng: 113.0,
+  maxLng: 154.0,
+};
+
 const USA_EASY: City[] = [
   { name: "New York", lat: 40.7128, lng: -74.0060 },
   { name: "Los Angeles", lat: 34.0522, lng: -118.2437 },
