@@ -220,6 +220,12 @@ const translations = {
     countryTurkey: "Tyrkia",
     countryAustria: "Østerrike",
     countryDenmark: "Danmark",
+    continentEurope: "Europa",
+    continentNorthAmerica: "Nord-Amerika",
+    continentSouthAmerica: "Sør-Amerika",
+    continentAfrica: "Afrika",
+    continentAsia: "Asia",
+    continentOceania: "Oseania",
   },
   lg: {
     title: "🗺️ Omuzannyo gw'Emaapu",
