@@ -40,6 +40,16 @@ import pakistanNeighbours from "./neighbours-pakistan.json";
 import turkeyNeighbours from "./neighbours-turkey.json";
 import austriaNeighbours from "./neighbours-austria.json";
 import denmarkNeighbours from "./neighbours-denmark.json";
+import algeriaNeighbours from "./neighbours-algeria.json";
+import dr_congoNeighbours from "./neighbours-dr-congo.json";
+import sudanNeighbours from "./neighbours-sudan.json";
+import libyaNeighbours from "./neighbours-libya.json";
+import chadNeighbours from "./neighbours-chad.json";
+import nigerNeighbours from "./neighbours-niger.json";
+import angolaNeighbours from "./neighbours-angola.json";
+import maliNeighbours from "./neighbours-mali.json";
+import south_africaNeighbours from "./neighbours-south-africa.json";
+import south_sudanNeighbours from "./neighbours-south-sudan.json";
 
 function validateNeighbours(data: unknown, label: string): NeighbourBorder[] {
   if (!Array.isArray(data) || data.length === 0) {
