@@ -792,6 +792,11 @@ export const COUNTRIES: CountryConfig[] = [
     citiesByDifficulty: { easy: TURKEY_EASY, medium: TURKEY_MEDIUM, hard: TURKEY_HARD },
     bounds: TURKEY_BOUNDS, svgHeight: computeSvgHeight(TURKEY_BOUNDS),
   },
+  {
+    id: "austria", name: "Österrike", flag: "🇦🇹",
+    citiesByDifficulty: { easy: AUSTRIA_EASY, medium: AUSTRIA_MEDIUM, hard: AUSTRIA_HARD },
+    bounds: AUSTRIA_BOUNDS, svgHeight: computeSvgHeight(AUSTRIA_BOUNDS),
+  },
 ];
 
 export function latLngToSvg(
