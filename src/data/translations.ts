@@ -338,6 +338,7 @@ const translations = {
     countrySouth_africa: "Sawusafirika",
     countrySouth_sudan: "Sawusudaani",
     countryEthiopia: "Esyopiya",
+    countryPhilippines: "Filippinzi",
     continentEurope: "Bulaaya",
     continentNorthAmerica: "Amerika eya Bukiikakkono",
     continentSouthAmerica: "Amerika eya Bukiikasenge",
