@@ -341,6 +341,10 @@ const CountryMap: React.FC<CountryMapProps> = ({
     iran: IRAN_LAKES, mongolia: MONGOLIA_LAKES, indonesia: INDONESIA_LAKES,
     pakistan: PAKISTAN_LAKES, turkey: TURKEY_LAKES, austria: AUSTRIA_LAKES,
     denmark: DENMARK_LAKES,
+    algeria: ALGERIA_LAKES, dr_congo: DR_CONGO_LAKES, sudan: SUDAN_LAKES,
+    libya: LIBYA_LAKES, chad: CHAD_LAKES, niger: NIGER_LAKES,
+    angola: ANGOLA_LAKES, mali: MALI_LAKES, south_africa: SOUTH_AFRICA_LAKES,
+    south_sudan: SOUTH_SUDAN_LAKES,
   };
   const lakes = lakesMap[countryId] || [];
 

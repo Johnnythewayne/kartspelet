@@ -94,6 +94,16 @@ import pakistanRivers from "./rivers-pakistan.json";
 import turkeyRivers from "./rivers-turkey.json";
 import austriaRivers from "./rivers-austria.json";
 import denmarkRivers from "./rivers-denmark.json";
+import algeriaRivers from "./rivers-algeria.json";
+import dr_congoRivers from "./rivers-dr-congo.json";
+import sudanRivers from "./rivers-sudan.json";
+import libyaRivers from "./rivers-libya.json";
+import chadRivers from "./rivers-chad.json";
+import nigerRivers from "./rivers-niger.json";
+import angolaRivers from "./rivers-angola.json";
+import maliRivers from "./rivers-mali.json";
+import south_africaRivers from "./rivers-south-africa.json";
+import south_sudanRivers from "./rivers-south-sudan.json";
 
 function validateRivers(data: unknown, label: string): RiverSegment[] {
   if (!Array.isArray(data) || data.length === 0) {
