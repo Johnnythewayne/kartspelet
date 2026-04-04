@@ -115,3 +115,4 @@ export const MALI_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(maliNeighbo
 export const SOUTH_AFRICA_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(south_africaNeighbours, "south_africa");
 export const SOUTH_SUDAN_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(south_sudanNeighbours, "south_sudan");
 export const ETHIOPIA_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(ethiopiaNeighbours, "ethiopia");
+export const PHILIPPINES_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(philippinesNeighbours, "philippines");
