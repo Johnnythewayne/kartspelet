@@ -38,6 +38,7 @@ import mongoliaNeighbours from "./neighbours-mongolia.json";
 import indonesiaNeighbours from "./neighbours-indonesia.json";
 import pakistanNeighbours from "./neighbours-pakistan.json";
 import turkeyNeighbours from "./neighbours-turkey.json";
+import austriaNeighbours from "./neighbours-austria.json";
 
 function validateNeighbours(data: unknown, label: string): NeighbourBorder[] {
   if (!Array.isArray(data) || data.length === 0) {
@@ -88,3 +89,4 @@ export const MONGOLIA_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(mongoli
 export const INDONESIA_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(indonesiaNeighbours, "indonesia");
 export const PAKISTAN_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(pakistanNeighbours, "pakistan");
 export const TURKEY_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(turkeyNeighbours, "turkey");
+export const AUSTRIA_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(austriaNeighbours, "austria");

@@ -76,6 +76,7 @@ const translations = {
     countryIndonesia: "Indonesien",
     countryPakistan: "Pakistan",
     countryTurkey: "Turkiet",
+    countryAustria: "Österrike",
   },
   en: {
     title: "🗺️ The Map Game",
@@ -139,6 +140,7 @@ const translations = {
     countryIndonesia: "Indonesia",
     countryPakistan: "Pakistan",
     countryTurkey: "Turkey",
+    countryAustria: "Austria",
   },
   no: {
     title: "🗺️ Kartspillet",
@@ -202,6 +204,7 @@ const translations = {
     countryIndonesia: "Indonesia",
     countryPakistan: "Pakistan",
     countryTurkey: "Tyrkia",
+    countryAustria: "Østerrike",
   },
   lg: {
     title: "🗺️ Omuzannyo gw'Emaapu",
@@ -265,6 +268,7 @@ const translations = {
     countryIndonesia: "Yindonezya",
     countryPakistan: "Pakisitaani",
     countryTurkey: "Ttake",
+    countryAustria: "Awosituliya",
   },
 } as const;
 
