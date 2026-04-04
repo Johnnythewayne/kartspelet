@@ -23,6 +23,14 @@ import flagMyanmar from "@/assets/flag-myanmar.png";
 import flagFrance from "@/assets/flag-france.png";
 import flagEngland from "@/assets/flag-england.png";
 import flagUsa from "@/assets/flag-usa.png";
+import flagSpain from "@/assets/flag-spain.png";
+import flagItaly from "@/assets/flag-italy.png";
+import flagPoland from "@/assets/flag-poland.png";
+import flagBrazil from "@/assets/flag-brazil.png";
+import flagArgentina from "@/assets/flag-argentina.png";
+import flagIndia from "@/assets/flag-india.png";
+import flagChina from "@/assets/flag-china.png";
+import flagAustralia from "@/assets/flag-australia.png";
 
 const FLAG_IMAGES: Record<string, string> = {
   germany: flagGermany,
@@ -33,6 +41,14 @@ const FLAG_IMAGES: Record<string, string> = {
   france: flagFrance,
   england: flagEngland,
   usa: flagUsa,
+  spain: flagSpain,
+  italy: flagItaly,
+  poland: flagPoland,
+  brazil: flagBrazil,
+  argentina: flagArgentina,
+  india: flagIndia,
+  china: flagChina,
+  australia: flagAustralia,
 };
 
 interface RoundResult {
@@ -131,10 +147,12 @@ const Index: React.FC = () => {
           <p className="text-sm text-muted-foreground">{t(lang, "chooseCountry")}</p>
           <div className="flex flex-col gap-4">
             {[
-              { continent: t(lang, "continentEurope" as any) || "Europe", ids: ["germany", "sweden", "norway", "france", "england"] },
+              { continent: t(lang, "continentEurope" as any) || "Europe", ids: ["germany", "sweden", "norway", "france", "england", "spain", "italy", "poland"] },
               { continent: t(lang, "continentNorthAmerica" as any) || "North America", ids: ["usa"] },
+              { continent: t(lang, "continentSouthAmerica" as any) || "South America", ids: ["brazil", "argentina"] },
               { continent: t(lang, "continentAfrica" as any) || "Africa", ids: ["uganda"] },
-              { continent: t(lang, "continentAsia" as any) || "Asia", ids: ["myanmar"] },
+              { continent: t(lang, "continentAsia" as any) || "Asia", ids: ["myanmar", "india", "china"] },
+              { continent: t(lang, "continentOceania" as any) || "Oceania", ids: ["australia"] },
             ].map((group) => {
               const groupCountries = group.ids.map(id => COUNTRIES.find(c => c.id === id)!).filter(Boolean);
               if (groupCountries.length === 0) return null;

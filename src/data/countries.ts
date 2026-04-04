@@ -1,3 +1,12 @@
+import { SPAIN_EASY, SPAIN_MEDIUM, SPAIN_HARD } from "./cities-spain";
+import { ITALY_EASY, ITALY_MEDIUM, ITALY_HARD } from "./cities-italy";
+import { POLAND_EASY, POLAND_MEDIUM, POLAND_HARD } from "./cities-poland";
+import { BRAZIL_EASY, BRAZIL_MEDIUM, BRAZIL_HARD } from "./cities-brazil";
+import { ARGENTINA_EASY, ARGENTINA_MEDIUM, ARGENTINA_HARD } from "./cities-argentina";
+import { INDIA_EASY, INDIA_MEDIUM, INDIA_HARD } from "./cities-india";
+import { CHINA_EASY, CHINA_MEDIUM, CHINA_HARD } from "./cities-china";
+import { AUSTRALIA_EASY, AUSTRALIA_MEDIUM, AUSTRALIA_HARD } from "./cities-australia";
+
 export interface City {
   name: string;
   lat: number;
@@ -274,6 +283,62 @@ const USA_BOUNDS = {
   maxLng: -66.0,
 };
 
+const SPAIN_BOUNDS = {
+  minLat: 35.8,
+  maxLat: 43.8,
+  minLng: -9.4,
+  maxLng: 3.4,
+};
+
+const ITALY_BOUNDS = {
+  minLat: 36.5,
+  maxLat: 47.1,
+  minLng: 6.6,
+  maxLng: 18.6,
+};
+
+const POLAND_BOUNDS = {
+  minLat: 49.0,
+  maxLat: 54.9,
+  minLng: 14.1,
+  maxLng: 24.2,
+};
+
+const BRAZIL_BOUNDS = {
+  minLat: -33.8,
+  maxLat: 5.3,
+  minLng: -73.9,
+  maxLng: -34.8,
+};
+
+const ARGENTINA_BOUNDS = {
+  minLat: -55.1,
+  maxLat: -21.8,
+  minLng: -73.6,
+  maxLng: -53.6,
+};
+
+const INDIA_BOUNDS = {
+  minLat: 6.7,
+  maxLat: 35.5,
+  minLng: 68.1,
+  maxLng: 97.4,
+};
+
+const CHINA_BOUNDS = {
+  minLat: 18.0,
+  maxLat: 53.6,
+  minLng: 73.5,
+  maxLng: 134.8,
+};
+
+const AUSTRALIA_BOUNDS = {
+  minLat: -44.0,
+  maxLat: -10.5,
+  minLng: 113.0,
+  maxLng: 154.0,
+};
+
 const USA_EASY: City[] = [
   { name: "New York", lat: 40.7128, lng: -74.0060 },
   { name: "Los Angeles", lat: 34.0522, lng: -118.2437 },
@@ -518,6 +583,70 @@ export const COUNTRIES: CountryConfig[] = [
     citiesByDifficulty: { easy: USA_EASY, medium: USA_MEDIUM, hard: USA_HARD },
     bounds: USA_BOUNDS,
     svgHeight: computeSvgHeight(USA_BOUNDS),
+  },
+  {
+    id: "spain",
+    name: "Spanien",
+    flag: "🇪🇸",
+    citiesByDifficulty: { easy: SPAIN_EASY, medium: SPAIN_MEDIUM, hard: SPAIN_HARD },
+    bounds: SPAIN_BOUNDS,
+    svgHeight: computeSvgHeight(SPAIN_BOUNDS),
+  },
+  {
+    id: "italy",
+    name: "Italien",
+    flag: "🇮🇹",
+    citiesByDifficulty: { easy: ITALY_EASY, medium: ITALY_MEDIUM, hard: ITALY_HARD },
+    bounds: ITALY_BOUNDS,
+    svgHeight: computeSvgHeight(ITALY_BOUNDS),
+  },
+  {
+    id: "poland",
+    name: "Polen",
+    flag: "🇵🇱",
+    citiesByDifficulty: { easy: POLAND_EASY, medium: POLAND_MEDIUM, hard: POLAND_HARD },
+    bounds: POLAND_BOUNDS,
+    svgHeight: computeSvgHeight(POLAND_BOUNDS),
+  },
+  {
+    id: "brazil",
+    name: "Brasilien",
+    flag: "🇧🇷",
+    citiesByDifficulty: { easy: BRAZIL_EASY, medium: BRAZIL_MEDIUM, hard: BRAZIL_HARD },
+    bounds: BRAZIL_BOUNDS,
+    svgHeight: computeSvgHeight(BRAZIL_BOUNDS),
+  },
+  {
+    id: "argentina",
+    name: "Argentina",
+    flag: "🇦🇷",
+    citiesByDifficulty: { easy: ARGENTINA_EASY, medium: ARGENTINA_MEDIUM, hard: ARGENTINA_HARD },
+    bounds: ARGENTINA_BOUNDS,
+    svgHeight: computeSvgHeight(ARGENTINA_BOUNDS),
+  },
+  {
+    id: "india",
+    name: "Indien",
+    flag: "🇮🇳",
+    citiesByDifficulty: { easy: INDIA_EASY, medium: INDIA_MEDIUM, hard: INDIA_HARD },
+    bounds: INDIA_BOUNDS,
+    svgHeight: computeSvgHeight(INDIA_BOUNDS),
+  },
+  {
+    id: "china",
+    name: "Kina",
+    flag: "🇨🇳",
+    citiesByDifficulty: { easy: CHINA_EASY, medium: CHINA_MEDIUM, hard: CHINA_HARD },
+    bounds: CHINA_BOUNDS,
+    svgHeight: computeSvgHeight(CHINA_BOUNDS),
+  },
+  {
+    id: "australia",
+    name: "Australien",
+    flag: "🇦🇺",
+    citiesByDifficulty: { easy: AUSTRALIA_EASY, medium: AUSTRALIA_MEDIUM, hard: AUSTRALIA_HARD },
+    bounds: AUSTRALIA_BOUNDS,
+    svgHeight: computeSvgHeight(AUSTRALIA_BOUNDS),
   },
 ];
 

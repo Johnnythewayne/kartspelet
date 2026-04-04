@@ -1,29 +1,30 @@
+## First Batch: 8 New Countries
 
-# 🇩🇪 Tyska Städer-spelet
+### Countries to add:
+- **Europe**: Spain 🇪🇸, Italy 🇮🇹, Poland 🇵🇱
+- **South America**: Brazil 🇧🇷, Argentina 🇦🇷
+- **Asia**: India 🇮🇳, China 🇨🇳
+- **Oceania**: Australia 🇦🇺
 
-Ett geografispel där spelaren ska placera tyska städer på en karta – ju närmare rätt position, desto fler poäng!
+### For each country, I'll create:
+1. **Border JSON** — extracted from Natural Earth / GADM geodata (simplified)
+2. **36 cities** — 12 easy, 12 medium, 12 hard (by population rank)
+3. **Rivers JSON** — extracted from ne_10m_rivers.geojson
+4. **Lakes data** — extracted from ne_10m_lakes.geojson
+5. **Neighbor borders** — from GADM level 0 data
+6. **Country config** — bounds, svgHeight, city arrays
+7. **Translations** — country names in Swedish/English/Luganda
+8. **Flag images** — using existing flag approach
+9. **Continent grouping** — updated in Index.tsx
 
-## Spelupplägg
-- **10–15 stora tyska städer** ingår (t.ex. Berlin, München, Hamburg, Frankfurt, Köln, Stuttgart, Dresden, Leipzig, Düsseldorf, Hannover, Nürnberg, Bremen)
-- En SVG-karta över Tyskland visas på skärmen
-- Varje runda presenteras ett stadsnamn och spelaren klickar på kartan där hen tror att staden ligger
+### Processing approach:
+- Use existing ne_10m_rivers.geojson and ne_10m_lakes.geojson in tmp/ for rivers & lakes
+- Use ne_110m_countries.geojson for country borders (simplified for performance)
+- Download GADM data for high-res borders where needed
+- Follow existing Douglas-Peucker simplification patterns
 
-## Spelmekanik
-- **Avstånd-baserat poängsystem** (à la GeoGuessr): Maxpoäng om du träffar exakt rätt, poängen minskar gradvis ju längre bort du klickar
-- Efter varje gissning visas:
-  - Var du klickade
-  - Var staden faktiskt ligger
-  - Avståndet i km och poängen du fick
-- En "Nästa stad"-knapp tar dig vidare
-
-## Resultat & Avslutning
-- Efter alla städer visas en sammanfattningssida med:
-  - Totalpoäng
-  - Bästa och sämsta gissning
-  - Möjlighet att spela igen
-
-## Design
-- Ren, modern design med Tysklands konturer som SVG
-- Tydliga markörer för gissning (röd) och rätt svar (grön)
-- Animerad linje mellan gissning och rätt svar
-- Responsivt – fungerar på både dator och mobil
+### Remaining countries (future batches):
+- Europe: UK variations, Netherlands, Belgium, Austria, Switzerland, Czech Republic, Romania, Greece, Portugal
+- North America: Canada, Mexico
+- South America: Colombia, Peru, Venezuela, Chile, Ecuador, Bolivia, Paraguay, Uruguay
+- Asia: Japan, Indonesia, Thailand, Vietnam, Philippines, South Korea, Pakistan, Bangladesh
