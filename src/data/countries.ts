@@ -585,6 +585,7 @@ const ANGOLA_BOUNDS = { minLat: -18.5, maxLat: -3.9, minLng: 11.2, maxLng: 24.6 
 const MALI_BOUNDS = { minLat: 9.7, maxLat: 25.5, minLng: -12.7, maxLng: 4.8 };
 const SOUTH_AFRICA_BOUNDS = { minLat: -35.3, maxLat: -21.6, minLng: 15.9, maxLng: 33.4 };
 const SOUTH_SUDAN_BOUNDS = { minLat: 3.0, maxLat: 12.7, minLng: 23.6, maxLng: 36.4 };
+const ETHIOPIA_BOUNDS = { minLat: 2.9, maxLat: 15.3, minLng: 32.5, maxLng: 48.5 };
 
 export const COUNTRIES: CountryConfig[] = [
   {
