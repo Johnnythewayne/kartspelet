@@ -147,10 +147,12 @@ const Index: React.FC = () => {
           <p className="text-sm text-muted-foreground">{t(lang, "chooseCountry")}</p>
           <div className="flex flex-col gap-4">
             {[
-              { continent: t(lang, "continentEurope" as any) || "Europe", ids: ["germany", "sweden", "norway", "france", "england"] },
+              { continent: t(lang, "continentEurope" as any) || "Europe", ids: ["germany", "sweden", "norway", "france", "england", "spain", "italy", "poland"] },
               { continent: t(lang, "continentNorthAmerica" as any) || "North America", ids: ["usa"] },
+              { continent: t(lang, "continentSouthAmerica" as any) || "South America", ids: ["brazil", "argentina"] },
               { continent: t(lang, "continentAfrica" as any) || "Africa", ids: ["uganda"] },
-              { continent: t(lang, "continentAsia" as any) || "Asia", ids: ["myanmar"] },
+              { continent: t(lang, "continentAsia" as any) || "Asia", ids: ["myanmar", "india", "china"] },
+              { continent: t(lang, "continentOceania" as any) || "Oceania", ids: ["australia"] },
             ].map((group) => {
               const groupCountries = group.ids.map(id => COUNTRIES.find(c => c.id === id)!).filter(Boolean);
               if (groupCountries.length === 0) return null;
