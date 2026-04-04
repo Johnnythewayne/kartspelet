@@ -135,6 +135,7 @@ const geoJsonMap: Record<string, unknown> = {
   pakistan: pakistanGeoJson,
   turkey: turkeyGeoJson,
   austria: austriaGeoJson,
+  denmark: denmarkGeoJson,
 };
 
 const neighboursMap: Record<string, NeighbourBorder[]> = {
