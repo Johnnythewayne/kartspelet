@@ -198,7 +198,14 @@ const CountryMap: React.FC<CountryMapProps> = ({
 
     return result;
   }, [countryId, countryPolygons]);
-  const lakes = countryId === "sweden" ? SWEDEN_LAKES : countryId === "norway" ? NORWAY_LAKES : countryId === "uganda" ? UGANDA_LAKES : countryId === "france" ? FRANCE_LAKES : countryId === "england" ? ENGLAND_LAKES : countryId === "usa" ? USA_LAKES : countryId === "myanmar" ? MYANMAR_LAKES : [];
+  const lakesMap: Record<string, typeof SWEDEN_LAKES> = {
+    sweden: SWEDEN_LAKES, norway: NORWAY_LAKES, uganda: UGANDA_LAKES,
+    france: FRANCE_LAKES, england: ENGLAND_LAKES, usa: USA_LAKES,
+    myanmar: MYANMAR_LAKES, spain: SPAIN_LAKES, italy: ITALY_LAKES,
+    poland: POLAND_LAKES, brazil: BRAZIL_LAKES, argentina: ARGENTINA_LAKES,
+    india: INDIA_LAKES, china: CHINA_LAKES, australia: AUSTRALIA_LAKES,
+  };
+  const lakes = lakesMap[countryId] || [];
 
 
   const neighbourPaths = useMemo(() => {
