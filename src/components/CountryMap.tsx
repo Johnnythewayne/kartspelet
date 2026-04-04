@@ -207,6 +207,16 @@ const neighboursMap: Record<string, NeighbourBorder[]> = {
   turkey: TURKEY_NEIGHBOURS,
   austria: AUSTRIA_NEIGHBOURS,
   denmark: DENMARK_NEIGHBOURS,
+  algeria: ALGERIA_NEIGHBOURS,
+  dr_congo: DR_CONGO_NEIGHBOURS,
+  sudan: SUDAN_NEIGHBOURS,
+  libya: LIBYA_NEIGHBOURS,
+  chad: CHAD_NEIGHBOURS,
+  niger: NIGER_NEIGHBOURS,
+  angola: ANGOLA_NEIGHBOURS,
+  mali: MALI_NEIGHBOURS,
+  south_africa: SOUTH_AFRICA_NEIGHBOURS,
+  south_sudan: SOUTH_SUDAN_NEIGHBOURS,
 };
 
 function coordToSvg(
