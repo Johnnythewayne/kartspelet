@@ -38,6 +38,7 @@ import mongoliaNeighbours from "./neighbours-mongolia.json";
 import indonesiaNeighbours from "./neighbours-indonesia.json";
 import pakistanNeighbours from "./neighbours-pakistan.json";
 import turkeyNeighbours from "./neighbours-turkey.json";
+import austriaNeighbours from "./neighbours-austria.json";
 
 function validateNeighbours(data: unknown, label: string): NeighbourBorder[] {
   if (!Array.isArray(data) || data.length === 0) {
