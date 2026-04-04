@@ -64,6 +64,7 @@ import flagMali from "@/assets/flag-mali.png";
 import flagSouthAfrica from "@/assets/flag-south-africa.png";
 import flagSouthSudan from "@/assets/flag-south-sudan.png";
 import flagEthiopia from "@/assets/flag-ethiopia.png";
+import flagPhilippines from "@/assets/flag-philippines.png";
 
 const FLAG_IMAGES: Record<string, string> = {
   germany: flagGermany,
