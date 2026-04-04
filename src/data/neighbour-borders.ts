@@ -90,3 +90,4 @@ export const INDONESIA_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(indone
 export const PAKISTAN_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(pakistanNeighbours, "pakistan");
 export const TURKEY_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(turkeyNeighbours, "turkey");
 export const AUSTRIA_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(austriaNeighbours, "austria");
+export const DENMARK_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(denmarkNeighbours, "denmark");

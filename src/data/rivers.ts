@@ -176,6 +176,7 @@ const RIVERS_MAP: Record<string, RiverSegment[]> = {
   pakistan: PAKISTAN_RIVERS,
   turkey: TURKEY_RIVERS,
   austria: AUSTRIA_RIVERS,
+  denmark: DENMARK_RIVERS,
 };
 
 export function getRiversForCountry(countryId: string): RiverSegment[] {
