@@ -53,6 +53,16 @@ import flagPakistan from "@/assets/flag-pakistan.png";
 import flagTurkey from "@/assets/flag-turkey.png";
 import flagAustria from "@/assets/flag-austria.png";
 import flagDenmark from "@/assets/flag-denmark.png";
+import flagAlgeria from "@/assets/flag-algeria.png";
+import flagDrCongo from "@/assets/flag-dr-congo.png";
+import flagSudan from "@/assets/flag-sudan.png";
+import flagLibya from "@/assets/flag-libya.png";
+import flagChad from "@/assets/flag-chad.png";
+import flagNiger from "@/assets/flag-niger.png";
+import flagAngola from "@/assets/flag-angola.png";
+import flagMali from "@/assets/flag-mali.png";
+import flagSouthAfrica from "@/assets/flag-south-africa.png";
+import flagSouthSudan from "@/assets/flag-south-sudan.png";
 
 const FLAG_IMAGES: Record<string, string> = {
   germany: flagGermany,
@@ -93,6 +103,16 @@ const FLAG_IMAGES: Record<string, string> = {
   turkey: flagTurkey,
   austria: flagAustria,
   denmark: flagDenmark,
+  algeria: flagAlgeria,
+  dr_congo: flagDrCongo,
+  sudan: flagSudan,
+  libya: flagLibya,
+  chad: flagChad,
+  niger: flagNiger,
+  angola: flagAngola,
+  mali: flagMali,
+  south_africa: flagSouthAfrica,
+  south_sudan: flagSouthSudan,
 };
 
 interface RoundResult {
