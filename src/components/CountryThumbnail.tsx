@@ -7,6 +7,14 @@ import myanmarBorder from "@/data/myanmar-border.json";
 import franceBorder from "@/data/france-border.json";
 import englandBorder from "@/data/england-border.json";
 import usaBorder from "@/data/usa-border.json";
+import spainBorder from "@/data/spain-border.json";
+import italyBorder from "@/data/italy-border.json";
+import polandBorder from "@/data/poland-border.json";
+import brazilBorder from "@/data/brazil-border.json";
+import argentinaBorder from "@/data/argentina-border.json";
+import indiaBorder from "@/data/india-border.json";
+import chinaBorder from "@/data/china-border.json";
+import australiaBorder from "@/data/australia-border.json";
 
 function extractRings(geojson: any): number[][][] {
   const rings: number[][][] = [];
@@ -32,6 +40,14 @@ const BORDERS: Record<string, number[][][]> = {
   france: extractRings(franceBorder),
   england: extractRings(englandBorder),
   usa: extractRings(usaBorder),
+  spain: extractRings(spainBorder),
+  italy: extractRings(italyBorder),
+  poland: extractRings(polandBorder),
+  brazil: extractRings(brazilBorder),
+  argentina: extractRings(argentinaBorder),
+  india: extractRings(indiaBorder),
+  china: extractRings(chinaBorder),
+  australia: extractRings(australiaBorder),
 };
 
 interface Props {
