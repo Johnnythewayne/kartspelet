@@ -14,6 +14,14 @@ export const MYANMAR_RIVERS: RiverSegment[] = [];
 export const FRANCE_RIVERS: RiverSegment[] = [];
 export const ENGLAND_RIVERS: RiverSegment[] = [];
 export const USA_RIVERS: RiverSegment[] = [];
+export const SPAIN_RIVERS: RiverSegment[] = [];
+export const ITALY_RIVERS: RiverSegment[] = [];
+export const POLAND_RIVERS: RiverSegment[] = [];
+export const BRAZIL_RIVERS: RiverSegment[] = [];
+export const ARGENTINA_RIVERS: RiverSegment[] = [];
+export const INDIA_RIVERS: RiverSegment[] = [];
+export const CHINA_RIVERS: RiverSegment[] = [];
+export const AUSTRALIA_RIVERS: RiverSegment[] = [];
 
 // Populated at module load via JSON imports
 import germanyRivers from "./rivers-germany.json";
@@ -24,6 +32,14 @@ import myanmarRivers from "./rivers-myanmar.json";
 import franceRivers from "./rivers-france.json";
 import englandRivers from "./rivers-england.json";
 import usaRivers from "./rivers-usa.json";
+import spainRivers from "./rivers-spain.json";
+import italyRivers from "./rivers-italy.json";
+import polandRivers from "./rivers-poland.json";
+import brazilRivers from "./rivers-brazil.json";
+import argentinaRivers from "./rivers-argentina.json";
+import indiaRivers from "./rivers-india.json";
+import chinaRivers from "./rivers-china.json";
+import australiaRivers from "./rivers-australia.json";
 
 function validateRivers(data: unknown, label: string): RiverSegment[] {
   if (!Array.isArray(data) || data.length === 0) {
@@ -47,6 +63,14 @@ function validateRivers(data: unknown, label: string): RiverSegment[] {
 (FRANCE_RIVERS as RiverSegment[]).push(...validateRivers(franceRivers, "France"));
 (ENGLAND_RIVERS as RiverSegment[]).push(...validateRivers(englandRivers, "England"));
 (USA_RIVERS as RiverSegment[]).push(...validateRivers(usaRivers, "USA"));
+(SPAIN_RIVERS as RiverSegment[]).push(...validateRivers(spainRivers, "Spain"));
+(ITALY_RIVERS as RiverSegment[]).push(...validateRivers(italyRivers, "Italy"));
+(POLAND_RIVERS as RiverSegment[]).push(...validateRivers(polandRivers, "Poland"));
+(BRAZIL_RIVERS as RiverSegment[]).push(...validateRivers(brazilRivers, "Brazil"));
+(ARGENTINA_RIVERS as RiverSegment[]).push(...validateRivers(argentinaRivers, "Argentina"));
+(INDIA_RIVERS as RiverSegment[]).push(...validateRivers(indiaRivers, "India"));
+(CHINA_RIVERS as RiverSegment[]).push(...validateRivers(chinaRivers, "China"));
+(AUSTRALIA_RIVERS as RiverSegment[]).push(...validateRivers(australiaRivers, "Australia"));
 
 const RIVERS_MAP: Record<string, RiverSegment[]> = {
   germany: GERMANY_RIVERS,
@@ -57,6 +81,14 @@ const RIVERS_MAP: Record<string, RiverSegment[]> = {
   france: FRANCE_RIVERS,
   england: ENGLAND_RIVERS,
   usa: USA_RIVERS,
+  spain: SPAIN_RIVERS,
+  italy: ITALY_RIVERS,
+  poland: POLAND_RIVERS,
+  brazil: BRAZIL_RIVERS,
+  argentina: ARGENTINA_RIVERS,
+  india: INDIA_RIVERS,
+  china: CHINA_RIVERS,
+  australia: AUSTRALIA_RIVERS,
 };
 
 export function getRiversForCountry(countryId: string): RiverSegment[] {
