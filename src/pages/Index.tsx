@@ -90,6 +90,7 @@ const FLAG_IMAGES: Record<string, string> = {
   indonesia: flagIndonesia,
   pakistan: flagPakistan,
   turkey: flagTurkey,
+  austria: flagAustria,
 };
 
 interface RoundResult {
