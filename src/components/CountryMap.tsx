@@ -171,6 +171,7 @@ const geoJsonMap: Record<string, unknown> = {
   south_africa: south_africaGeoJson,
   south_sudan: south_sudanGeoJson,
   ethiopia: ethiopiaGeoJson,
+  philippines: philippinesGeoJson,
 };
 
 const neighboursMap: Record<string, NeighbourBorder[]> = {
