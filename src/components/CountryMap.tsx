@@ -172,6 +172,7 @@ const neighboursMap: Record<string, NeighbourBorder[]> = {
   indonesia: INDONESIA_NEIGHBOURS,
   pakistan: PAKISTAN_NEIGHBOURS,
   turkey: TURKEY_NEIGHBOURS,
+  austria: AUSTRIA_NEIGHBOURS,
 };
 
 function coordToSvg(
