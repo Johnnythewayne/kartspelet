@@ -6,6 +6,26 @@ import { ARGENTINA_EASY, ARGENTINA_MEDIUM, ARGENTINA_HARD } from "./cities-argen
 import { INDIA_EASY, INDIA_MEDIUM, INDIA_HARD } from "./cities-india";
 import { CHINA_EASY, CHINA_MEDIUM, CHINA_HARD } from "./cities-china";
 import { AUSTRALIA_EASY, AUSTRALIA_MEDIUM, AUSTRALIA_HARD } from "./cities-australia";
+import { RUSSIA_EASY, RUSSIA_MEDIUM, RUSSIA_HARD } from "./cities-russia";
+import { UKRAINE_EASY, UKRAINE_MEDIUM, UKRAINE_HARD } from "./cities-ukraine";
+import { FINLAND_EASY, FINLAND_MEDIUM, FINLAND_HARD } from "./cities-finland";
+import { CANADA_EASY, CANADA_MEDIUM, CANADA_HARD } from "./cities-canada";
+import { MEXICO_EASY, MEXICO_MEDIUM, MEXICO_HARD } from "./cities-mexico";
+import { PERU_EASY, PERU_MEDIUM, PERU_HARD } from "./cities-peru";
+import { COLOMBIA_EASY, COLOMBIA_MEDIUM, COLOMBIA_HARD } from "./cities-colombia";
+import { BOLIVIA_EASY, BOLIVIA_MEDIUM, BOLIVIA_HARD } from "./cities-bolivia";
+import { VENEZUELA_EASY, VENEZUELA_MEDIUM, VENEZUELA_HARD } from "./cities-venezuela";
+import { CHILE_EASY, CHILE_MEDIUM, CHILE_HARD } from "./cities-chile";
+import { PARAGUAY_EASY, PARAGUAY_MEDIUM, PARAGUAY_HARD } from "./cities-paraguay";
+import { ECUADOR_EASY, ECUADOR_MEDIUM, ECUADOR_HARD } from "./cities-ecuador";
+import { GUYANA_EASY, GUYANA_MEDIUM, GUYANA_HARD } from "./cities-guyana";
+import { KAZAKHSTAN_EASY, KAZAKHSTAN_MEDIUM, KAZAKHSTAN_HARD } from "./cities-kazakhstan";
+import { SAUDI_ARABIA_EASY, SAUDI_ARABIA_MEDIUM, SAUDI_ARABIA_HARD } from "./cities-saudi-arabia";
+import { IRAN_EASY, IRAN_MEDIUM, IRAN_HARD } from "./cities-iran";
+import { MONGOLIA_EASY, MONGOLIA_MEDIUM, MONGOLIA_HARD } from "./cities-mongolia";
+import { INDONESIA_EASY, INDONESIA_MEDIUM, INDONESIA_HARD } from "./cities-indonesia";
+import { PAKISTAN_EASY, PAKISTAN_MEDIUM, PAKISTAN_HARD } from "./cities-pakistan";
+import { TURKEY_EASY, TURKEY_MEDIUM, TURKEY_HARD } from "./cities-turkey";
 
 export interface City {
   name: string;
