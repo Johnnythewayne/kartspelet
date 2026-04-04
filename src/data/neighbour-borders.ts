@@ -51,6 +51,7 @@ import maliNeighbours from "./neighbours-mali.json";
 import south_africaNeighbours from "./neighbours-south-africa.json";
 import south_sudanNeighbours from "./neighbours-south-sudan.json";
 import ethiopiaNeighbours from "./neighbours-ethiopia.json";
+import philippinesNeighbours from "./neighbours-philippines.json";
 
 function validateNeighbours(data: unknown, label: string): NeighbourBorder[] {
   if (!Array.isArray(data) || data.length === 0) {
