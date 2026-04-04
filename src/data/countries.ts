@@ -1,3 +1,12 @@
+import { SPAIN_EASY, SPAIN_MEDIUM, SPAIN_HARD } from "./cities-spain";
+import { ITALY_EASY, ITALY_MEDIUM, ITALY_HARD } from "./cities-italy";
+import { POLAND_EASY, POLAND_MEDIUM, POLAND_HARD } from "./cities-poland";
+import { BRAZIL_EASY, BRAZIL_MEDIUM, BRAZIL_HARD } from "./cities-brazil";
+import { ARGENTINA_EASY, ARGENTINA_MEDIUM, ARGENTINA_HARD } from "./cities-argentina";
+import { INDIA_EASY, INDIA_MEDIUM, INDIA_HARD } from "./cities-india";
+import { CHINA_EASY, CHINA_MEDIUM, CHINA_HARD } from "./cities-china";
+import { AUSTRALIA_EASY, AUSTRALIA_MEDIUM, AUSTRALIA_HARD } from "./cities-australia";
+
 export interface City {
   name: string;
   lat: number;
