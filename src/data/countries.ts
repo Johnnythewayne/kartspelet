@@ -798,6 +798,11 @@ export const COUNTRIES: CountryConfig[] = [
     citiesByDifficulty: { easy: AUSTRIA_EASY, medium: AUSTRIA_MEDIUM, hard: AUSTRIA_HARD },
     bounds: AUSTRIA_BOUNDS, svgHeight: computeSvgHeight(AUSTRIA_BOUNDS),
   },
+  {
+    id: "denmark", name: "Danmark", flag: "🇩🇰",
+    citiesByDifficulty: { easy: DENMARK_EASY, medium: DENMARK_MEDIUM, hard: DENMARK_HARD },
+    bounds: DENMARK_BOUNDS, svgHeight: computeSvgHeight(DENMARK_BOUNDS),
+  },
 ];
 
 export function latLngToSvg(
