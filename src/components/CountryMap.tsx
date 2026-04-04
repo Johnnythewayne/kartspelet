@@ -84,6 +84,16 @@ import { PAKISTAN_LAKES } from "@/data/pakistan-lakes";
 import { TURKEY_LAKES } from "@/data/turkey-lakes";
 import { AUSTRIA_LAKES } from "@/data/austria-lakes";
 import { DENMARK_LAKES } from "@/data/denmark-lakes";
+import { ALGERIA_LAKES } from "@/data/algeria-lakes";
+import { DR_CONGO_LAKES } from "@/data/dr-congo-lakes";
+import { SUDAN_LAKES } from "@/data/sudan-lakes";
+import { LIBYA_LAKES } from "@/data/libya-lakes";
+import { CHAD_LAKES } from "@/data/chad-lakes";
+import { NIGER_LAKES } from "@/data/niger-lakes";
+import { ANGOLA_LAKES } from "@/data/angola-lakes";
+import { MALI_LAKES } from "@/data/mali-lakes";
+import { SOUTH_AFRICA_LAKES } from "@/data/south-africa-lakes";
+import { SOUTH_SUDAN_LAKES } from "@/data/south-sudan-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
 
 import {
