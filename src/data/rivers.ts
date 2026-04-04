@@ -172,6 +172,7 @@ function validateRivers(data: unknown, label: string): RiverSegment[] {
 (SOUTH_AFRICA_RIVERS as RiverSegment[]).push(...validateRivers(south_africaRivers, "south_africa"));
 (SOUTH_SUDAN_RIVERS as RiverSegment[]).push(...validateRivers(south_sudanRivers, "south_sudan"));
 (ETHIOPIA_RIVERS as RiverSegment[]).push(...validateRivers(ethiopiaRivers, "ethiopia"));
+(PHILIPPINES_RIVERS as RiverSegment[]).push(...validateRivers(philippinesRivers, "philippines"));
 
 const RIVERS_MAP: Record<string, RiverSegment[]> = {
   germany: GERMANY_RIVERS,
