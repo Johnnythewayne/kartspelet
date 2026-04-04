@@ -220,6 +220,7 @@ const neighboursMap: Record<string, NeighbourBorder[]> = {
   mali: MALI_NEIGHBOURS,
   south_africa: SOUTH_AFRICA_NEIGHBOURS,
   south_sudan: SOUTH_SUDAN_NEIGHBOURS,
+  ethiopia: ETHIOPIA_NEIGHBOURS,
 };
 
 function coordToSvg(
