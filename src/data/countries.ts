@@ -26,6 +26,7 @@ import { MONGOLIA_EASY, MONGOLIA_MEDIUM, MONGOLIA_HARD } from "./cities-mongolia
 import { INDONESIA_EASY, INDONESIA_MEDIUM, INDONESIA_HARD } from "./cities-indonesia";
 import { PAKISTAN_EASY, PAKISTAN_MEDIUM, PAKISTAN_HARD } from "./cities-pakistan";
 import { TURKEY_EASY, TURKEY_MEDIUM, TURKEY_HARD } from "./cities-turkey";
+import { AUSTRIA_EASY, AUSTRIA_MEDIUM, AUSTRIA_HARD } from "./cities-austria";
 
 export interface City {
   name: string;
