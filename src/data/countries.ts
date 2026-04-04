@@ -882,6 +882,11 @@ export const COUNTRIES: CountryConfig[] = [
     citiesByDifficulty: { easy: ETHIOPIA_EASY, medium: ETHIOPIA_MEDIUM, hard: ETHIOPIA_HARD },
     bounds: ETHIOPIA_BOUNDS, svgHeight: computeSvgHeight(ETHIOPIA_BOUNDS),
   },
+  {
+    id: "philippines", name: "Filippinerna", flag: "🇵🇭",
+    citiesByDifficulty: { easy: PHILIPPINES_EASY, medium: PHILIPPINES_MEDIUM, hard: PHILIPPINES_HARD },
+    bounds: PHILIPPINES_BOUNDS, svgHeight: computeSvgHeight(PHILIPPINES_BOUNDS),
+  },
 ];
 
 export function latLngToSvg(
