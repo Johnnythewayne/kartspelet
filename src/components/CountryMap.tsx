@@ -300,6 +300,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
     guyana: GUYANA_LAKES, kazakhstan: KAZAKHSTAN_LAKES, saudi_arabia: SAUDI_ARABIA_LAKES,
     iran: IRAN_LAKES, mongolia: MONGOLIA_LAKES, indonesia: INDONESIA_LAKES,
     pakistan: PAKISTAN_LAKES, turkey: TURKEY_LAKES, austria: AUSTRIA_LAKES,
+    denmark: DENMARK_LAKES,
   };
   const lakes = lakesMap[countryId] || [];
 

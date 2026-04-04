@@ -563,6 +563,7 @@ const INDONESIA_BOUNDS = { minLat: -11.0, maxLat: 5.9, minLng: 95.0, maxLng: 141
 const PAKISTAN_BOUNDS = { minLat: 23.7, maxLat: 37.1, minLng: 60.9, maxLng: 77.8 };
 const TURKEY_BOUNDS = { minLat: 35.8, maxLat: 42.1, minLng: 26.0, maxLng: 44.8 };
 const AUSTRIA_BOUNDS = { minLat: 46.3, maxLat: 49.1, minLng: 9.5, maxLng: 17.2 };
+const DENMARK_BOUNDS = { minLat: 54.4, maxLat: 57.9, minLng: 7.5, maxLng: 15.5 };
 
 export const COUNTRIES: CountryConfig[] = [
   {
