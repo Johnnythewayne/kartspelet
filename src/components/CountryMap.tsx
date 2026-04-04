@@ -48,6 +48,7 @@ import maliGeoJson from "@/data/mali-border.json";
 import south_africaGeoJson from "@/data/south-africa-border.json";
 import south_sudanGeoJson from "@/data/south-sudan-border.json";
 import ethiopiaGeoJson from "@/data/ethiopia-border.json";
+import philippinesGeoJson from "@/data/philippines-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { NORWAY_LAKES } from "@/data/norway-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
