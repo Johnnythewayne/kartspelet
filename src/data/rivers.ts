@@ -157,6 +157,16 @@ function validateRivers(data: unknown, label: string): RiverSegment[] {
 (TURKEY_RIVERS as RiverSegment[]).push(...validateRivers(turkeyRivers, "turkey"));
 (AUSTRIA_RIVERS as RiverSegment[]).push(...validateRivers(austriaRivers, "austria"));
 (DENMARK_RIVERS as RiverSegment[]).push(...validateRivers(denmarkRivers, "denmark"));
+(ALGERIA_RIVERS as RiverSegment[]).push(...validateRivers(algeriaRivers, "algeria"));
+(DR_CONGO_RIVERS as RiverSegment[]).push(...validateRivers(dr_congoRivers, "dr_congo"));
+(SUDAN_RIVERS as RiverSegment[]).push(...validateRivers(sudanRivers, "sudan"));
+(LIBYA_RIVERS as RiverSegment[]).push(...validateRivers(libyaRivers, "libya"));
+(CHAD_RIVERS as RiverSegment[]).push(...validateRivers(chadRivers, "chad"));
+(NIGER_RIVERS as RiverSegment[]).push(...validateRivers(nigerRivers, "niger"));
+(ANGOLA_RIVERS as RiverSegment[]).push(...validateRivers(angolaRivers, "angola"));
+(MALI_RIVERS as RiverSegment[]).push(...validateRivers(maliRivers, "mali"));
+(SOUTH_AFRICA_RIVERS as RiverSegment[]).push(...validateRivers(south_africaRivers, "south_africa"));
+(SOUTH_SUDAN_RIVERS as RiverSegment[]).push(...validateRivers(south_sudanRivers, "south_sudan"));
 
 const RIVERS_MAP: Record<string, RiverSegment[]> = {
   germany: GERMANY_RIVERS,
@@ -197,6 +207,16 @@ const RIVERS_MAP: Record<string, RiverSegment[]> = {
   turkey: TURKEY_RIVERS,
   austria: AUSTRIA_RIVERS,
   denmark: DENMARK_RIVERS,
+  algeria: ALGERIA_RIVERS,
+  dr_congo: DR_CONGO_RIVERS,
+  sudan: SUDAN_RIVERS,
+  libya: LIBYA_RIVERS,
+  chad: CHAD_RIVERS,
+  niger: NIGER_RIVERS,
+  angola: ANGOLA_RIVERS,
+  mali: MALI_RIVERS,
+  south_africa: SOUTH_AFRICA_RIVERS,
+  south_sudan: SOUTH_SUDAN_RIVERS,
 };
 
 export function getRiversForCountry(countryId: string): RiverSegment[] {
