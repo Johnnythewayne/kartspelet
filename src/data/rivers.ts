@@ -44,6 +44,16 @@ export const PAKISTAN_RIVERS: RiverSegment[] = [];
 export const TURKEY_RIVERS: RiverSegment[] = [];
 export const AUSTRIA_RIVERS: RiverSegment[] = [];
 export const DENMARK_RIVERS: RiverSegment[] = [];
+export const ALGERIA_RIVERS: RiverSegment[] = [];
+export const DR_CONGO_RIVERS: RiverSegment[] = [];
+export const SUDAN_RIVERS: RiverSegment[] = [];
+export const LIBYA_RIVERS: RiverSegment[] = [];
+export const CHAD_RIVERS: RiverSegment[] = [];
+export const NIGER_RIVERS: RiverSegment[] = [];
+export const ANGOLA_RIVERS: RiverSegment[] = [];
+export const MALI_RIVERS: RiverSegment[] = [];
+export const SOUTH_AFRICA_RIVERS: RiverSegment[] = [];
+export const SOUTH_SUDAN_RIVERS: RiverSegment[] = [];
 
 // Populated at module load via JSON imports
 import germanyRivers from "./rivers-germany.json";
