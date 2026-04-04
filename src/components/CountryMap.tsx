@@ -156,6 +156,16 @@ const geoJsonMap: Record<string, unknown> = {
   turkey: turkeyGeoJson,
   austria: austriaGeoJson,
   denmark: denmarkGeoJson,
+  algeria: algeriaGeoJson,
+  dr_congo: dr_congoGeoJson,
+  sudan: sudanGeoJson,
+  libya: libyaGeoJson,
+  chad: chadGeoJson,
+  niger: nigerGeoJson,
+  angola: angolaGeoJson,
+  mali: maliGeoJson,
+  south_africa: south_africaGeoJson,
+  south_sudan: south_sudanGeoJson,
 };
 
 const neighboursMap: Record<string, NeighbourBorder[]> = {
