@@ -23,6 +23,14 @@ import flagMyanmar from "@/assets/flag-myanmar.png";
 import flagFrance from "@/assets/flag-france.png";
 import flagEngland from "@/assets/flag-england.png";
 import flagUsa from "@/assets/flag-usa.png";
+import flagSpain from "@/assets/flag-spain.png";
+import flagItaly from "@/assets/flag-italy.png";
+import flagPoland from "@/assets/flag-poland.png";
+import flagBrazil from "@/assets/flag-brazil.png";
+import flagArgentina from "@/assets/flag-argentina.png";
+import flagIndia from "@/assets/flag-india.png";
+import flagChina from "@/assets/flag-china.png";
+import flagAustralia from "@/assets/flag-australia.png";
 
 const FLAG_IMAGES: Record<string, string> = {
   germany: flagGermany,
@@ -33,6 +41,14 @@ const FLAG_IMAGES: Record<string, string> = {
   france: flagFrance,
   england: flagEngland,
   usa: flagUsa,
+  spain: flagSpain,
+  italy: flagItaly,
+  poland: flagPoland,
+  brazil: flagBrazil,
+  argentina: flagArgentina,
+  india: flagIndia,
+  china: flagChina,
+  australia: flagAustralia,
 };
 
 interface RoundResult {
