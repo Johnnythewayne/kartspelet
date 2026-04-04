@@ -107,6 +107,7 @@ import maliRivers from "./rivers-mali.json";
 import south_africaRivers from "./rivers-south-africa.json";
 import south_sudanRivers from "./rivers-south-sudan.json";
 import ethiopiaRivers from "./rivers-ethiopia.json";
+import philippinesRivers from "./rivers-philippines.json";
 
 function validateRivers(data: unknown, label: string): RiverSegment[] {
   if (!Array.isArray(data) || data.length === 0) {
