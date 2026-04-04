@@ -114,6 +114,7 @@ const FLAG_IMAGES: Record<string, string> = {
   mali: flagMali,
   south_africa: flagSouthAfrica,
   south_sudan: flagSouthSudan,
+  ethiopia: flagEthiopia,
 };
 
 interface RoundResult {
