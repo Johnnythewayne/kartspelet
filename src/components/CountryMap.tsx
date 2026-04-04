@@ -349,6 +349,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
     libya: LIBYA_LAKES, chad: CHAD_LAKES, niger: NIGER_LAKES,
     angola: ANGOLA_LAKES, mali: MALI_LAKES, south_africa: SOUTH_AFRICA_LAKES,
     south_sudan: SOUTH_SUDAN_LAKES,
+    ethiopia: ETHIOPIA_LAKES,
   };
   const lakes = lakesMap[countryId] || [];
 
