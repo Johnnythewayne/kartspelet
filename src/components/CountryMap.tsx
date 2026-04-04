@@ -37,6 +37,16 @@ import pakistanGeoJson from "@/data/pakistan-border.json";
 import turkeyGeoJson from "@/data/turkey-border.json";
 import austriaGeoJson from "@/data/austria-border.json";
 import denmarkGeoJson from "@/data/denmark-border.json";
+import algeriaGeoJson from "@/data/algeria-border.json";
+import dr_congoGeoJson from "@/data/dr-congo-border.json";
+import sudanGeoJson from "@/data/sudan-border.json";
+import libyaGeoJson from "@/data/libya-border.json";
+import chadGeoJson from "@/data/chad-border.json";
+import nigerGeoJson from "@/data/niger-border.json";
+import angolaGeoJson from "@/data/angola-border.json";
+import maliGeoJson from "@/data/mali-border.json";
+import south_africaGeoJson from "@/data/south-africa-border.json";
+import south_sudanGeoJson from "@/data/south-sudan-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { NORWAY_LAKES } from "@/data/norway-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
@@ -74,6 +84,16 @@ import { PAKISTAN_LAKES } from "@/data/pakistan-lakes";
 import { TURKEY_LAKES } from "@/data/turkey-lakes";
 import { AUSTRIA_LAKES } from "@/data/austria-lakes";
 import { DENMARK_LAKES } from "@/data/denmark-lakes";
+import { ALGERIA_LAKES } from "@/data/algeria-lakes";
+import { DR_CONGO_LAKES } from "@/data/dr-congo-lakes";
+import { SUDAN_LAKES } from "@/data/sudan-lakes";
+import { LIBYA_LAKES } from "@/data/libya-lakes";
+import { CHAD_LAKES } from "@/data/chad-lakes";
+import { NIGER_LAKES } from "@/data/niger-lakes";
+import { ANGOLA_LAKES } from "@/data/angola-lakes";
+import { MALI_LAKES } from "@/data/mali-lakes";
+import { SOUTH_AFRICA_LAKES } from "@/data/south-africa-lakes";
+import { SOUTH_SUDAN_LAKES } from "@/data/south-sudan-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
 
 import {
@@ -92,7 +112,7 @@ import {
   INDIA_NEIGHBOURS,
   CHINA_NEIGHBOURS,
   AUSTRALIA_NEIGHBOURS,
-  RUSSIA_NEIGHBOURS, UKRAINE_NEIGHBOURS, FINLAND_NEIGHBOURS, CANADA_NEIGHBOURS, MEXICO_NEIGHBOURS, PERU_NEIGHBOURS, COLOMBIA_NEIGHBOURS, BOLIVIA_NEIGHBOURS, VENEZUELA_NEIGHBOURS, CHILE_NEIGHBOURS, PARAGUAY_NEIGHBOURS, ECUADOR_NEIGHBOURS, GUYANA_NEIGHBOURS, KAZAKHSTAN_NEIGHBOURS, SAUDI_ARABIA_NEIGHBOURS, IRAN_NEIGHBOURS, MONGOLIA_NEIGHBOURS, INDONESIA_NEIGHBOURS, PAKISTAN_NEIGHBOURS, TURKEY_NEIGHBOURS, AUSTRIA_NEIGHBOURS, DENMARK_NEIGHBOURS,
+  RUSSIA_NEIGHBOURS, UKRAINE_NEIGHBOURS, FINLAND_NEIGHBOURS, CANADA_NEIGHBOURS, MEXICO_NEIGHBOURS, PERU_NEIGHBOURS, COLOMBIA_NEIGHBOURS, BOLIVIA_NEIGHBOURS, VENEZUELA_NEIGHBOURS, CHILE_NEIGHBOURS, PARAGUAY_NEIGHBOURS, ECUADOR_NEIGHBOURS, GUYANA_NEIGHBOURS, KAZAKHSTAN_NEIGHBOURS, SAUDI_ARABIA_NEIGHBOURS, IRAN_NEIGHBOURS, MONGOLIA_NEIGHBOURS, INDONESIA_NEIGHBOURS, PAKISTAN_NEIGHBOURS, TURKEY_NEIGHBOURS, AUSTRIA_NEIGHBOURS, DENMARK_NEIGHBOURS, ALGERIA_NEIGHBOURS, DR_CONGO_NEIGHBOURS, SUDAN_NEIGHBOURS, LIBYA_NEIGHBOURS, CHAD_NEIGHBOURS, NIGER_NEIGHBOURS, ANGOLA_NEIGHBOURS, MALI_NEIGHBOURS, SOUTH_AFRICA_NEIGHBOURS, SOUTH_SUDAN_NEIGHBOURS,
 } from "@/data/neighbour-borders";
 import type { NeighbourBorder } from "@/data/neighbour-borders";
 import type { CountryConfig } from "@/data/countries";
@@ -136,6 +156,16 @@ const geoJsonMap: Record<string, unknown> = {
   turkey: turkeyGeoJson,
   austria: austriaGeoJson,
   denmark: denmarkGeoJson,
+  algeria: algeriaGeoJson,
+  dr_congo: dr_congoGeoJson,
+  sudan: sudanGeoJson,
+  libya: libyaGeoJson,
+  chad: chadGeoJson,
+  niger: nigerGeoJson,
+  angola: angolaGeoJson,
+  mali: maliGeoJson,
+  south_africa: south_africaGeoJson,
+  south_sudan: south_sudanGeoJson,
 };
 
 const neighboursMap: Record<string, NeighbourBorder[]> = {
@@ -177,6 +207,16 @@ const neighboursMap: Record<string, NeighbourBorder[]> = {
   turkey: TURKEY_NEIGHBOURS,
   austria: AUSTRIA_NEIGHBOURS,
   denmark: DENMARK_NEIGHBOURS,
+  algeria: ALGERIA_NEIGHBOURS,
+  dr_congo: DR_CONGO_NEIGHBOURS,
+  sudan: SUDAN_NEIGHBOURS,
+  libya: LIBYA_NEIGHBOURS,
+  chad: CHAD_NEIGHBOURS,
+  niger: NIGER_NEIGHBOURS,
+  angola: ANGOLA_NEIGHBOURS,
+  mali: MALI_NEIGHBOURS,
+  south_africa: SOUTH_AFRICA_NEIGHBOURS,
+  south_sudan: SOUTH_SUDAN_NEIGHBOURS,
 };
 
 function coordToSvg(
@@ -301,6 +341,10 @@ const CountryMap: React.FC<CountryMapProps> = ({
     iran: IRAN_LAKES, mongolia: MONGOLIA_LAKES, indonesia: INDONESIA_LAKES,
     pakistan: PAKISTAN_LAKES, turkey: TURKEY_LAKES, austria: AUSTRIA_LAKES,
     denmark: DENMARK_LAKES,
+    algeria: ALGERIA_LAKES, dr_congo: DR_CONGO_LAKES, sudan: SUDAN_LAKES,
+    libya: LIBYA_LAKES, chad: CHAD_LAKES, niger: NIGER_LAKES,
+    angola: ANGOLA_LAKES, mali: MALI_LAKES, south_africa: SOUTH_AFRICA_LAKES,
+    south_sudan: SOUTH_SUDAN_LAKES,
   };
   const lakes = lakesMap[countryId] || [];
 

@@ -28,6 +28,16 @@ import { PAKISTAN_EASY, PAKISTAN_MEDIUM, PAKISTAN_HARD } from "./cities-pakistan
 import { TURKEY_EASY, TURKEY_MEDIUM, TURKEY_HARD } from "./cities-turkey";
 import { AUSTRIA_EASY, AUSTRIA_MEDIUM, AUSTRIA_HARD } from "./cities-austria";
 import { DENMARK_EASY, DENMARK_MEDIUM, DENMARK_HARD } from "./cities-denmark";
+import { ALGERIA_EASY, ALGERIA_MEDIUM, ALGERIA_HARD } from "./cities-algeria";
+import { DR_CONGO_EASY, DR_CONGO_MEDIUM, DR_CONGO_HARD } from "./cities-dr-congo";
+import { SUDAN_EASY, SUDAN_MEDIUM, SUDAN_HARD } from "./cities-sudan";
+import { LIBYA_EASY, LIBYA_MEDIUM, LIBYA_HARD } from "./cities-libya";
+import { CHAD_EASY, CHAD_MEDIUM, CHAD_HARD } from "./cities-chad";
+import { NIGER_EASY, NIGER_MEDIUM, NIGER_HARD } from "./cities-niger";
+import { ANGOLA_EASY, ANGOLA_MEDIUM, ANGOLA_HARD } from "./cities-angola";
+import { MALI_EASY, MALI_MEDIUM, MALI_HARD } from "./cities-mali";
+import { SOUTH_AFRICA_EASY, SOUTH_AFRICA_MEDIUM, SOUTH_AFRICA_HARD } from "./cities-south-africa";
+import { SOUTH_SUDAN_EASY, SOUTH_SUDAN_MEDIUM, SOUTH_SUDAN_HARD } from "./cities-south-sudan";
 
 export interface City {
   name: string;
@@ -564,6 +574,16 @@ const PAKISTAN_BOUNDS = { minLat: 23.7, maxLat: 37.1, minLng: 60.9, maxLng: 77.8
 const TURKEY_BOUNDS = { minLat: 35.8, maxLat: 42.1, minLng: 26.0, maxLng: 44.8 };
 const AUSTRIA_BOUNDS = { minLat: 46.3, maxLat: 49.1, minLng: 9.5, maxLng: 17.2 };
 const DENMARK_BOUNDS = { minLat: 54.4, maxLat: 57.9, minLng: 7.5, maxLng: 15.5 };
+const ALGERIA_BOUNDS = { minLat: 18.5, maxLat: 37.6, minLng: -9.2, maxLng: 12.5 };
+const DR_CONGO_BOUNDS = { minLat: -13.9, maxLat: 5.9, minLng: 11.7, maxLng: 31.8 };
+const SUDAN_BOUNDS = { minLat: 8.2, maxLat: 23.6, minLng: 21.3, maxLng: 39.2 };
+const LIBYA_BOUNDS = { minLat: 19.0, maxLat: 33.7, minLng: 8.9, maxLng: 25.6 };
+const CHAD_BOUNDS = { minLat: 6.9, maxLat: 23.9, minLng: 13.0, maxLng: 24.5 };
+const NIGER_BOUNDS = { minLat: 11.2, maxLat: 24.0, minLng: -0.3, maxLng: 16.5 };
+const ANGOLA_BOUNDS = { minLat: -18.5, maxLat: -3.9, minLng: 11.2, maxLng: 24.6 };
+const MALI_BOUNDS = { minLat: 9.7, maxLat: 25.5, minLng: -12.7, maxLng: 4.8 };
+const SOUTH_AFRICA_BOUNDS = { minLat: -35.3, maxLat: -21.6, minLng: 15.9, maxLng: 33.4 };
+const SOUTH_SUDAN_BOUNDS = { minLat: 3.0, maxLat: 12.7, minLng: 23.6, maxLng: 36.4 };
 
 export const COUNTRIES: CountryConfig[] = [
   {
@@ -803,6 +823,56 @@ export const COUNTRIES: CountryConfig[] = [
     id: "denmark", name: "Danmark", flag: "🇩🇰",
     citiesByDifficulty: { easy: DENMARK_EASY, medium: DENMARK_MEDIUM, hard: DENMARK_HARD },
     bounds: DENMARK_BOUNDS, svgHeight: computeSvgHeight(DENMARK_BOUNDS),
+  },
+  {
+    id: "algeria", name: "Algeriet", flag: "🇩🇿",
+    citiesByDifficulty: { easy: ALGERIA_EASY, medium: ALGERIA_MEDIUM, hard: ALGERIA_HARD },
+    bounds: ALGERIA_BOUNDS, svgHeight: computeSvgHeight(ALGERIA_BOUNDS),
+  },
+  {
+    id: "dr_congo", name: "DR Kongo", flag: "🇨🇩",
+    citiesByDifficulty: { easy: DR_CONGO_EASY, medium: DR_CONGO_MEDIUM, hard: DR_CONGO_HARD },
+    bounds: DR_CONGO_BOUNDS, svgHeight: computeSvgHeight(DR_CONGO_BOUNDS),
+  },
+  {
+    id: "sudan", name: "Sudan", flag: "🇸🇩",
+    citiesByDifficulty: { easy: SUDAN_EASY, medium: SUDAN_MEDIUM, hard: SUDAN_HARD },
+    bounds: SUDAN_BOUNDS, svgHeight: computeSvgHeight(SUDAN_BOUNDS),
+  },
+  {
+    id: "libya", name: "Libyen", flag: "🇱🇾",
+    citiesByDifficulty: { easy: LIBYA_EASY, medium: LIBYA_MEDIUM, hard: LIBYA_HARD },
+    bounds: LIBYA_BOUNDS, svgHeight: computeSvgHeight(LIBYA_BOUNDS),
+  },
+  {
+    id: "chad", name: "Tchad", flag: "🇹🇩",
+    citiesByDifficulty: { easy: CHAD_EASY, medium: CHAD_MEDIUM, hard: CHAD_HARD },
+    bounds: CHAD_BOUNDS, svgHeight: computeSvgHeight(CHAD_BOUNDS),
+  },
+  {
+    id: "niger", name: "Niger", flag: "🇳🇪",
+    citiesByDifficulty: { easy: NIGER_EASY, medium: NIGER_MEDIUM, hard: NIGER_HARD },
+    bounds: NIGER_BOUNDS, svgHeight: computeSvgHeight(NIGER_BOUNDS),
+  },
+  {
+    id: "angola", name: "Angola", flag: "🇦🇴",
+    citiesByDifficulty: { easy: ANGOLA_EASY, medium: ANGOLA_MEDIUM, hard: ANGOLA_HARD },
+    bounds: ANGOLA_BOUNDS, svgHeight: computeSvgHeight(ANGOLA_BOUNDS),
+  },
+  {
+    id: "mali", name: "Mali", flag: "🇲🇱",
+    citiesByDifficulty: { easy: MALI_EASY, medium: MALI_MEDIUM, hard: MALI_HARD },
+    bounds: MALI_BOUNDS, svgHeight: computeSvgHeight(MALI_BOUNDS),
+  },
+  {
+    id: "south_africa", name: "Sydafrika", flag: "🇿🇦",
+    citiesByDifficulty: { easy: SOUTH_AFRICA_EASY, medium: SOUTH_AFRICA_MEDIUM, hard: SOUTH_AFRICA_HARD },
+    bounds: SOUTH_AFRICA_BOUNDS, svgHeight: computeSvgHeight(SOUTH_AFRICA_BOUNDS),
+  },
+  {
+    id: "south_sudan", name: "Sydsudan", flag: "🇸🇸",
+    citiesByDifficulty: { easy: SOUTH_SUDAN_EASY, medium: SOUTH_SUDAN_MEDIUM, hard: SOUTH_SUDAN_HARD },
+    bounds: SOUTH_SUDAN_BOUNDS, svgHeight: computeSvgHeight(SOUTH_SUDAN_BOUNDS),
   },
 ];
 

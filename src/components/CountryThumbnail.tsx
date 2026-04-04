@@ -37,6 +37,16 @@ import pakistanBorder from "@/data/pakistan-border.json";
 import turkeyBorder from "@/data/turkey-border.json";
 import austriaBorder from "@/data/austria-border.json";
 import denmarkBorder from "@/data/denmark-border.json";
+import algeriaBorder from "@/data/algeria-border.json";
+import dr_congoBorder from "@/data/dr-congo-border.json";
+import sudanBorder from "@/data/sudan-border.json";
+import libyaBorder from "@/data/libya-border.json";
+import chadBorder from "@/data/chad-border.json";
+import nigerBorder from "@/data/niger-border.json";
+import angolaBorder from "@/data/angola-border.json";
+import maliBorder from "@/data/mali-border.json";
+import south_africaBorder from "@/data/south-africa-border.json";
+import south_sudanBorder from "@/data/south-sudan-border.json";
 
 function extractRings(geojson: any): number[][][] {
   const rings: number[][][] = [];
@@ -92,6 +102,16 @@ const BORDERS: Record<string, number[][][]> = {
   turkey: extractRings(turkeyBorder),
   austria: extractRings(austriaBorder),
   denmark: extractRings(denmarkBorder),
+  algeria: extractRings(algeriaBorder),
+  dr_congo: extractRings(dr_congoBorder),
+  sudan: extractRings(sudanBorder),
+  libya: extractRings(libyaBorder),
+  chad: extractRings(chadBorder),
+  niger: extractRings(nigerBorder),
+  angola: extractRings(angolaBorder),
+  mali: extractRings(maliBorder),
+  south_africa: extractRings(south_africaBorder),
+  south_sudan: extractRings(south_sudanBorder),
 };
 
 interface Props {

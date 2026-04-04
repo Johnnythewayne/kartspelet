@@ -1,30 +1,34 @@
-## First Batch: 8 New Countries
 
-### Countries to add:
-- **Europe**: Spain 🇪🇸, Italy 🇮🇹, Poland 🇵🇱
-- **South America**: Brazil 🇧🇷, Argentina 🇦🇷
-- **Asia**: India 🇮🇳, China 🇨🇳
-- **Oceania**: Australia 🇦🇺
+## Add 10 African Countries
 
-### For each country, I'll create:
-1. **Border JSON** — extracted from Natural Earth / GADM geodata (simplified)
-2. **36 cities** — 12 easy, 12 medium, 12 hard (by population rank)
-3. **Rivers JSON** — extracted from ne_10m_rivers.geojson
-4. **Lakes data** — extracted from ne_10m_lakes.geojson
-5. **Neighbor borders** — from GADM level 0 data
-6. **Country config** — bounds, svgHeight, city arrays
-7. **Translations** — country names in Swedish/English/Luganda
-8. **Flag images** — using existing flag approach
-9. **Continent grouping** — updated in Index.tsx
+Countries (by area, including South Sudan and South Africa):
+1. Algeria (DZA)
+2. DR Congo (COD) 
+3. Sudan (SDN)
+4. Libya (LBY)
+5. Chad (TCD)
+6. Niger (NER)
+7. Angola (AGO)
+8. Mali (MLI)
+9. South Africa (ZAF)
+10. South Sudan (SSD)
 
-### Processing approach:
-- Use existing ne_10m_rivers.geojson and ne_10m_lakes.geojson in tmp/ for rivers & lakes
-- Use ne_110m_countries.geojson for country borders (simplified for performance)
-- Download GADM data for high-res borders where needed
-- Follow existing Douglas-Peucker simplification patterns
+### For each country, need:
+1. **Border JSON** (`src/data/{country}-border.json`) - 1500+ point resolution from GADM/Natural Earth
+2. **Cities data** (`src/data/cities-{country}.ts`) - 36 cities (12 easy, 12 medium, 12 hard)
+3. **Lakes data** (`src/data/{country}-lakes.ts`) - empty array initially
+4. **Rivers data** (`src/data/rivers-{country}.json`) - empty array initially
+5. **Flag image** (`src/assets/flag-{country}.png`)
+6. **Country config** in `countries.ts` with bounds
+7. **Translations** in all 4 languages (sv, en, no, lg)
+8. **Index.tsx** registration in Africa continent group
 
-### Remaining countries (future batches):
-- Europe: UK variations, Netherlands, Belgium, Austria, Switzerland, Czech Republic, Romania, Greece, Portugal
-- North America: Canada, Mexico
-- South America: Colombia, Peru, Venezuela, Chile, Ecuador, Bolivia, Paraguay, Uruguay
-- Asia: Japan, Indonesia, Thailand, Vietnam, Philippines, South Korea, Pakistan, Bangladesh
+### Steps:
+1. Download GADM data for missing countries
+2. Generate border JSONs via Python/shapely
+3. Create all city data files
+4. Create lakes/rivers stubs
+5. Generate flag images
+6. Update countries.ts with imports and configs
+7. Update translations.ts
+8. Update Index.tsx

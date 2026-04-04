@@ -40,6 +40,16 @@ import pakistanNeighbours from "./neighbours-pakistan.json";
 import turkeyNeighbours from "./neighbours-turkey.json";
 import austriaNeighbours from "./neighbours-austria.json";
 import denmarkNeighbours from "./neighbours-denmark.json";
+import algeriaNeighbours from "./neighbours-algeria.json";
+import dr_congoNeighbours from "./neighbours-dr-congo.json";
+import sudanNeighbours from "./neighbours-sudan.json";
+import libyaNeighbours from "./neighbours-libya.json";
+import chadNeighbours from "./neighbours-chad.json";
+import nigerNeighbours from "./neighbours-niger.json";
+import angolaNeighbours from "./neighbours-angola.json";
+import maliNeighbours from "./neighbours-mali.json";
+import south_africaNeighbours from "./neighbours-south-africa.json";
+import south_sudanNeighbours from "./neighbours-south-sudan.json";
 
 function validateNeighbours(data: unknown, label: string): NeighbourBorder[] {
   if (!Array.isArray(data) || data.length === 0) {
@@ -92,3 +102,13 @@ export const PAKISTAN_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(pakista
 export const TURKEY_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(turkeyNeighbours, "turkey");
 export const AUSTRIA_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(austriaNeighbours, "austria");
 export const DENMARK_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(denmarkNeighbours, "denmark");
+export const ALGERIA_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(algeriaNeighbours, "algeria");
+export const DR_CONGO_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(dr_congoNeighbours, "dr_congo");
+export const SUDAN_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(sudanNeighbours, "sudan");
+export const LIBYA_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(libyaNeighbours, "libya");
+export const CHAD_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(chadNeighbours, "chad");
+export const NIGER_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(nigerNeighbours, "niger");
+export const ANGOLA_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(angolaNeighbours, "angola");
+export const MALI_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(maliNeighbours, "mali");
+export const SOUTH_AFRICA_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(south_africaNeighbours, "south_africa");
+export const SOUTH_SUDAN_NEIGHBOURS: NeighbourBorder[] = validateNeighbours(south_sudanNeighbours, "south_sudan");
