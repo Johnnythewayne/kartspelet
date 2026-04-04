@@ -47,6 +47,7 @@ import angolaBorder from "@/data/angola-border.json";
 import maliBorder from "@/data/mali-border.json";
 import south_africaBorder from "@/data/south-africa-border.json";
 import south_sudanBorder from "@/data/south-sudan-border.json";
+import ethiopiaBorder from "@/data/ethiopia-border.json";
 
 function extractRings(geojson: any): number[][][] {
   const rings: number[][][] = [];
@@ -112,6 +113,7 @@ const BORDERS: Record<string, number[][][]> = {
   mali: extractRings(maliBorder),
   south_africa: extractRings(south_africaBorder),
   south_sudan: extractRings(south_sudanBorder),
+  ethiopia: extractRings(ethiopiaBorder),
 };
 
 interface Props {

@@ -63,6 +63,7 @@ import flagAngola from "@/assets/flag-angola.png";
 import flagMali from "@/assets/flag-mali.png";
 import flagSouthAfrica from "@/assets/flag-south-africa.png";
 import flagSouthSudan from "@/assets/flag-south-sudan.png";
+import flagEthiopia from "@/assets/flag-ethiopia.png";
 
 const FLAG_IMAGES: Record<string, string> = {
   germany: flagGermany,
@@ -113,6 +114,7 @@ const FLAG_IMAGES: Record<string, string> = {
   mali: flagMali,
   south_africa: flagSouthAfrica,
   south_sudan: flagSouthSudan,
+  ethiopia: flagEthiopia,
 };
 
 interface RoundResult {
@@ -214,7 +216,7 @@ const Index: React.FC = () => {
               { continent: t(lang, "continentEurope"), ids: ["germany", "sweden", "norway", "denmark", "france", "england", "spain", "italy", "poland", "austria", "russia", "ukraine", "finland"] },
               { continent: t(lang, "continentNorthAmerica"), ids: ["usa", "canada", "mexico"] },
               { continent: t(lang, "continentSouthAmerica"), ids: ["brazil", "argentina", "peru", "colombia", "bolivia", "venezuela", "chile", "paraguay", "ecuador", "guyana"] },
-              { continent: t(lang, "continentAfrica"), ids: ["uganda", "algeria", "dr_congo", "sudan", "libya", "chad", "niger", "angola", "mali", "south_africa", "south_sudan"] },
+              { continent: t(lang, "continentAfrica"), ids: ["uganda", "ethiopia", "algeria", "dr_congo", "sudan", "libya", "chad", "niger", "angola", "mali", "south_africa", "south_sudan"] },
               { continent: t(lang, "continentAsia"), ids: ["myanmar", "india", "china", "kazakhstan", "saudi_arabia", "iran", "mongolia", "indonesia", "pakistan", "turkey"] },
               { continent: t(lang, "continentOceania"), ids: ["australia"] },
             ].map((group) => {

@@ -54,6 +54,7 @@ export const ANGOLA_RIVERS: RiverSegment[] = [];
 export const MALI_RIVERS: RiverSegment[] = [];
 export const SOUTH_AFRICA_RIVERS: RiverSegment[] = [];
 export const SOUTH_SUDAN_RIVERS: RiverSegment[] = [];
+export const ETHIOPIA_RIVERS: RiverSegment[] = [];
 
 // Populated at module load via JSON imports
 import germanyRivers from "./rivers-germany.json";
@@ -104,6 +105,7 @@ import angolaRivers from "./rivers-angola.json";
 import maliRivers from "./rivers-mali.json";
 import south_africaRivers from "./rivers-south-africa.json";
 import south_sudanRivers from "./rivers-south-sudan.json";
+import ethiopiaRivers from "./rivers-ethiopia.json";
 
 function validateRivers(data: unknown, label: string): RiverSegment[] {
   if (!Array.isArray(data) || data.length === 0) {
@@ -167,6 +169,7 @@ function validateRivers(data: unknown, label: string): RiverSegment[] {
 (MALI_RIVERS as RiverSegment[]).push(...validateRivers(maliRivers, "mali"));
 (SOUTH_AFRICA_RIVERS as RiverSegment[]).push(...validateRivers(south_africaRivers, "south_africa"));
 (SOUTH_SUDAN_RIVERS as RiverSegment[]).push(...validateRivers(south_sudanRivers, "south_sudan"));
+(ETHIOPIA_RIVERS as RiverSegment[]).push(...validateRivers(ethiopiaRivers, "ethiopia"));
 
 const RIVERS_MAP: Record<string, RiverSegment[]> = {
   germany: GERMANY_RIVERS,
@@ -217,6 +220,7 @@ const RIVERS_MAP: Record<string, RiverSegment[]> = {
   mali: MALI_RIVERS,
   south_africa: SOUTH_AFRICA_RIVERS,
   south_sudan: SOUTH_SUDAN_RIVERS,
+  ethiopia: ETHIOPIA_RIVERS,
 };
 
 export function getRiversForCountry(countryId: string): RiverSegment[] {
