@@ -291,6 +291,12 @@ const translations = {
     countryTurkey: "Ttake",
     countryAustria: "Awosituliya",
     countryDenmark: "Denimaaka",
+    continentEurope: "Bulaaya",
+    continentNorthAmerica: "Amerika eya Bukiikakkono",
+    continentSouthAmerica: "Amerika eya Bukiikasenge",
+    continentAfrica: "Afirika",
+    continentAsia: "Asiya",
+    continentOceania: "Osyaniya",
   },
 } as const;
 
