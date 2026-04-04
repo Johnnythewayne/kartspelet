@@ -83,6 +83,7 @@ import indonesiaRivers from "./rivers-indonesia.json";
 import pakistanRivers from "./rivers-pakistan.json";
 import turkeyRivers from "./rivers-turkey.json";
 import austriaRivers from "./rivers-austria.json";
+import denmarkRivers from "./rivers-denmark.json";
 
 function validateRivers(data: unknown, label: string): RiverSegment[] {
   if (!Array.isArray(data) || data.length === 0) {
