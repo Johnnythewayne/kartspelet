@@ -561,6 +561,7 @@ const MONGOLIA_BOUNDS = { minLat: 41.6, maxLat: 52.2, minLng: 87.7, maxLng: 119.
 const INDONESIA_BOUNDS = { minLat: -11.0, maxLat: 5.9, minLng: 95.0, maxLng: 141.0 };
 const PAKISTAN_BOUNDS = { minLat: 23.7, maxLat: 37.1, minLng: 60.9, maxLng: 77.8 };
 const TURKEY_BOUNDS = { minLat: 35.8, maxLat: 42.1, minLng: 26.0, maxLng: 44.8 };
+const AUSTRIA_BOUNDS = { minLat: 46.3, maxLat: 49.1, minLng: 9.5, maxLng: 17.2 };
 
 export const COUNTRIES: CountryConfig[] = [
   {
