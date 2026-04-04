@@ -3,4 +3,5 @@ export interface AlgeriaLakeData {
   coordinates: [number, number][];
 }
 
-export const ALGERIA_LAKES: AlgeriaLakeData[] = [];
+export const ALGERIA_LAKES: AlgeriaLakeData[] = [
+];

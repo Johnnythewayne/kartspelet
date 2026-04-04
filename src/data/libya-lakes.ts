@@ -3,4 +3,5 @@ export interface LibyaLakeData {
   coordinates: [number, number][];
 }
 
-export const LIBYA_LAKES: LibyaLakeData[] = [];
+export const LIBYA_LAKES: LibyaLakeData[] = [
+];
