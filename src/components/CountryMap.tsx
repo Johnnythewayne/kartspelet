@@ -289,6 +289,13 @@ const CountryMap: React.FC<CountryMapProps> = ({
     myanmar: MYANMAR_LAKES, spain: SPAIN_LAKES, italy: ITALY_LAKES,
     poland: POLAND_LAKES, brazil: BRAZIL_LAKES, argentina: ARGENTINA_LAKES,
     india: INDIA_LAKES, china: CHINA_LAKES, australia: AUSTRALIA_LAKES,
+    russia: RUSSIA_LAKES, ukraine: UKRAINE_LAKES, finland: FINLAND_LAKES,
+    canada: CANADA_LAKES, mexico: MEXICO_LAKES, peru: PERU_LAKES,
+    colombia: COLOMBIA_LAKES, bolivia: BOLIVIA_LAKES, venezuela: VENEZUELA_LAKES,
+    chile: CHILE_LAKES, paraguay: PARAGUAY_LAKES, ecuador: ECUADOR_LAKES,
+    guyana: GUYANA_LAKES, kazakhstan: KAZAKHSTAN_LAKES, saudi_arabia: SAUDI_ARABIA_LAKES,
+    iran: IRAN_LAKES, mongolia: MONGOLIA_LAKES, indonesia: INDONESIA_LAKES,
+    pakistan: PAKISTAN_LAKES, turkey: TURKEY_LAKES, austria: AUSTRIA_LAKES,
   };
   const lakes = lakesMap[countryId] || [];
 
