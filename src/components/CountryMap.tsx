@@ -36,6 +36,7 @@ import indonesiaGeoJson from "@/data/indonesia-border.json";
 import pakistanGeoJson from "@/data/pakistan-border.json";
 import turkeyGeoJson from "@/data/turkey-border.json";
 import austriaGeoJson from "@/data/austria-border.json";
+import denmarkGeoJson from "@/data/denmark-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { NORWAY_LAKES } from "@/data/norway-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
