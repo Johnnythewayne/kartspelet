@@ -3,4 +3,5 @@ export interface AngolaLakeData {
   coordinates: [number, number][];
 }
 
-export const ANGOLA_LAKES: AngolaLakeData[] = [];
+export const ANGOLA_LAKES: AngolaLakeData[] = [
+];
