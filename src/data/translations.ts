@@ -149,6 +149,12 @@ const translations = {
     countryTurkey: "Turkey",
     countryAustria: "Austria",
     countryDenmark: "Denmark",
+    continentEurope: "Europe",
+    continentNorthAmerica: "North America",
+    continentSouthAmerica: "South America",
+    continentAfrica: "Africa",
+    continentAsia: "Asia",
+    continentOceania: "Oceania",
   },
   no: {
     title: "🗺️ Kartspillet",
