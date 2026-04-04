@@ -78,6 +78,12 @@ const translations = {
     countryTurkey: "Turkiet",
     countryAustria: "Österrike",
     countryDenmark: "Danmark",
+    continentEurope: "Europa",
+    continentNorthAmerica: "Nordamerika",
+    continentSouthAmerica: "Sydamerika",
+    continentAfrica: "Afrika",
+    continentAsia: "Asien",
+    continentOceania: "Oceanien",
   },
   en: {
     title: "🗺️ The Map Game",
