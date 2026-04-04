@@ -170,6 +170,7 @@ const translations = {
     countryMali: "Mali",
     countrySouth_africa: "South Africa",
     countrySouth_sudan: "South Sudan",
+    countryEthiopia: "Ethiopia",
     continentEurope: "Europe",
     continentNorthAmerica: "North America",
     continentSouthAmerica: "South America",
