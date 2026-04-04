@@ -129,21 +129,37 @@ const Index: React.FC = () => {
           <h1 className="text-4xl font-extrabold text-foreground">{t(lang, "title")}</h1>
           <p className="text-lg text-muted-foreground">{t(lang, "subtitle")}</p>
           <p className="text-sm text-muted-foreground">{t(lang, "chooseCountry")}</p>
-          <div className="flex flex-col gap-3">
-            {COUNTRIES.map((c) => {
-            const nameKey = `country${c.id.charAt(0).toUpperCase()}${c.id.slice(1)}` as any;
-            return (
-            <Button
-              key={c.id}
-              size="lg"
-              onClick={() => pickCountry(c)}
-              className="text-lg px-8 flex items-center gap-3 justify-start"
-              variant="outline">
-                <CountryThumbnail countryId={c.id} size={32} />
-                <img src={FLAG_IMAGES[c.id]} alt={c.name} width={24} height={16} className="shrink-0 rounded-sm object-contain" />
-                {t(lang, nameKey)}
-              </Button>
-            );
+          <div className="flex flex-col gap-4">
+            {[
+              { continent: t(lang, "continentEurope" as any) || "Europe", ids: ["germany", "sweden", "norway", "france", "england"] },
+              { continent: t(lang, "continentNorthAmerica" as any) || "North America", ids: ["usa"] },
+              { continent: t(lang, "continentAfrica" as any) || "Africa", ids: ["uganda"] },
+              { continent: t(lang, "continentAsia" as any) || "Asia", ids: ["myanmar"] },
+            ].map((group) => {
+              const groupCountries = group.ids.map(id => COUNTRIES.find(c => c.id === id)!).filter(Boolean);
+              if (groupCountries.length === 0) return null;
+              return (
+                <div key={group.continent} className="space-y-2">
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider text-left">{group.continent}</p>
+                  <div className="flex flex-col gap-2">
+                    {groupCountries.map((c) => {
+                      const nameKey = `country${c.id.charAt(0).toUpperCase()}${c.id.slice(1)}` as any;
+                      return (
+                        <Button
+                          key={c.id}
+                          size="lg"
+                          onClick={() => pickCountry(c)}
+                          className="text-lg px-8 flex items-center gap-3 justify-start"
+                          variant="outline">
+                          <CountryThumbnail countryId={c.id} size={32} />
+                          <img src={FLAG_IMAGES[c.id]} alt={c.name} width={24} height={16} className="shrink-0 rounded-sm object-contain" />
+                          {t(lang, nameKey)}
+                        </Button>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
             })}
           </div>
         </div>
