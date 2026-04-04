@@ -224,6 +224,7 @@ const neighboursMap: Record<string, NeighbourBorder[]> = {
   south_africa: SOUTH_AFRICA_NEIGHBOURS,
   south_sudan: SOUTH_SUDAN_NEIGHBOURS,
   ethiopia: ETHIOPIA_NEIGHBOURS,
+  philippines: [],
 };
 
 function coordToSvg(
