@@ -52,6 +52,7 @@ import flagIndonesia from "@/assets/flag-indonesia.png";
 import flagPakistan from "@/assets/flag-pakistan.png";
 import flagTurkey from "@/assets/flag-turkey.png";
 import flagAustria from "@/assets/flag-austria.png";
+import flagDenmark from "@/assets/flag-denmark.png";
 
 const FLAG_IMAGES: Record<string, string> = {
   germany: flagGermany,
@@ -91,6 +92,7 @@ const FLAG_IMAGES: Record<string, string> = {
   pakistan: flagPakistan,
   turkey: flagTurkey,
   austria: flagAustria,
+  denmark: flagDenmark,
 };
 
 interface RoundResult {
@@ -189,7 +191,7 @@ const Index: React.FC = () => {
           <p className="text-sm text-muted-foreground">{t(lang, "chooseCountry")}</p>
           <div className="flex flex-col gap-4">
             {[
-              { continent: t(lang, "continentEurope" as any) || "Europe", ids: ["germany", "sweden", "norway", "france", "england", "spain", "italy", "poland", "austria", "russia", "ukraine", "finland"] },
+              { continent: t(lang, "continentEurope" as any) || "Europe", ids: ["germany", "sweden", "norway", "denmark", "france", "england", "spain", "italy", "poland", "austria", "russia", "ukraine", "finland"] },
               { continent: t(lang, "continentNorthAmerica" as any) || "North America", ids: ["usa", "canada", "mexico"] },
               { continent: t(lang, "continentSouthAmerica" as any) || "South America", ids: ["brazil", "argentina", "peru", "colombia", "bolivia", "venezuela", "chile", "paraguay", "ecuador", "guyana"] },
               { continent: t(lang, "continentAfrica" as any) || "Africa", ids: ["uganda"] },

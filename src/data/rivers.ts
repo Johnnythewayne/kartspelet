@@ -43,6 +43,7 @@ export const INDONESIA_RIVERS: RiverSegment[] = [];
 export const PAKISTAN_RIVERS: RiverSegment[] = [];
 export const TURKEY_RIVERS: RiverSegment[] = [];
 export const AUSTRIA_RIVERS: RiverSegment[] = [];
+export const DENMARK_RIVERS: RiverSegment[] = [];
 
 // Populated at module load via JSON imports
 import germanyRivers from "./rivers-germany.json";
@@ -82,6 +83,7 @@ import indonesiaRivers from "./rivers-indonesia.json";
 import pakistanRivers from "./rivers-pakistan.json";
 import turkeyRivers from "./rivers-turkey.json";
 import austriaRivers from "./rivers-austria.json";
+import denmarkRivers from "./rivers-denmark.json";
 
 function validateRivers(data: unknown, label: string): RiverSegment[] {
   if (!Array.isArray(data) || data.length === 0) {
@@ -134,6 +136,7 @@ function validateRivers(data: unknown, label: string): RiverSegment[] {
 (PAKISTAN_RIVERS as RiverSegment[]).push(...validateRivers(pakistanRivers, "pakistan"));
 (TURKEY_RIVERS as RiverSegment[]).push(...validateRivers(turkeyRivers, "turkey"));
 (AUSTRIA_RIVERS as RiverSegment[]).push(...validateRivers(austriaRivers, "austria"));
+(DENMARK_RIVERS as RiverSegment[]).push(...validateRivers(denmarkRivers, "denmark"));
 
 const RIVERS_MAP: Record<string, RiverSegment[]> = {
   germany: GERMANY_RIVERS,
@@ -173,6 +176,7 @@ const RIVERS_MAP: Record<string, RiverSegment[]> = {
   pakistan: PAKISTAN_RIVERS,
   turkey: TURKEY_RIVERS,
   austria: AUSTRIA_RIVERS,
+  denmark: DENMARK_RIVERS,
 };
 
 export function getRiversForCountry(countryId: string): RiverSegment[] {

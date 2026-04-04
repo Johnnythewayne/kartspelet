@@ -27,6 +27,7 @@ import { INDONESIA_EASY, INDONESIA_MEDIUM, INDONESIA_HARD } from "./cities-indon
 import { PAKISTAN_EASY, PAKISTAN_MEDIUM, PAKISTAN_HARD } from "./cities-pakistan";
 import { TURKEY_EASY, TURKEY_MEDIUM, TURKEY_HARD } from "./cities-turkey";
 import { AUSTRIA_EASY, AUSTRIA_MEDIUM, AUSTRIA_HARD } from "./cities-austria";
+import { DENMARK_EASY, DENMARK_MEDIUM, DENMARK_HARD } from "./cities-denmark";
 
 export interface City {
   name: string;
@@ -562,6 +563,7 @@ const INDONESIA_BOUNDS = { minLat: -11.0, maxLat: 5.9, minLng: 95.0, maxLng: 141
 const PAKISTAN_BOUNDS = { minLat: 23.7, maxLat: 37.1, minLng: 60.9, maxLng: 77.8 };
 const TURKEY_BOUNDS = { minLat: 35.8, maxLat: 42.1, minLng: 26.0, maxLng: 44.8 };
 const AUSTRIA_BOUNDS = { minLat: 46.3, maxLat: 49.1, minLng: 9.5, maxLng: 17.2 };
+const DENMARK_BOUNDS = { minLat: 54.4, maxLat: 57.9, minLng: 7.5, maxLng: 15.5 };
 
 export const COUNTRIES: CountryConfig[] = [
   {
@@ -796,6 +798,11 @@ export const COUNTRIES: CountryConfig[] = [
     id: "austria", name: "Österrike", flag: "🇦🇹",
     citiesByDifficulty: { easy: AUSTRIA_EASY, medium: AUSTRIA_MEDIUM, hard: AUSTRIA_HARD },
     bounds: AUSTRIA_BOUNDS, svgHeight: computeSvgHeight(AUSTRIA_BOUNDS),
+  },
+  {
+    id: "denmark", name: "Danmark", flag: "🇩🇰",
+    citiesByDifficulty: { easy: DENMARK_EASY, medium: DENMARK_MEDIUM, hard: DENMARK_HARD },
+    bounds: DENMARK_BOUNDS, svgHeight: computeSvgHeight(DENMARK_BOUNDS),
   },
 ];
 

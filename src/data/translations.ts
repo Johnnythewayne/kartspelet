@@ -77,6 +77,7 @@ const translations = {
     countryPakistan: "Pakistan",
     countryTurkey: "Turkiet",
     countryAustria: "Österrike",
+    countryDenmark: "Danmark",
   },
   en: {
     title: "🗺️ The Map Game",
@@ -141,6 +142,7 @@ const translations = {
     countryPakistan: "Pakistan",
     countryTurkey: "Turkey",
     countryAustria: "Austria",
+    countryDenmark: "Denmark",
   },
   no: {
     title: "🗺️ Kartspillet",
@@ -205,6 +207,7 @@ const translations = {
     countryPakistan: "Pakistan",
     countryTurkey: "Tyrkia",
     countryAustria: "Østerrike",
+    countryDenmark: "Danmark",
   },
   lg: {
     title: "🗺️ Omuzannyo gw'Emaapu",
@@ -269,6 +272,7 @@ const translations = {
     countryPakistan: "Pakisitaani",
     countryTurkey: "Ttake",
     countryAustria: "Awosituliya",
+    countryDenmark: "Denimaaka",
   },
 } as const;
 

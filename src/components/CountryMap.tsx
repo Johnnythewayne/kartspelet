@@ -36,6 +36,7 @@ import indonesiaGeoJson from "@/data/indonesia-border.json";
 import pakistanGeoJson from "@/data/pakistan-border.json";
 import turkeyGeoJson from "@/data/turkey-border.json";
 import austriaGeoJson from "@/data/austria-border.json";
+import denmarkGeoJson from "@/data/denmark-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { NORWAY_LAKES } from "@/data/norway-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
@@ -72,6 +73,7 @@ import { INDONESIA_LAKES } from "@/data/indonesia-lakes";
 import { PAKISTAN_LAKES } from "@/data/pakistan-lakes";
 import { TURKEY_LAKES } from "@/data/turkey-lakes";
 import { AUSTRIA_LAKES } from "@/data/austria-lakes";
+import { DENMARK_LAKES } from "@/data/denmark-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
 
 import {
@@ -90,7 +92,7 @@ import {
   INDIA_NEIGHBOURS,
   CHINA_NEIGHBOURS,
   AUSTRALIA_NEIGHBOURS,
-  RUSSIA_NEIGHBOURS, UKRAINE_NEIGHBOURS, FINLAND_NEIGHBOURS, CANADA_NEIGHBOURS, MEXICO_NEIGHBOURS, PERU_NEIGHBOURS, COLOMBIA_NEIGHBOURS, BOLIVIA_NEIGHBOURS, VENEZUELA_NEIGHBOURS, CHILE_NEIGHBOURS, PARAGUAY_NEIGHBOURS, ECUADOR_NEIGHBOURS, GUYANA_NEIGHBOURS, KAZAKHSTAN_NEIGHBOURS, SAUDI_ARABIA_NEIGHBOURS, IRAN_NEIGHBOURS, MONGOLIA_NEIGHBOURS, INDONESIA_NEIGHBOURS, PAKISTAN_NEIGHBOURS, TURKEY_NEIGHBOURS, AUSTRIA_NEIGHBOURS,
+  RUSSIA_NEIGHBOURS, UKRAINE_NEIGHBOURS, FINLAND_NEIGHBOURS, CANADA_NEIGHBOURS, MEXICO_NEIGHBOURS, PERU_NEIGHBOURS, COLOMBIA_NEIGHBOURS, BOLIVIA_NEIGHBOURS, VENEZUELA_NEIGHBOURS, CHILE_NEIGHBOURS, PARAGUAY_NEIGHBOURS, ECUADOR_NEIGHBOURS, GUYANA_NEIGHBOURS, KAZAKHSTAN_NEIGHBOURS, SAUDI_ARABIA_NEIGHBOURS, IRAN_NEIGHBOURS, MONGOLIA_NEIGHBOURS, INDONESIA_NEIGHBOURS, PAKISTAN_NEIGHBOURS, TURKEY_NEIGHBOURS, AUSTRIA_NEIGHBOURS, DENMARK_NEIGHBOURS,
 } from "@/data/neighbour-borders";
 import type { NeighbourBorder } from "@/data/neighbour-borders";
 import type { CountryConfig } from "@/data/countries";
@@ -133,6 +135,7 @@ const geoJsonMap: Record<string, unknown> = {
   pakistan: pakistanGeoJson,
   turkey: turkeyGeoJson,
   austria: austriaGeoJson,
+  denmark: denmarkGeoJson,
 };
 
 const neighboursMap: Record<string, NeighbourBorder[]> = {
@@ -173,6 +176,7 @@ const neighboursMap: Record<string, NeighbourBorder[]> = {
   pakistan: PAKISTAN_NEIGHBOURS,
   turkey: TURKEY_NEIGHBOURS,
   austria: AUSTRIA_NEIGHBOURS,
+  denmark: DENMARK_NEIGHBOURS,
 };
 
 function coordToSvg(
@@ -296,6 +300,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
     guyana: GUYANA_LAKES, kazakhstan: KAZAKHSTAN_LAKES, saudi_arabia: SAUDI_ARABIA_LAKES,
     iran: IRAN_LAKES, mongolia: MONGOLIA_LAKES, indonesia: INDONESIA_LAKES,
     pakistan: PAKISTAN_LAKES, turkey: TURKEY_LAKES, austria: AUSTRIA_LAKES,
+    denmark: DENMARK_LAKES,
   };
   const lakes = lakesMap[countryId] || [];
 
