@@ -7,6 +7,14 @@ import myanmarGeoJson from "@/data/myanmar-border.json";
 import franceGeoJson from "@/data/france-border.json";
 import englandGeoJson from "@/data/england-border.json";
 import usaGeoJson from "@/data/usa-border.json";
+import spainGeoJson from "@/data/spain-border.json";
+import italyGeoJson from "@/data/italy-border.json";
+import polandGeoJson from "@/data/poland-border.json";
+import brazilGeoJson from "@/data/brazil-border.json";
+import argentinaGeoJson from "@/data/argentina-border.json";
+import indiaGeoJson from "@/data/india-border.json";
+import chinaGeoJson from "@/data/china-border.json";
+import australiaGeoJson from "@/data/australia-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { NORWAY_LAKES } from "@/data/norway-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
@@ -14,6 +22,14 @@ import { FRANCE_LAKES } from "@/data/france-lakes";
 import { ENGLAND_LAKES } from "@/data/england-lakes";
 import { USA_LAKES } from "@/data/usa-lakes";
 import { MYANMAR_LAKES } from "@/data/myanmar-lakes";
+import { SPAIN_LAKES } from "@/data/spain-lakes";
+import { ITALY_LAKES } from "@/data/italy-lakes";
+import { POLAND_LAKES } from "@/data/poland-lakes";
+import { BRAZIL_LAKES } from "@/data/brazil-lakes";
+import { ARGENTINA_LAKES } from "@/data/argentina-lakes";
+import { INDIA_LAKES } from "@/data/india-lakes";
+import { CHINA_LAKES } from "@/data/china-lakes";
+import { AUSTRALIA_LAKES } from "@/data/australia-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
 
 import {
@@ -24,6 +40,14 @@ import {
   FRANCE_NEIGHBOURS,
   ENGLAND_NEIGHBOURS,
   USA_NEIGHBOURS,
+  SPAIN_NEIGHBOURS,
+  ITALY_NEIGHBOURS,
+  POLAND_NEIGHBOURS,
+  BRAZIL_NEIGHBOURS,
+  ARGENTINA_NEIGHBOURS,
+  INDIA_NEIGHBOURS,
+  CHINA_NEIGHBOURS,
+  AUSTRALIA_NEIGHBOURS,
 } from "@/data/neighbour-borders";
 import type { NeighbourBorder } from "@/data/neighbour-borders";
 import type { CountryConfig } from "@/data/countries";
@@ -37,6 +61,14 @@ const geoJsonMap: Record<string, unknown> = {
   france: franceGeoJson,
   england: englandGeoJson,
   usa: usaGeoJson,
+  spain: spainGeoJson,
+  italy: italyGeoJson,
+  poland: polandGeoJson,
+  brazil: brazilGeoJson,
+  argentina: argentinaGeoJson,
+  india: indiaGeoJson,
+  china: chinaGeoJson,
+  australia: australiaGeoJson,
 };
 
 const neighboursMap: Record<string, NeighbourBorder[]> = {
@@ -48,6 +80,14 @@ const neighboursMap: Record<string, NeighbourBorder[]> = {
   france: FRANCE_NEIGHBOURS,
   england: ENGLAND_NEIGHBOURS,
   usa: USA_NEIGHBOURS,
+  spain: SPAIN_NEIGHBOURS,
+  italy: ITALY_NEIGHBOURS,
+  poland: POLAND_NEIGHBOURS,
+  brazil: BRAZIL_NEIGHBOURS,
+  argentina: ARGENTINA_NEIGHBOURS,
+  india: INDIA_NEIGHBOURS,
+  china: CHINA_NEIGHBOURS,
+  australia: AUSTRALIA_NEIGHBOURS,
 };
 
 function coordToSvg(
