@@ -97,6 +97,7 @@ import { MALI_LAKES } from "@/data/mali-lakes";
 import { SOUTH_AFRICA_LAKES } from "@/data/south-africa-lakes";
 import { SOUTH_SUDAN_LAKES } from "@/data/south-sudan-lakes";
 import { ETHIOPIA_LAKES } from "@/data/ethiopia-lakes";
+import { PHILIPPINES_LAKES } from "@/data/philippines-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
 
 import {
