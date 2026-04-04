@@ -73,6 +73,7 @@ import { INDONESIA_LAKES } from "@/data/indonesia-lakes";
 import { PAKISTAN_LAKES } from "@/data/pakistan-lakes";
 import { TURKEY_LAKES } from "@/data/turkey-lakes";
 import { AUSTRIA_LAKES } from "@/data/austria-lakes";
+import { DENMARK_LAKES } from "@/data/denmark-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
 
 import {
