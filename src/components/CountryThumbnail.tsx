@@ -91,6 +91,7 @@ const BORDERS: Record<string, number[][][]> = {
   pakistan: extractRings(pakistanBorder),
   turkey: extractRings(turkeyBorder),
   austria: extractRings(austriaBorder),
+  denmark: extractRings(denmarkBorder),
 };
 
 interface Props {
