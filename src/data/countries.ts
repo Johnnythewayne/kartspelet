@@ -39,6 +39,7 @@ import { MALI_EASY, MALI_MEDIUM, MALI_HARD } from "./cities-mali";
 import { SOUTH_AFRICA_EASY, SOUTH_AFRICA_MEDIUM, SOUTH_AFRICA_HARD } from "./cities-south-africa";
 import { SOUTH_SUDAN_EASY, SOUTH_SUDAN_MEDIUM, SOUTH_SUDAN_HARD } from "./cities-south-sudan";
 import { ETHIOPIA_EASY, ETHIOPIA_MEDIUM, ETHIOPIA_HARD } from "./cities-ethiopia";
+import { PHILIPPINES_EASY, PHILIPPINES_MEDIUM, PHILIPPINES_HARD } from "./cities-philippines";
 
 export interface City {
   name: string;
@@ -586,6 +587,7 @@ const MALI_BOUNDS = { minLat: 9.7, maxLat: 25.5, minLng: -12.7, maxLng: 4.8 };
 const SOUTH_AFRICA_BOUNDS = { minLat: -35.3, maxLat: -21.6, minLng: 15.9, maxLng: 33.4 };
 const SOUTH_SUDAN_BOUNDS = { minLat: 3.0, maxLat: 12.7, minLng: 23.6, maxLng: 36.4 };
 const ETHIOPIA_BOUNDS = { minLat: 2.9, maxLat: 15.3, minLng: 32.5, maxLng: 48.5 };
+const PHILIPPINES_BOUNDS = { minLat: 4.5, maxLat: 21.0, minLng: 116.8, maxLng: 126.8 };
 
 export const COUNTRIES: CountryConfig[] = [
   {
@@ -880,6 +882,11 @@ export const COUNTRIES: CountryConfig[] = [
     id: "ethiopia", name: "Etiopien", flag: "🇪🇹",
     citiesByDifficulty: { easy: ETHIOPIA_EASY, medium: ETHIOPIA_MEDIUM, hard: ETHIOPIA_HARD },
     bounds: ETHIOPIA_BOUNDS, svgHeight: computeSvgHeight(ETHIOPIA_BOUNDS),
+  },
+  {
+    id: "philippines", name: "Filippinerna", flag: "🇵🇭",
+    citiesByDifficulty: { easy: PHILIPPINES_EASY, medium: PHILIPPINES_MEDIUM, hard: PHILIPPINES_HARD },
+    bounds: PHILIPPINES_BOUNDS, svgHeight: computeSvgHeight(PHILIPPINES_BOUNDS),
   },
 ];
 
