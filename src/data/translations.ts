@@ -177,6 +177,14 @@ const translations = {
     countryFrance: "Bufalansa",
     countryEngland: "Bungereza",
     countryUsa: "Amerika",
+    countrySpain: "Sipeyini",
+    countryItaly: "Yitale",
+    countryPoland: "Polandi",
+    countryBrazil: "Buraziiri",
+    countryArgentina: "Arigentina",
+    countryIndia: "Buyindi",
+    countryChina: "Cayina",
+    countryAustralia: "Awusitureliya",
   },
 } as const;
 
