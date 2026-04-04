@@ -31,6 +31,26 @@ import flagArgentina from "@/assets/flag-argentina.png";
 import flagIndia from "@/assets/flag-india.png";
 import flagChina from "@/assets/flag-china.png";
 import flagAustralia from "@/assets/flag-australia.png";
+import flagRussia from "@/assets/flag-russia.png";
+import flagUkraine from "@/assets/flag-ukraine.png";
+import flagFinland from "@/assets/flag-finland.png";
+import flagCanada from "@/assets/flag-canada.png";
+import flagMexico from "@/assets/flag-mexico.png";
+import flagPeru from "@/assets/flag-peru.png";
+import flagColombia from "@/assets/flag-colombia.png";
+import flagBolivia from "@/assets/flag-bolivia.png";
+import flagVenezuela from "@/assets/flag-venezuela.png";
+import flagChile from "@/assets/flag-chile.png";
+import flagParaguay from "@/assets/flag-paraguay.png";
+import flagEcuador from "@/assets/flag-ecuador.png";
+import flagGuyana from "@/assets/flag-guyana.png";
+import flagKazakhstan from "@/assets/flag-kazakhstan.png";
+import flagSaudiArabia from "@/assets/flag-saudi-arabia.png";
+import flagIran from "@/assets/flag-iran.png";
+import flagMongolia from "@/assets/flag-mongolia.png";
+import flagIndonesia from "@/assets/flag-indonesia.png";
+import flagPakistan from "@/assets/flag-pakistan.png";
+import flagTurkey from "@/assets/flag-turkey.png";
 
 const FLAG_IMAGES: Record<string, string> = {
   germany: flagGermany,
@@ -49,6 +69,26 @@ const FLAG_IMAGES: Record<string, string> = {
   india: flagIndia,
   china: flagChina,
   australia: flagAustralia,
+  russia: flagRussia,
+  ukraine: flagUkraine,
+  finland: flagFinland,
+  canada: flagCanada,
+  mexico: flagMexico,
+  peru: flagPeru,
+  colombia: flagColombia,
+  bolivia: flagBolivia,
+  venezuela: flagVenezuela,
+  chile: flagChile,
+  paraguay: flagParaguay,
+  ecuador: flagEcuador,
+  guyana: flagGuyana,
+  kazakhstan: flagKazakhstan,
+  saudi_arabia: flagSaudiArabia,
+  iran: flagIran,
+  mongolia: flagMongolia,
+  indonesia: flagIndonesia,
+  pakistan: flagPakistan,
+  turkey: flagTurkey,
 };
 
 interface RoundResult {
@@ -147,11 +187,11 @@ const Index: React.FC = () => {
           <p className="text-sm text-muted-foreground">{t(lang, "chooseCountry")}</p>
           <div className="flex flex-col gap-4">
             {[
-              { continent: t(lang, "continentEurope" as any) || "Europe", ids: ["germany", "sweden", "norway", "france", "england", "spain", "italy", "poland"] },
-              { continent: t(lang, "continentNorthAmerica" as any) || "North America", ids: ["usa"] },
-              { continent: t(lang, "continentSouthAmerica" as any) || "South America", ids: ["brazil", "argentina"] },
+              { continent: t(lang, "continentEurope" as any) || "Europe", ids: ["germany", "sweden", "norway", "france", "england", "spain", "italy", "poland", "russia", "ukraine", "finland"] },
+              { continent: t(lang, "continentNorthAmerica" as any) || "North America", ids: ["usa", "canada", "mexico"] },
+              { continent: t(lang, "continentSouthAmerica" as any) || "South America", ids: ["brazil", "argentina", "peru", "colombia", "bolivia", "venezuela", "chile", "paraguay", "ecuador", "guyana"] },
               { continent: t(lang, "continentAfrica" as any) || "Africa", ids: ["uganda"] },
-              { continent: t(lang, "continentAsia" as any) || "Asia", ids: ["myanmar", "india", "china"] },
+              { continent: t(lang, "continentAsia" as any) || "Asia", ids: ["myanmar", "india", "china", "kazakhstan", "saudi_arabia", "iran", "mongolia", "indonesia", "pakistan", "turkey"] },
               { continent: t(lang, "continentOceania" as any) || "Oceania", ids: ["australia"] },
             ].map((group) => {
               const groupCountries = group.ids.map(id => COUNTRIES.find(c => c.id === id)!).filter(Boolean);

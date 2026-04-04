@@ -15,6 +15,26 @@ import argentinaGeoJson from "@/data/argentina-border.json";
 import indiaGeoJson from "@/data/india-border.json";
 import chinaGeoJson from "@/data/china-border.json";
 import australiaGeoJson from "@/data/australia-border.json";
+import russiaGeoJson from "@/data/russia-border.json";
+import ukraineGeoJson from "@/data/ukraine-border.json";
+import finlandGeoJson from "@/data/finland-border.json";
+import canadaGeoJson from "@/data/canada-border.json";
+import mexicoGeoJson from "@/data/mexico-border.json";
+import peruGeoJson from "@/data/peru-border.json";
+import colombiaGeoJson from "@/data/colombia-border.json";
+import boliviaGeoJson from "@/data/bolivia-border.json";
+import venezuelaGeoJson from "@/data/venezuela-border.json";
+import chileGeoJson from "@/data/chile-border.json";
+import paraguayGeoJson from "@/data/paraguay-border.json";
+import ecuadorGeoJson from "@/data/ecuador-border.json";
+import guyanaGeoJson from "@/data/guyana-border.json";
+import kazakhstanGeoJson from "@/data/kazakhstan-border.json";
+import saudi_arabiaGeoJson from "@/data/saudi-arabia-border.json";
+import iranGeoJson from "@/data/iran-border.json";
+import mongoliaGeoJson from "@/data/mongolia-border.json";
+import indonesiaGeoJson from "@/data/indonesia-border.json";
+import pakistanGeoJson from "@/data/pakistan-border.json";
+import turkeyGeoJson from "@/data/turkey-border.json";
 import { SWEDEN_LAKES } from "@/data/sweden-lakes";
 import { NORWAY_LAKES } from "@/data/norway-lakes";
 import { UGANDA_LAKES } from "@/data/uganda-lakes";
@@ -30,6 +50,26 @@ import { ARGENTINA_LAKES } from "@/data/argentina-lakes";
 import { INDIA_LAKES } from "@/data/india-lakes";
 import { CHINA_LAKES } from "@/data/china-lakes";
 import { AUSTRALIA_LAKES } from "@/data/australia-lakes";
+import { RUSSIA_LAKES } from "@/data/russia-lakes";
+import { UKRAINE_LAKES } from "@/data/ukraine-lakes";
+import { FINLAND_LAKES } from "@/data/finland-lakes";
+import { CANADA_LAKES } from "@/data/canada-lakes";
+import { MEXICO_LAKES } from "@/data/mexico-lakes";
+import { PERU_LAKES } from "@/data/peru-lakes";
+import { COLOMBIA_LAKES } from "@/data/colombia-lakes";
+import { BOLIVIA_LAKES } from "@/data/bolivia-lakes";
+import { VENEZUELA_LAKES } from "@/data/venezuela-lakes";
+import { CHILE_LAKES } from "@/data/chile-lakes";
+import { PARAGUAY_LAKES } from "@/data/paraguay-lakes";
+import { ECUADOR_LAKES } from "@/data/ecuador-lakes";
+import { GUYANA_LAKES } from "@/data/guyana-lakes";
+import { KAZAKHSTAN_LAKES } from "@/data/kazakhstan-lakes";
+import { SAUDI_ARABIA_LAKES } from "@/data/saudi-arabia-lakes";
+import { IRAN_LAKES } from "@/data/iran-lakes";
+import { MONGOLIA_LAKES } from "@/data/mongolia-lakes";
+import { INDONESIA_LAKES } from "@/data/indonesia-lakes";
+import { PAKISTAN_LAKES } from "@/data/pakistan-lakes";
+import { TURKEY_LAKES } from "@/data/turkey-lakes";
 import { getRiversForCountry, type RiverSegment } from "@/data/rivers";
 
 import {
@@ -48,6 +88,7 @@ import {
   INDIA_NEIGHBOURS,
   CHINA_NEIGHBOURS,
   AUSTRALIA_NEIGHBOURS,
+  RUSSIA_NEIGHBOURS, UKRAINE_NEIGHBOURS, FINLAND_NEIGHBOURS, CANADA_NEIGHBOURS, MEXICO_NEIGHBOURS, PERU_NEIGHBOURS, COLOMBIA_NEIGHBOURS, BOLIVIA_NEIGHBOURS, VENEZUELA_NEIGHBOURS, CHILE_NEIGHBOURS, PARAGUAY_NEIGHBOURS, ECUADOR_NEIGHBOURS, GUYANA_NEIGHBOURS, KAZAKHSTAN_NEIGHBOURS, SAUDI_ARABIA_NEIGHBOURS, IRAN_NEIGHBOURS, MONGOLIA_NEIGHBOURS, INDONESIA_NEIGHBOURS, PAKISTAN_NEIGHBOURS, TURKEY_NEIGHBOURS,
 } from "@/data/neighbour-borders";
 import type { NeighbourBorder } from "@/data/neighbour-borders";
 import type { CountryConfig } from "@/data/countries";
@@ -69,6 +110,26 @@ const geoJsonMap: Record<string, unknown> = {
   india: indiaGeoJson,
   china: chinaGeoJson,
   australia: australiaGeoJson,
+  russia: russiaGeoJson,
+  ukraine: ukraineGeoJson,
+  finland: finlandGeoJson,
+  canada: canadaGeoJson,
+  mexico: mexicoGeoJson,
+  peru: peruGeoJson,
+  colombia: colombiaGeoJson,
+  bolivia: boliviaGeoJson,
+  venezuela: venezuelaGeoJson,
+  chile: chileGeoJson,
+  paraguay: paraguayGeoJson,
+  ecuador: ecuadorGeoJson,
+  guyana: guyanaGeoJson,
+  kazakhstan: kazakhstanGeoJson,
+  saudi_arabia: saudi_arabiaGeoJson,
+  iran: iranGeoJson,
+  mongolia: mongoliaGeoJson,
+  indonesia: indonesiaGeoJson,
+  pakistan: pakistanGeoJson,
+  turkey: turkeyGeoJson,
 };
 
 const neighboursMap: Record<string, NeighbourBorder[]> = {
@@ -88,6 +149,26 @@ const neighboursMap: Record<string, NeighbourBorder[]> = {
   india: INDIA_NEIGHBOURS,
   china: CHINA_NEIGHBOURS,
   australia: AUSTRALIA_NEIGHBOURS,
+  russia: RUSSIA_NEIGHBOURS,
+  ukraine: UKRAINE_NEIGHBOURS,
+  finland: FINLAND_NEIGHBOURS,
+  canada: CANADA_NEIGHBOURS,
+  mexico: MEXICO_NEIGHBOURS,
+  peru: PERU_NEIGHBOURS,
+  colombia: COLOMBIA_NEIGHBOURS,
+  bolivia: BOLIVIA_NEIGHBOURS,
+  venezuela: VENEZUELA_NEIGHBOURS,
+  chile: CHILE_NEIGHBOURS,
+  paraguay: PARAGUAY_NEIGHBOURS,
+  ecuador: ECUADOR_NEIGHBOURS,
+  guyana: GUYANA_NEIGHBOURS,
+  kazakhstan: KAZAKHSTAN_NEIGHBOURS,
+  saudi_arabia: SAUDI_ARABIA_NEIGHBOURS,
+  iran: IRAN_NEIGHBOURS,
+  mongolia: MONGOLIA_NEIGHBOURS,
+  indonesia: INDONESIA_NEIGHBOURS,
+  pakistan: PAKISTAN_NEIGHBOURS,
+  turkey: TURKEY_NEIGHBOURS,
 };
 
 function coordToSvg(
