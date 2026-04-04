@@ -20,7 +20,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ lang, onLangChange 
   return (
     <Select value={lang} onValueChange={(v) => onLangChange(v as Language)}>
       <SelectTrigger className="w-auto gap-2 border-none bg-transparent text-sm text-muted-foreground hover:text-foreground">
-        <SelectValue>{current?.flag} {current?.label}</SelectValue>
+        <SelectValue>{current?.flag}</SelectValue>
       </SelectTrigger>
       <SelectContent>
         {LANGUAGES.map((l) => (
