@@ -39,6 +39,7 @@ import { MALI_EASY, MALI_MEDIUM, MALI_HARD } from "./cities-mali";
 import { SOUTH_AFRICA_EASY, SOUTH_AFRICA_MEDIUM, SOUTH_AFRICA_HARD } from "./cities-south-africa";
 import { SOUTH_SUDAN_EASY, SOUTH_SUDAN_MEDIUM, SOUTH_SUDAN_HARD } from "./cities-south-sudan";
 import { ETHIOPIA_EASY, ETHIOPIA_MEDIUM, ETHIOPIA_HARD } from "./cities-ethiopia";
+import { PHILIPPINES_EASY, PHILIPPINES_MEDIUM, PHILIPPINES_HARD } from "./cities-philippines";
 
 export interface City {
   name: string;
