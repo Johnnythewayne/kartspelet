@@ -172,6 +172,7 @@ const translations = {
     countrySouth_africa: "South Africa",
     countrySouth_sudan: "South Sudan",
     countryEthiopia: "Ethiopia",
+    countryPhilippines: "Philippines",
     continentEurope: "Europe",
     continentNorthAmerica: "North America",
     continentSouthAmerica: "South America",
