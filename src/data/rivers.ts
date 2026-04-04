@@ -220,6 +220,7 @@ const RIVERS_MAP: Record<string, RiverSegment[]> = {
   mali: MALI_RIVERS,
   south_africa: SOUTH_AFRICA_RIVERS,
   south_sudan: SOUTH_SUDAN_RIVERS,
+  ethiopia: ETHIOPIA_RIVERS,
 };
 
 export function getRiversForCountry(countryId: string): RiverSegment[] {
