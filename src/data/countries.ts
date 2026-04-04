@@ -28,6 +28,16 @@ import { PAKISTAN_EASY, PAKISTAN_MEDIUM, PAKISTAN_HARD } from "./cities-pakistan
 import { TURKEY_EASY, TURKEY_MEDIUM, TURKEY_HARD } from "./cities-turkey";
 import { AUSTRIA_EASY, AUSTRIA_MEDIUM, AUSTRIA_HARD } from "./cities-austria";
 import { DENMARK_EASY, DENMARK_MEDIUM, DENMARK_HARD } from "./cities-denmark";
+import { ALGERIA_EASY, ALGERIA_MEDIUM, ALGERIA_HARD } from "./cities-algeria";
+import { DR_CONGO_EASY, DR_CONGO_MEDIUM, DR_CONGO_HARD } from "./cities-dr-congo";
+import { SUDAN_EASY, SUDAN_MEDIUM, SUDAN_HARD } from "./cities-sudan";
+import { LIBYA_EASY, LIBYA_MEDIUM, LIBYA_HARD } from "./cities-libya";
+import { CHAD_EASY, CHAD_MEDIUM, CHAD_HARD } from "./cities-chad";
+import { NIGER_EASY, NIGER_MEDIUM, NIGER_HARD } from "./cities-niger";
+import { ANGOLA_EASY, ANGOLA_MEDIUM, ANGOLA_HARD } from "./cities-angola";
+import { MALI_EASY, MALI_MEDIUM, MALI_HARD } from "./cities-mali";
+import { SOUTH_AFRICA_EASY, SOUTH_AFRICA_MEDIUM, SOUTH_AFRICA_HARD } from "./cities-south-africa";
+import { SOUTH_SUDAN_EASY, SOUTH_SUDAN_MEDIUM, SOUTH_SUDAN_HARD } from "./cities-south-sudan";
 
 export interface City {
   name: string;
