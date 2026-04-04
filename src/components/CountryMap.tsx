@@ -49,8 +49,46 @@ import {
   CHINA_NEIGHBOURS,
   AUSTRALIA_NEIGHBOURS,
 } from "@/data/neighbour-borders";
+import type { NeighbourBorder } from "@/data/neighbour-borders";
+import type { CountryConfig } from "@/data/countries";
 
+const geoJsonMap: Record<string, unknown> = {
+  germany: germanyGeoJson,
+  sweden: swedenGeoJson,
+  norway: norwayGeoJson,
+  uganda: ugandaGeoJson,
+  myanmar: myanmarGeoJson,
+  france: franceGeoJson,
+  england: englandGeoJson,
+  usa: usaGeoJson,
+  spain: spainGeoJson,
+  italy: italyGeoJson,
+  poland: polandGeoJson,
+  brazil: brazilGeoJson,
+  argentina: argentinaGeoJson,
+  india: indiaGeoJson,
+  china: chinaGeoJson,
+  australia: australiaGeoJson,
+};
 
+const neighboursMap: Record<string, NeighbourBorder[]> = {
+  germany: GERMANY_NEIGHBOURS,
+  sweden: SWEDEN_NEIGHBOURS,
+  norway: NORWAY_NEIGHBOURS,
+  uganda: UGANDA_NEIGHBOURS,
+  myanmar: [],
+  france: FRANCE_NEIGHBOURS,
+  england: ENGLAND_NEIGHBOURS,
+  usa: USA_NEIGHBOURS,
+  spain: SPAIN_NEIGHBOURS,
+  italy: ITALY_NEIGHBOURS,
+  poland: POLAND_NEIGHBOURS,
+  brazil: BRAZIL_NEIGHBOURS,
+  argentina: ARGENTINA_NEIGHBOURS,
+  india: INDIA_NEIGHBOURS,
+  china: CHINA_NEIGHBOURS,
+  australia: AUSTRALIA_NEIGHBOURS,
+};
 
 function coordToSvg(
   lng: number,
