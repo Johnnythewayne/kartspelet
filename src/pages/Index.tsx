@@ -191,12 +191,12 @@ const Index: React.FC = () => {
           <p className="text-sm text-muted-foreground">{t(lang, "chooseCountry")}</p>
           <div className="flex flex-col gap-4">
             {[
-              { continent: t(lang, "continentEurope" as any) || "Europe", ids: ["germany", "sweden", "norway", "denmark", "france", "england", "spain", "italy", "poland", "austria", "russia", "ukraine", "finland"] },
-              { continent: t(lang, "continentNorthAmerica" as any) || "North America", ids: ["usa", "canada", "mexico"] },
-              { continent: t(lang, "continentSouthAmerica" as any) || "South America", ids: ["brazil", "argentina", "peru", "colombia", "bolivia", "venezuela", "chile", "paraguay", "ecuador", "guyana"] },
-              { continent: t(lang, "continentAfrica" as any) || "Africa", ids: ["uganda"] },
-              { continent: t(lang, "continentAsia" as any) || "Asia", ids: ["myanmar", "india", "china", "kazakhstan", "saudi_arabia", "iran", "mongolia", "indonesia", "pakistan", "turkey"] },
-              { continent: t(lang, "continentOceania" as any) || "Oceania", ids: ["australia"] },
+              { continent: t(lang, "continentEurope"), ids: ["germany", "sweden", "norway", "denmark", "france", "england", "spain", "italy", "poland", "austria", "russia", "ukraine", "finland"] },
+              { continent: t(lang, "continentNorthAmerica"), ids: ["usa", "canada", "mexico"] },
+              { continent: t(lang, "continentSouthAmerica"), ids: ["brazil", "argentina", "peru", "colombia", "bolivia", "venezuela", "chile", "paraguay", "ecuador", "guyana"] },
+              { continent: t(lang, "continentAfrica"), ids: ["uganda"] },
+              { continent: t(lang, "continentAsia"), ids: ["myanmar", "india", "china", "kazakhstan", "saudi_arabia", "iran", "mongolia", "indonesia", "pakistan", "turkey"] },
+              { continent: t(lang, "continentOceania"), ids: ["australia"] },
             ].map((group) => {
               const groupCountries = group.ids.map(id => COUNTRIES.find(c => c.id === id)!).filter(Boolean);
               if (groupCountries.length === 0) return null;
