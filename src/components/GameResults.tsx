@@ -67,13 +67,13 @@ const GameResults: React.FC<GameResultsProps> = ({ results, onPlayAgain, onChang
         {t(lang, "playAgain")}
       </Button>
       {onChangeDifficulty && (
-        <Button size="lg" variant="outline" onClick={onChangeDifficulty} className="w-full">
-          {t(lang, "chooseDifficulty")}
+        <Button size="lg" variant="outline" onClick={onChangeDifficulty} className="w-full bg-orange-200 hover:bg-orange-300 text-orange-900 border-orange-300">
+          {t(lang, "changeDifficulty")}
         </Button>
       )}
       {onChangeCountry && (
-        <Button size="lg" variant="outline" onClick={onChangeCountry} className="w-full">
-          {t(lang, "chooseCountry")}
+        <Button size="lg" variant="outline" onClick={onChangeCountry} className="w-full bg-orange-200 hover:bg-orange-300 text-orange-900 border-orange-300">
+          {t(lang, "changeCountry")}
         </Button>
       )}
     </div>
