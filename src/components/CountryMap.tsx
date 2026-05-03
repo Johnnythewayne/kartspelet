@@ -468,6 +468,13 @@ const CountryMap: React.FC<CountryMapProps> = ({
         </line>
       )}
 
+      {/* Past correct markers (persistent) */}
+      {pastCorrectMarkers.map((m, i) => (
+        <g key={`past-${i}`}>
+          <circle cx={m.x} cy={m.y} r="5" fill="hsl(142, 71%, 35%)" stroke="white" strokeWidth="1.5" opacity="0.7" />
+        </g>
+      ))}
+
       {/* Guess marker (red) */}
       {guessMarker && (
         <g>
