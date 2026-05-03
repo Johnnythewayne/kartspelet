@@ -390,7 +390,8 @@ const CountryMap: React.FC<CountryMapProps> = ({
     <svg
       ref={svgRef}
       viewBox={`0 0 1000 ${svgHeight}`}
-      className="w-full max-w-lg mx-auto cursor-crosshair select-none"
+      className="w-full max-w-lg mx-auto select-none"
+      style={{ cursor: disabled ? 'default' : `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='%23dc2626' stroke='white' stroke-width='1.5'><path d='M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z'/><circle cx='12' cy='9' r='2.5' fill='white' stroke='none'/></svg>") 16 30, crosshair` }}
       onClick={handleClick}
     >
       <rect width="1000" height={svgHeight} fill="hsl(210, 40%, 96%)" rx="12" />
