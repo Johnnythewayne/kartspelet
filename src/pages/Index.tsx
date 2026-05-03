@@ -256,7 +256,8 @@ const Index: React.FC = () => {
   const difficulties = [
   { id: "easy", label: t(lang, "diffEasy"), description: t(lang, "diffEasyDesc") },
   { id: "medium", label: t(lang, "diffMedium"), description: t(lang, "diffMediumDesc") },
-  { id: "hard", label: t(lang, "diffHard"), description: t(lang, "diffHardDesc") }];
+  { id: "hard", label: t(lang, "diffHard"), description: t(lang, "diffHardDesc") },
+  { id: "all", label: t(lang, "diffAll"), description: t(lang, "diffAllDesc") }];
 
 
   if (phase === "pick-difficulty") {
