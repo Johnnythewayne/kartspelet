@@ -19,7 +19,7 @@ const translations = {
     subtitle: "Placera städer på kartan. Ju närmare du klickar, desto fler poäng!",
     chooseLanguage: "Välj språk:",
     chooseCountry: "Välj ett land:",
-    chooseDifficulty: "Välj svårighetsgrad:",
+    chooseDifficulty: "Nytt land",
     back: "← Tillbaka",
     city: "Stad",
     of: "av",
