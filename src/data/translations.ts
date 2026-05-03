@@ -190,6 +190,8 @@ const translations = {
     chooseLanguage: "Velg språk:",
     chooseCountry: "Velg et land:",
     chooseDifficulty: "Velg vanskelighetsgrad:",
+    changeDifficulty: "Bytt vanskelighetsgrad",
+    changeCountry: "Bytt land",
     back: "← Tilbake",
     city: "By",
     of: "av",
