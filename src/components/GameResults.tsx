@@ -13,10 +13,12 @@ interface RoundResult {
 interface GameResultsProps {
   results: RoundResult[];
   onPlayAgain: () => void;
+  onChangeDifficulty?: () => void;
+  onChangeCountry?: () => void;
   lang: Language;
 }
 
-const GameResults: React.FC<GameResultsProps> = ({ results, onPlayAgain, lang }) => {
+const GameResults: React.FC<GameResultsProps> = ({ results, onPlayAgain, onChangeDifficulty, onChangeCountry, lang }) => {
   const totalScore = results.reduce((sum, r) => sum + r.score, 0);
   const maxPossible = results.length * 1000;
   const best = results.reduce((a, b) => (a.score > b.score ? a : b));
