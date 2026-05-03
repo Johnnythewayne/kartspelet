@@ -20,6 +20,8 @@ const translations = {
     chooseLanguage: "Välj språk:",
     chooseCountry: "Välj ett land:",
     chooseDifficulty: "Byt svårighetsgrad",
+    changeDifficulty: "Byt svårighetsgrad",
+    changeCountry: "Byt land",
     back: "← Tillbaka",
     city: "Stad",
     of: "av",
