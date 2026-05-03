@@ -275,6 +275,8 @@ const translations = {
     chooseLanguage: "Londa olulimi:",
     chooseCountry: "Londa ensi:",
     chooseDifficulty: "Londa obuzibu:",
+    changeDifficulty: "Kyusa obuzibu",
+    changeCountry: "Kyusa ensi",
     back: "← Ddayo",
     city: "Ekibuga",
     of: "ku",
