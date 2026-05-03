@@ -296,6 +296,8 @@ const Index: React.FC = () => {
         <GameResults
           results={results}
           onPlayAgain={() => startGame(currentDifficulty)}
+          onChangeDifficulty={() => setPhase("pick-difficulty")}
+          onChangeCountry={() => setPhase("start")}
           lang={lang} />
       </div>);
   }
