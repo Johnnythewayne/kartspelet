@@ -268,6 +268,7 @@ interface CountryMapProps {
   correctMarker?: { x: number; y: number } | null;
   showResult: boolean;
   disabled: boolean;
+  pastCorrectMarkers?: { x: number; y: number; name: string }[];
 }
 
 const CountryMap: React.FC<CountryMapProps> = ({
