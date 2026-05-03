@@ -169,11 +169,11 @@ const Index: React.FC = () => {
     setPhase("playing");
   }, [country]);
 
-  const nextCity = useCallback(() => {
+  const nextCity = useCallback((dist: number, score: number) => {
     setResults((prev) => [
-    ...prev,
-    { cityName: currentCity.name, distanceKm: roundResult!.distanceKm, score: roundResult!.score }]
-    );
+      ...prev,
+      { cityName: currentCity.name, distanceKm: dist, score }
+    ]);
     if (currentIndex + 1 >= cities.length) {
       setPhase("results");
     } else {
@@ -182,21 +182,15 @@ const Index: React.FC = () => {
       setRoundResult(null);
       setPhase("playing");
     }
-  }, [currentCity, roundResult, currentIndex, cities.length]);
+  }, [currentCity, currentIndex, cities.length]);
 
   const handleMapClick = useCallback(
     (x: number, y: number) => {
-      if (phase === "feedback") {
-        nextCity();
-        return;
-      }
       if (phase !== "playing") return;
       const guess = svgToLatLng(x, y, country.bounds, country.svgHeight);
       const dist = haversineDistance(guess.lat, guess.lng, currentCity.lat, currentCity.lng);
       const score = calculateScore(dist);
-      setGuessPos({ x, y });
-      setRoundResult({ distanceKm: dist, score });
-      setPhase("feedback");
+      nextCity(dist, score);
     },
     [phase, currentCity, country.bounds, country.svgHeight, nextCity]
   );
