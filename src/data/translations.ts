@@ -105,6 +105,8 @@ const translations = {
     chooseLanguage: "Choose language:",
     chooseCountry: "Choose a country:",
     chooseDifficulty: "Choose difficulty:",
+    changeDifficulty: "Change difficulty",
+    changeCountry: "Change country",
     back: "← Back",
     city: "City",
     of: "of",
