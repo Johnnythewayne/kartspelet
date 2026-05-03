@@ -268,7 +268,6 @@ interface CountryMapProps {
   correctMarker?: { x: number; y: number } | null;
   showResult: boolean;
   disabled: boolean;
-  pastCorrectMarkers?: { x: number; y: number; name: string }[];
 }
 
 const CountryMap: React.FC<CountryMapProps> = ({
@@ -280,7 +279,6 @@ const CountryMap: React.FC<CountryMapProps> = ({
   correctMarker,
   showResult,
   disabled,
-  pastCorrectMarkers = [],
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const path = geoJsonToSvgPath(countryId, bounds, svgHeight);
@@ -390,8 +388,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
     <svg
       ref={svgRef}
       viewBox={`0 0 1000 ${svgHeight}`}
-      className="w-full max-w-lg mx-auto select-none"
-      style={{ cursor: disabled ? 'default' : `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='%23dc2626' stroke='white' stroke-width='1.5'><path d='M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z'/><circle cx='12' cy='9' r='2.5' fill='white' stroke='none'/></svg>") 16 30, crosshair` }}
+      className="w-full max-w-lg mx-auto cursor-crosshair select-none"
       onClick={handleClick}
     >
       <rect width="1000" height={svgHeight} fill="hsl(210, 40%, 96%)" rx="12" />
@@ -467,13 +464,6 @@ const CountryMap: React.FC<CountryMapProps> = ({
           <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite" />
         </line>
       )}
-
-      {/* Past correct markers (persistent) */}
-      {pastCorrectMarkers.map((m, i) => (
-        <g key={`past-${i}`}>
-          <circle cx={m.x} cy={m.y} r="5" fill="hsl(142, 71%, 35%)" stroke="white" strokeWidth="1.5" opacity="0.7" />
-        </g>
-      ))}
 
       {/* Guess marker (red) */}
       {guessMarker && (
