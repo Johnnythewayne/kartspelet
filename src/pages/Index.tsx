@@ -333,7 +333,11 @@ const Index: React.FC = () => {
         guessMarker={guessPos}
         correctMarker={correctPos}
         showResult={phase === "feedback"}
-        disabled={false} />
+        disabled={false}
+        pastCorrectMarkers={cities.slice(0, currentIndex).map((c) => {
+          const p = latLngToSvg(c.lat, c.lng, country.bounds, country.svgHeight);
+          return { x: p.x, y: p.y, name: c.name };
+        })} />
 
       <h2 className="text-3xl font-bold text-foreground">
         📍 {currentCity.name}
@@ -341,23 +345,6 @@ const Index: React.FC = () => {
       <p className="text-muted-foreground text-sm">
         {phase === "playing" ? t(lang, "clickInstruction") : ""}
       </p>
-
-
-      {phase === "feedback" && roundResult &&
-      <div className="w-full max-w-lg space-y-3 text-center">
-          <div className="flex justify-center gap-6">
-            <div className="text-center">
-              <p className="text-sm text-muted-foreground">{t(lang, "distance")}</p>
-              <p className="text-2xl font-bold text-foreground">{Math.round(roundResult.distanceKm)} km</p>
-            </div>
-            <div className="text-center">
-              <p className="text-sm text-muted-foreground">{t(lang, "score")}</p>
-              <p className="text-2xl font-bold text-primary">{roundResult.score}</p>
-            </div>
-          </div>
-          <p className="text-sm text-muted-foreground">{t(lang, "clickInstruction").replace(/📍.*/, "📍 " + (currentIndex + 1 >= cities.length ? t(lang, "seeResults") : t(lang, "nextCity")))}</p>
-        </div>
-      }
     </div>);
 
 };
