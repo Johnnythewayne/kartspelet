@@ -280,6 +280,7 @@ const CountryMap: React.FC<CountryMapProps> = ({
   correctMarker,
   showResult,
   disabled,
+  pastCorrectMarkers = [],
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const path = geoJsonToSvgPath(countryId, bounds, svgHeight);
