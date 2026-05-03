@@ -157,7 +157,9 @@ const Index: React.FC = () => {
 
   const startGame = useCallback((difficultyId: string) => {
     setCurrentDifficulty(difficultyId);
-    const gameCities = country.citiesByDifficulty[difficultyId] || country.citiesByDifficulty.easy;
+    const gameCities = difficultyId === "all"
+      ? [...country.citiesByDifficulty.easy, ...country.citiesByDifficulty.medium, ...country.citiesByDifficulty.hard]
+      : country.citiesByDifficulty[difficultyId] || country.citiesByDifficulty.easy;
     const shuffled = shuffleArray(gameCities);
     setCities(shuffled);
     setCurrentIndex(0);
